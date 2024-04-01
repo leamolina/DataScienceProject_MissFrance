@@ -34,7 +34,10 @@ def page_deux():
     st.write("Ici on va prédire notre future Miss France.")
 
 st.sidebar.image(chemin_logo_lea, width=100)
-st.sidebar.markdown("<h1 style='text-align: center;'>Navigation</h1>", unsafe_allow_html=True)
+st.sidebar.markdown(
+    "<div style='text-align: center;'><h1>Navigation</h1></div>",
+    unsafe_allow_html=True
+)
 page = st.sidebar.radio(
     "",
     ("Accueil", "Présentation des données", "Prédictions")
