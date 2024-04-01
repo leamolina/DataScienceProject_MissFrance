@@ -44,8 +44,8 @@ def main():
     chemin_audio_ana = "/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/Générique Miss France.mp3"  # Remplacez par le chemin de votre fichier audio
 
     st.audio(chemin_audio_ana, format='audio/mp3')
-    #chemin_video_lea= "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/Couronnement .mp4"
-    chemin_video_ana= "/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/Couronnement .mp4"
+    #chemin_video_lea= "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/Couronnement.mp4"
+    chemin_video_ana= "/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/Couronnement.mp4"
 
     st.video(chemin_video_ana, format="video/mp4", start_time=0, subtitles=None)
     #audio_html = f'<audio src="{chemin_audio}" autoplay controls></audio>'
