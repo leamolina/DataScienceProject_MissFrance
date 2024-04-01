@@ -1,0 +1,508 @@
+annee;audience;region;name;age;taille;cheveux;yeux;peau;rang;laureat_culture_generale;est_tombee;image
+2009;8,1;Albigeois Midi-Pyrénées;Chloé Mortaud;19;180;Bruns;Noirs;Métisse;1.0;;0;https://static.wikia.nocookie.net/miss/images/c/c3/Chlo%C3%A9_Mortaud.jpg/revision/latest?cb=20171220094304&path-prefix=fr
+2009;8,1;Alsace;Carole Weyrich;22;177;Blonds;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/3/3a/Alsace_2008.jpg/revision/latest?cb=20150712174510&path-prefix=fr
+2009;8,1;Aquitaine;Anna Nieto;20;174;Châtains;Gris;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/a/a0/Aquitaine_2008.jpg/revision/latest?cb=20150712174526&path-prefix=fr
+2009;8,1;Artois-Hainaut;Anne-Sophie Sevrette;20;179;Blonds;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/a/aa/Artois-Hainaut_2008.jpg/revision/latest?cb=20150712174544&path-prefix=fr
+2009;8,1;Auvergne;Mélanie Billard;23;173;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/2/29/Auvergne_2008.jpg/revision/latest?cb=20150712174559&path-prefix=fr
+2009;8,1;Berry-Val-de-Loire;Aline Moreau;19;175;Blonds;Marrons;Blanche;12.0;;0;https://static.wikia.nocookie.net/miss/images/0/0b/Berry-Val-de-Loire_2008.jpg/revision/latest?cb=20150712174613&path-prefix=fr
+2009;8,1;Bourgogne;Tiphaine Deschamps;22;175;Bruns;Marrons;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/e/e0/Bourgogne_2008.jpg/revision/latest?cb=20150712174631&path-prefix=fr
+2009;8,1;Bretagne;Bianca Taillard;23;176;Bruns;Marrons;Noire;5.0;;0;https://static.wikia.nocookie.net/miss/images/3/33/Bretagne_2008.jpg/revision/latest?cb=20150712174647&path-prefix=fr
+2009;8,1;Champagne-Ardenne;Émilie Colomb;19;172;Bruns;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/c/c0/Champagne-Ardenne_2008.jpg/revision/latest?cb=20150712174702&path-prefix=fr
+2009;8,1;Corse;María Santa Lucchinacci;24;177;Blonds;Bleus ;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/b/b4/Corse_2008.jpg/revision/latest?cb=20150712174717&path-prefix=fr
+2009;8,1;Côte d'Azur;Audrey Sans;20;175;Blonds;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/7/78/C%C3%B4te_d%27Azur_2008.jpg/revision/latest?cb=20150712174732&path-prefix=fr
+2009;8,1;Flandre;Éméné Nyamé;19;182;Noirs;Noirs;Noire;;;0;https://static.wikia.nocookie.net/miss/images/b/b8/Xxjpie10.jpg/revision/latest?cb=20140505154542&path-prefix=fr
+2009;8,1;Franche-Comté;Johanne Kervella;23;170;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/a/af/Franche-Comt%C3%A9_2008.jpg/revision/latest?cb=20150712174907&path-prefix=fr
+2009;8,1;Guadeloupe;Rebecca Erivan;18;183;Noirs;Noirs;Blanche;8.0;;1;https://static.wikia.nocookie.net/miss/images/3/31/Guadeloupe_2008.jpg/revision/latest?cb=20150712174924&path-prefix=fr
+2009;8,1;Guyane;Carmen Prince;20;172;Noirs;Noirs;Métisse;;;0;https://static.wikia.nocookie.net/miss/images/d/d3/Guyane_2008.jpg/revision/latest?cb=20150712174938&path-prefix=fr
+2009;8,1;Île-de-France;Pauline Righini;20;171;Blonds;Gris;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/3/3e/%C3%8Ele-de-France_2008.jpg/revision/latest?cb=20150712174953&path-prefix=fr
+2009;8,1;Languedoc-Roussillon;Cindy Filipiak;22;176;Noirs;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/2/20/Languedoc-Roussillon_2008.jpg/revision/latest?cb=20150712175024&path-prefix=fr
+2009;8,1;Limousin;Chloé Certoux;18;179;Bruns;Bleus;Blanche;11.0;;0;https://static.wikia.nocookie.net/miss/images/a/a0/Limousin_2008.jpg/revision/latest?cb=20150712175039&path-prefix=fr
+2009;8,1;Loire-Forez;Lauriane Perez;20;171;Noirs ;Noirs;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/2/2c/Loire-Forez_2008.jpg/revision/latest?cb=20150712175057&path-prefix=fr
+2009;8,1;Lorraine;Camille Chéyère;21;179;Bruns;Bleus;Blanche;2.0;;0;https://static.wikia.nocookie.net/miss/images/5/59/Lorraine_2008.jpg/revision/latest?cb=20150712175113&path-prefix=fr
+2009;8,1;Martinique;Laura Fidi;18;177;Bruns ;Noirs;Noire;;;0;https://static.wikia.nocookie.net/miss/images/c/ca/Martinique_2008.jpg/revision/latest?cb=20150712175127&path-prefix=fr
+2009;8,1;Mayotte;Esthel Née;20;180;Noirs ;Noirs;Métisse;4.0;;0;https://static.wikia.nocookie.net/miss/images/e/e2/Mayotte_2008.jpg/revision/latest?cb=20150712175145&path-prefix=fr
+2009;8,1;Normandie;Johanna Moreau;23;180;Blonds;Bleus;Blanche;9.0;;0;https://static.wikia.nocookie.net/miss/images/f/fa/Normandie_2008.jpg/revision/latest?cb=20150712175159&path-prefix=fr
+2009;8,1;Nouvelle-Calédonie;Aurelia Morelli;20;175;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/7/7f/Nouvelle-Cal%C3%A9donie_2008.jpg/revision/latest?cb=20150712175213&path-prefix=fr
+2009;8,1;Orléanais;Marion Tricot;19;175;Chatains;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/1/16/Orl%C3%A9anais_2008.jpg/revision/latest?cb=20150712175228&path-prefix=fr
+2009;8,1;Paris;Sarah Barzyk;19;171;Noirs;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/6/62/Paris_2008.jpg/revision/latest?cb=20150712175242&path-prefix=fr
+2009;8,1;Pays de Loire;Élodie Martineau;21;174;Bruns;Noirs;Banche;3.0;;0;https://static.wikia.nocookie.net/miss/images/5/5b/Pays_de_Loire_2008.jpg/revision/latest?cb=20150712175258&path-prefix=fr
+2009;8,1;Pays de Savoie;Wendy Gex;19;179;Noirs;Marrons ;Métisse;;;0;https://static.wikia.nocookie.net/miss/images/5/55/Pays_de_Savoie_2008.jpg/revision/latest?cb=20150712175315&path-prefix=fr
+2009;8,1;Picardie;Katy Josse;22;170;Blonds;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/a/ac/Picardie_2008.jpg/revision/latest?cb=20150712175330&path-prefix=fr
+2009;8,1;Poitou-Charentes;Mathilde Muller;19;171;Bruns;Marrons;Blanche;6.0;;0;https://static.wikia.nocookie.net/miss/images/4/46/Poitou-Charentes_2008.jpg/revision/latest?cb=20150712175349&path-prefix=fr
+2009;8,1;Provence;Laurie Imbert;19;171;Bruns;Marrons ;Métisse;;;0;https://static.wikia.nocookie.net/miss/images/b/b3/Provence_2008.jpg/revision/latest?cb=20150712175404&path-prefix=fr
+2009;8,1;Quercy-Rouergue;Sophie Lopez;18;175;Chatains;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/7/70/Quercy-Rouergue_2008.jpg/revision/latest?cb=20150712175418&path-prefix=fr
+2009;8,1;Réunion;Delphine Courteaud;22;172;Noirs;Marrons;Blanche;10.0;;0;https://static.wikia.nocookie.net/miss/images/a/a2/R%C3%A9union_2008.jpg/revision/latest?cb=20150712175433&path-prefix=fr
+2009;8,1;Rhône-Alpes;Armonie Jenton;18;174;Blonds;Bleus;Blanche;7.0;;0;https://static.wikia.nocookie.net/miss/images/e/eb/Rh%C3%B4ne-Alpes_2008.jpg/revision/latest?cb=20150712175450&path-prefix=fr
+2009;8,1;Saint-Pierre-et-Miquelon;Cathy Sabarots;22;170;Brune;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/7/7a/Saint-Pierre-et-Miquelon_2008.jpg/revision/latest?cb=20150712175505&path-prefix=fr
+2009;8,1;Tahiti;Hinatea Boosie;20;170;Chatains;Noirs;Métisse;;;0;https://static.wikia.nocookie.net/miss/images/1/14/Tahiti_2008.jpg/revision/latest?cb=20150712175523&path-prefix=fr
+2010;7,9;Albigeois Midi-Pyrénées;Laura Faroult;21;173;Bruns;Verts;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/1/1f/Albigeois_Midi-Pyr%C3%A9n%C3%A9es_2009.jpg/revision/latest?cb=20181111132808&path-prefix=fr
+2010;7,9;Alsace;Sophie Mathes;19;172;Bruns;Marrons;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/4/4d/Alsace_2009.jpg/revision/latest?cb=20181111132831&path-prefix=fr
+2010;7,9;Aquitaine;Aurélie Zengerlin;21;177;Bruns;Verts;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/5/5e/Aquitaine_2009.jpg/revision/latest?cb=20181111132852&path-prefix=fr
+2010;7,9;Artois-Hainaut;Astrid Ponchel;21;179;Blonds;Gris;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/e/ee/Artois-Hainaut_2009.jpg/revision/latest?cb=20181111132943&path-prefix=fr
+2010;7,9;Auvergne;Mégane Potier;19;173;Bruns-Roux;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/d/db/Auvergne_2009.jpg/revision/latest?cb=20181111132957&path-prefix=fr
+2010;7,9;Béarn-Gascogne;Marine Bories;20;172;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/3/32/B%C3%A9arn-Gascogne_2009.jpg/revision/latest?cb=20181111133023&path-prefix=fr
+2010;7,9;Berry-Val-de-Loire;Élodie Martel;18;172;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/a/a3/Berry-Val-de-Loire_2009.jpg/revision/latest?cb=20181111133038&path-prefix=fr
+2010;7,9;Bourgogne;Jenna Tournay;19;175;Blonds;Gris;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/8/82/Bourgogne_2009.jpg/revision/latest?cb=20181111133053&path-prefix=fr
+2010;7,9;Bretagne;Mélanie Craignou;19;178;Bruns-Roux;Gris;Blanche;3.0;;0;https://static.wikia.nocookie.net/miss/images/e/e6/Bretagne_2009.jpg/revision/latest?cb=20181111133135&path-prefix=fr
+2010;7,9;Champagne-Ardenne;Cécile Brandao;22;172;Châtains;Marrons;Blanche;10.0;;0;https://static.wikia.nocookie.net/miss/images/2/23/Champagne-Ardenne_2009.jpg/revision/latest?cb=20181111133148&path-prefix=fr
+2010;7,9;Corse;Céline Nicolaï;21;177;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/0/0a/Corse_2009.jpg/revision/latest?cb=20181111133208&path-prefix=fr
+2010;7,9;Côte d'Azur;Anaïs Governatori;20;172;Chatains;Gris;Blanche;12.0;;0;https://static.wikia.nocookie.net/miss/images/2/28/C%C3%B4te_d%27Azur_2009.jpg/revision/latest?cb=20181111133224&path-prefix=fr
+2010;7,9;Flandre;Aline Bourgeois;20;175;Blonds;Verts;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/7/71/Flandre_2009.jpg/revision/latest?cb=20181111133301&path-prefix=fr
+2010;7,9;Franche-Comté;Estelle Diop;19;180;Bruns;Marrons;Noire;;;0;https://static.wikia.nocookie.net/miss/images/d/dd/Franche-Comt%C3%A9_2009.jpg/revision/latest?cb=20181111133323&path-prefix=fr
+2010;7,9;Guadeloupe;Angélique Duro;20;178;Bruns;Marrons;Noire;;;0;https://static.wikia.nocookie.net/miss/images/f/f8/Guadeloupe_2009.jpg/revision/latest?cb=20181111133524&path-prefix=fr
+2010;7,9;Guyane;Tineffa Naïsso;20;179;Bruns;Gris;Noire;7.0;;0;https://static.wikia.nocookie.net/miss/images/a/ab/Guyane_2009.jpg/revision/latest?cb=20181111133538&path-prefix=fr
+2010;7,9;Île-de-France;Lisa Alberici;20;178;Blonds;Marrons;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/a/a3/%C3%8Ele-de-France_2009.jpg/revision/latest?cb=20181111133601&path-prefix=fr
+2010;7,9;Languedoc;Manon Ricci;18;173;Noirs;Noirs;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/0/0a/Languedoc_2009.jpg/revision/latest?cb=20181111133619&path-prefix=fr
+2010;7,9;Limousin;Justine Posé;18;177;Bruns;Marrons;Blanche;9.0;;0;https://static.wikia.nocookie.net/miss/images/0/08/Limousin_2009.jpg/revision/latest?cb=20181111133642&path-prefix=fr
+2010;7,9;Loire-Forez;Marion Léoncini;23;178;Noirs;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/7/73/Loire-Forez_2009.jpg/revision/latest?cb=20181111133659&path-prefix=fr
+2010;7,9;Lorraine;Marina Garau;22;174;Blonds;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/5/55/Lorraine_2009.jpg/revision/latest?cb=20181111133740&path-prefix=fr
+2010;7,9;Martinique;Cindy Chenière;20;173;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/1/19/Martinique_2009.jpg/revision/latest?cb=20181111133758&path-prefix=fr
+2010;7,9;Mayotte;Élodie Anridhoini;19;174;Bruns;Noirs;Métisse;8.0;;0;https://static.wikia.nocookie.net/miss/images/d/d2/Mayotte_2009.jpg/revision/latest?cb=20181111133824&path-prefix=fr
+2010;7,9;Normandie;Malika Ménard;22;176;Bruns;Bleus;Blanche;1.0;;0;https://static.wikia.nocookie.net/miss/images/3/37/Malika_M%C3%A9nard.jpg/revision/latest?cb=20140601195039&path-prefix=fr
+2010;7,9;Orléanais;Cassandre Roland;18;171;Châtains ;Bleus;Blanche;6.0;;0;https://static.wikia.nocookie.net/miss/images/9/93/Orl%C3%A9anais_2009.jpg/revision/latest?cb=20181111133858&path-prefix=fr
+2010;7,9;Paris;Kelly Bochenko;23;175;Roux;Verts;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/e/ec/Paris_2009.jpg/revision/latest?cb=20181111133915&path-prefix=fr
+2010;7,9;Pays de Loire;Amélie Taugourdeau;23;170;Bruns;Bleus;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/3/3b/Pays_de_Loire_2009.jpg/revision/latest?cb=20181111133942&path-prefix=fr
+2010;7,9;Pays de Savoie;Edwige Tiaré;22;177;Noirs;Verts;Blanche;11.0;;0;https://static.wikia.nocookie.net/miss/images/3/38/Pays_de_Savoie_2009.jpg/revision/latest?cb=20181111133957&path-prefix=fr
+2010;7,9;Picardie;Juliette Boubaaya;19;172;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/e/e7/Picardie_2009.jpg/revision/latest?cb=20181111134529&path-prefix=fr
+2010;7,9;Poitou-Charentes;Rachel Jeannot;23;173;Bruns;Marrons;Métisse;;;0;https://static.wikia.nocookie.net/miss/images/0/00/Poitou-Charentes_2009.jpg/revision/latest?cb=20181111134028&path-prefix=fr
+2010;7,9;Provence;Émilie Corbi;21;176;Bruns;Gris;Blanche;4.0;;0;https://static.wikia.nocookie.net/miss/images/f/fe/Provence_2009.jpg/revision/latest?cb=20181111134200&path-prefix=fr
+2010;7,9;Quercy-Rouergue;Nathalie Ample;19;179;Bruns;Noirs;Métisse;5.0;;0;https://static.wikia.nocookie.net/miss/images/5/54/Quercy-Rouergue_2009.jpg/revision/latest?cb=20181111134232&path-prefix=fr
+2010;7,9;Réunion;Kim Hoa Barutaut;18;182;Noirs;Noirs;Blanche ;;;0;https://static.wikia.nocookie.net/miss/images/3/35/R%C3%A9union_2009.jpg/revision/latest?cb=20181111134217&path-prefix=fr
+2010;7,9;Rhône-Alpes;Virginie Déchenaud;23;174;Blonds;Bleus;Blanche;2.0;;0;https://static.wikia.nocookie.net/miss/images/1/17/Rh%C3%B4ne-Alpes_2009.jpg/revision/latest?cb=20181111134304&path-prefix=fr
+2010;7,9;Roussillon;Céline Callivrousis;22;170;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/1/1e/Roussillon_2009.jpg/revision/latest?cb=20181111134248&path-prefix=fr
+2010;7,9;Saint-Pierre-et-Miquelon;Marie Serba;18;180;Bruns;Marrons;Blanche;;;0;https://static.wikia.nocookie.net/miss/images/6/68/Saint-Pierre-et-Miquelon_2009.jpg/revision/latest?cb=20181111134333&path-prefix=fr
+2010;7,9;Tahiti;Léna Bonno;20;177;Bruns;Marrons;Métisse;;;0;https://static.wikia.nocookie.net/miss/images/e/e9/Tahiti_2009.jpg/revision/latest?cb=20181111134318&path-prefix=fr
+2011;6,9;Alsace;Mathilde Buecher;19;179;Noirs;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/7a/Alsace_2010.jpg/revision/latest?cb=20141204180727&path-prefix=fr
+2011;6,9;Aquitaine;Clémence Thill;20;174;Blonds;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/86/Aquitaine_2010.jpg/revision/latest?cb=20141204180817&path-prefix=fr
+2011;6,9;Auvergne;Clémence Oleksy;19;176;Chatains;Verts;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/3/3b/Auvergne_2010.jpg/revision/latest?cb=20141204180835&path-prefix=fr
+2011;6,9;Bourgogne;Alice Detollenaere;23;173;Chatains clairs;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/1d/Bourgogne_2010.jpg/revision/latest?cb=20141204180901&path-prefix=fr
+2011;6,9;Bretagne;Laury Thilleman;19;179;Chatains;Marrons;Blanche;1.0;1;0;https://static.wikia.nocookie.net/miss/images/d/db/Laury_Thilleman.jpg/revision/latest?cb=20181209132120&path-prefix=fr
+2011;6,9;Centre;Sarah Perrin;23;170;Blonds;Noirs ; Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/41/Centre_2010.jpg/revision/latest?cb=20141204180957&path-prefix=fr
+2011;6,9;Champagne-Ardenne;Kelly Renson;19;170;Chatains;Bleus;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/6/62/Champagne-Ardenne_2010.jpg/revision/latest?cb=20141204181024&path-prefix=fr
+2011;6,9;Corse;Jade Morel;23;176;Bruns ;Marrons;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/4/4c/Corse_2010.jpg/revision/latest?cb=20141204181042&path-prefix=fr
+2011;6,9;Côte d'Azur;Marine Laugier;22;177;Blonds;Bleus;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/9/91/C%C3%B4te_d%27Azur_2010.jpg/revision/latest?cb=20141204181111&path-prefix=fr
+2011;6,9;Franche-Comté;Sabrina Halm;22;170;Noirs;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/0/0d/Franche-Comt%C3%A9_2010.jpg/revision/latest?cb=20141204181132&path-prefix=fr
+2011;6,9;Guadeloupe;Jenny Vulgaire;21;173;Bruns;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/4/4c/Guadeloupe_2010.jpg/revision/latest?cb=20141204181155&path-prefix=fr
+2011;6,9;Guyane;Julie-Malika Grosse;18;174;Noirs;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/a/af/Guyane_2010.jpg/revision/latest?cb=20141204181226&path-prefix=fr
+2011;6,9;Île-de-France;Sabine Hossenbaccus;22;170;Noirs;Noirs;Métisse;5.0;0;0;https://static.wikia.nocookie.net/miss/images/4/49/%C3%8Ele-de-France_2010.jpg/revision/latest?cb=20141204181445&path-prefix=fr
+2011;6,9;Languedoc;Jenna Sylvestre;22;171;Bruns;Gris;Blanche;2.0;0;0;https://static.wikia.nocookie.net/miss/images/2/25/Languedoc_2010.jpg/revision/latest?cb=20141204181522&path-prefix=fr
+2011;6,9;Limousin;Nellie Valentin;24;172;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/20/Limousin_2010.jpg/revision/latest?cb=20141204181546&path-prefix=fr
+2011;6,9;Lorraine;Maëva Pax;19;170;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/8b/Lorraine_2010.jpg/revision/latest?cb=20141204181610&path-prefix=fr
+2011;6,9;Martinique;Anaïs Corosine;23;175;Bruns;Noirs;Métisse;7.0;0;0;https://static.wikia.nocookie.net/miss/images/1/10/Martinique_2010.jpg/revision/latest?cb=20141204181642&path-prefix=fr
+2011;6,9;Mayotte;Elisabeth Ongaretto;19;170;Bruns;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/3/35/Mayotte_2010.jpg/revision/latest?cb=20141204181704&path-prefix=fr
+2011;6,9;Midi-Pyrénées;Alison Martin;24;173;Blonds;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/85/Midi-Pyr%C3%A9n%C3%A9es_2010.jpg/revision/latest?cb=20141204181743&path-prefix=fr
+2011;6,9;Nord-Pas-de-Calais;Angéline Lagache;22;171;Blonds;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/57/Nord-Pas-de-Calais_2010.jpg/revision/latest?cb=20141204181801&path-prefix=fr
+2011;6,9;Normandie;Juliette Polge;22;170;Chatains;Noirs;Blanche ;11.0;0;0;https://static.wikia.nocookie.net/miss/images/1/1e/Normandie_2010.jpg/revision/latest?cb=20141204181827&path-prefix=fr
+2011;6,9;Nouvelle-Calédonie;Ornella Zinni;21;172;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/0/0b/Nouvelle-Cal%C3%A9donie_2010.jpg/revision/latest?cb=20141204181855&path-prefix=fr
+2011;6,9;Orléanais;Chanel Haye;20;176;Bruns;Marrons;Noire;8.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e9/Orl%C3%A9anais_2010.jpg/revision/latest?cb=20141204181926&path-prefix=fr
+2011;6,9;Pays de Loire;Laetitia Legros;22;174;Bruns;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/b/b3/Pays_de_Loire_2010.jpg/revision/latest?cb=20141204182017&path-prefix=fr
+2011;6,9;Pays de Savoie;Marion Guichard;22;176;Bruns;Noirs;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/7/7d/Pays_de_Savoie_2010.jpg/revision/latest?cb=20141204182037&path-prefix=fr
+2011;6,9;Picardie;Anastasia Winnebroot;20;177;Blonds;Gris;Blanche;4.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e8/Picardie_2010.jpg/revision/latest?cb=20141204182116&path-prefix=fr
+2011;6,9;Poitou-Charentes;Pearl Crosland;21;178;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/19/Poitou-Charentes_2010.jpg/revision/latest?cb=20141204182143&path-prefix=fr
+2011;6,9;Provence;Analisa Kebaili;18;171;Noirs;Noirs;Métisse;6.0;0;0;https://static.wikia.nocookie.net/miss/images/a/a6/Provence_2010.jpg/revision/latest?cb=20141204182204&path-prefix=fr
+2011;6,9;Réunion;Florence Arginthe;18;172;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/2/2f/R%C3%A9union_2010.jpg/revision/latest?cb=20141204182224&path-prefix=fr
+2011;6,9;Rhône-Alpes;Elise Charbonnier;21;176;Blonds;Noirs ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/ff/Rh%C3%B4ne-Alpes_2010.jpg/revision/latest?cb=20141204182243&path-prefix=fr
+2011;6,9;Roussillon;Marion Castaing;22;177;Bruns;Noirs;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/9/99/Roussillon_2010.jpg/revision/latest?cb=20141204182328&path-prefix=fr
+2011;6,9;Saint-Pierre-et-Miquelon;Léa Harnett;18;173;Bruns;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/9d/Saint-Pierre-et-Miquelon_2010.jpg/revision/latest?cb=20141204182349&path-prefix=fr
+2011;6,9;Tahiti;Lucie Wilson;21;177;Noirs;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/1/1b/Tahiti_2010.jpg/revision/latest?cb=20141204182422&path-prefix=fr
+2012;7,7;Alsace;Delphine Wespiser;19;175;Roux;Verts;Blanche;1.0;0;0;https://static.wikia.nocookie.net/miss/images/a/ae/Delphine_Wespiser.jpg/revision/latest?cb=20171220093948&path-prefix=fr
+2012;7,7;Aquitaine;Claire Zengerlin;20;174;Bruns;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/f6/Aquitaine_2011.jpg/revision/latest?cb=20141202202647&path-prefix=fr
+2012;7,7;Auvergne;Célia Goninet;19;175;Bruns;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/cf/Auvergne_2011.jpg/revision/latest?cb=20141202202708&path-prefix=fr
+2012;7,7;Bourgogne;Elodie Paillardin;19;177;Bruns;Marrons;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/9/9a/Bourgogne_2011.jpg/revision/latest?cb=20141202202727&path-prefix=fr
+2012;7,7;Bretagne;Audrey Bönecker;23;172;Chatains;Bleus;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/f/f2/Bretagne_2011.jpg/revision/latest?cb=20141202202746&path-prefix=fr
+2012;7,7;Centre;Laure Wojnecki;18;180;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/fe/Centre_2011.jpg/revision/latest?cb=20141202202808&path-prefix=fr
+2012;7,7;Champagne-Ardenne;Sarah Huard;21;171;Bruns;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/10/Champagne-Ardenne_2011.jpg/revision/latest?cb=20141202202829&path-prefix=fr
+2012;7,7;Corse;Camille Mallea;20;172;Blond;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/e7/Corse_2011.jpg/revision/latest?cb=20141202202902&path-prefix=fr
+2012;7,7;Côte d'Azur;Charlotte Murray;23;179;Bruns;Marrons; Blanche;5.0;1;0;https://static.wikia.nocookie.net/miss/images/f/fc/C%C3%B4te_d%27Azur_2011.jpg/revision/latest?cb=20141202202930&path-prefix=fr
+2012;7,7;Franche-Comté;Andréa Vannier;19;176;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/e2/Franche-Comt%C3%A9_2011.jpg/revision/latest?cb=20141202202949&path-prefix=fr
+2012;7,7;Guadeloupe;Cindy Le Pape;21;172;Bruns;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/4/4c/Guadeloupe_2011.jpg/revision/latest?cb=20141202203010&path-prefix=fr
+2012;7,7;Guyane;Anaële Veilleur;19;173;Chatains;Marrons;Métisse;8.0;0;0;https://static.wikia.nocookie.net/miss/images/c/c9/Guyane_2011.jpg/revision/latest?cb=20141202203032&path-prefix=fr
+2012;7,7;Île-de-France;Meggahnn Samson;20;180;Roux;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/d/d7/%C3%8Ele-de-France_2011.jpg/revision/latest?cb=20141202203059&path-prefix=fr
+2012;7,7;Languedoc;Alison Cossenet;19;172;Blonds;Gris;Blanche;7.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e0/Languedoc_2011.jpg/revision/latest?cb=20141202203118&path-prefix=fr
+2012;7,7;Limousin;Cindy Letoux;18;175;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/b3/Limousin_2011.jpg/revision/latest?cb=20141202203143&path-prefix=fr
+2012;7,7;Lorraine;Maud Pisa;21;177;Noirs ;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/8f/Lorraine_2011.jpg/revision/latest?cb=20141202203206&path-prefix=fr
+2012;7,7;Martinique;Charlène Civault;23;183;Noirs;Marrons;Noire;6.0;0;0;https://static.wikia.nocookie.net/miss/images/8/88/Martinique_2011.jpg/revision/latest?cb=20141202203224&path-prefix=fr
+2012;7,7;Mayotte;Aïcha Ahmed;20;174;Bruns ;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/2/2f/Mayotte_2011.jpg/revision/latest?cb=20141202203240&path-prefix=fr
+2012;7,7;Midi-Pyrénées;Laura Madelain;18;177;Bruns;Marrons;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e4/Midi-Pyr%C3%A9n%C3%A9es_2011.jpg/revision/latest?cb=20141202203301&path-prefix=fr
+2012;7,7;Nord-Pas-de-Calais;Sophie Martin;21;173;Roux;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/e2/Nord-Pas-de-Calais_2011.jpg/revision/latest?cb=20141202203320&path-prefix=fr
+2012;7,7;Normandie;Sophie Duval;21;173;Blond;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/b8/Normandie_2011.jpg/revision/latest?cb=20141202203339&path-prefix=fr
+2012;7,7;Nouvelle-Calédonie;Océane Bichot;20;178;Bruns;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/b0/Nouvelle-Cal%C3%A9donie_2011.jpg/revision/latest?cb=20141202203357&path-prefix=fr
+2012;7,7;Orléanais;Audrey Delafoy;19;170;Bruns;Gris;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/a/ab/Orl%C3%A9anais_2011.jpg/revision/latest?cb=20141202203416&path-prefix=fr
+2012;7,7;Pays de Loire;Mathilde Couly;21;172;Bruns;Marrons;Blanche;2.0;0;0;https://static.wikia.nocookie.net/miss/images/0/0d/Pays_de_Loire_2011.jpg/revision/latest?cb=20141202203434&path-prefix=fr
+2012;7,7;Pays de Savoie;Valentine Borel-Hoffmann;18;179;Châtains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/50/Pays_de_Savoie_2011.jpg/revision/latest?cb=20141202203506&path-prefix=fr
+2012;7,7;Picardie;Anaïs Merle;20;174;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/94/Picardie_2011.jpg/revision/latest?cb=20141202203524&path-prefix=fr
+2012;7,7;Poitou-Charentes;Manika Auxire;22;171;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/44/Poitou-Charentes_2011.jpg/revision/latest?cb=20141202203544&path-prefix=fr
+2012;7,7;Provence;Solène Froment;19;181;Blonds;Verts;Blanche ;4.0;0;0;https://static.wikia.nocookie.net/miss/images/9/98/Provence_2011.jpg/revision/latest?cb=20141202203604&path-prefix=fr
+2012;7,7;Réunion;Marie Payet;19;178;Noirs;Marrons;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/3/34/R%C3%A9union_2011.jpg/revision/latest?cb=20141202203631&path-prefix=fr
+2012;7,7;Rhône-Alpes;Cindy Saroul;20;173;Chatains;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/9/99/Rh%C3%B4ne-Alpes_2011.jpg/revision/latest?cb=20141202203651&path-prefix=fr
+2012;7,7;Roussillon;Julie Vialo;19;170;Blond;Verts;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/9/92/Roussillon_2011.jpg/revision/latest?cb=20141202203708&path-prefix=fr
+2012;7,7;Saint-Pierre-et-Miquelon;Lison Yon;20;173;Bruns;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/6/65/Saint-Pierre-et-Miquelon_2011.jpg/revision/latest?cb=20141202203743&path-prefix=fr
+2012;7,7;Tahiti;Rauata Temauri;22;170;Bruns;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/9/93/Tahiti_2011.jpg/revision/latest?cb=20141202203804&path-prefix=fr
+2013;8,1;Alsace;Émilie Koenig;22;172;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/cd/Alsace_2012.jpg/revision/latest?cb=20141127171353&path-prefix=fr
+2013;8,1;Aquitaine;Amélie Rigodanzo;20;177;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/78/Aquitaine_2012.jpg/revision/latest?cb=20141127171509&path-prefix=fr
+2013;8,1;Auvergne;Sanne Spangenberg;19;180;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/b8/Auvergne_2012.jpg/revision/latest?cb=20141127171607&path-prefix=fr
+2013;8,1;Bourgogne;Marine Lorphelin;19;177;Bruns;Verts;Blanche ;1.0;1;0;https://static.wikia.nocookie.net/miss/images/2/29/Marine_Lorphelin.jpg/revision/latest?cb=20181209134108&path-prefix=fr
+2013;8,1;Bretagne;Estelle Sabathier;21;174;Blonds;Bleus;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/d/de/Bretagne_2012.jpg/revision/latest?cb=20141127171705&path-prefix=fr
+2013;8,1;Centre;Juliette Aquilina-Reis;21;172;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/9f/Centre_2012.jpg/revision/latest?cb=20141127171732&path-prefix=fr
+2013;8,1;Champagne-Ardenne;Déborah Trichet;22;182;Bruns;Marrons;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/7/76/Champagne-Ardenne_2012.jpg/revision/latest?cb=20141127171759&path-prefix=fr
+2013;8,1;Corse;Louise Robert;22;180;Bruns;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/9/94/Corse_2012.jpg/revision/latest?cb=20141127171821&path-prefix=fr
+2013;8,1;Côte d'Azur;Charlotte Mint;19;171;Bruns;Marrons;Blanche;7.0;0;0;https://static.wikia.nocookie.net/miss/images/b/b2/C%C3%B4te_d%27Azur_2012.jpg/revision/latest?cb=20141127171856&path-prefix=fr
+2013;8,1;Franche-Comté;Charlène Michaut;24;172;Blonds;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/d/d0/Franche-Comt%C3%A9_2012.jpg/revision/latest?cb=20141127171917&path-prefix=fr
+2013;8,1;Guadeloupe;Cynthia Tinédor;20;175;Noirs;Noirs ;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/e/e0/Guadeloupe_2012.jpg/revision/latest?cb=20141127171940&path-prefix=fr
+2013;8,1;Guyane;Corinne Buzare;24;178;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/2/24/Guyane_2012.jpg/revision/latest?cb=20141127172004&path-prefix=fr
+2013;8,1;Île-de-France;Sabrina Benamara;18;173;Rousse;Marrons ;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/c/ce/%C3%8Ele-de-France_2012.jpg/revision/latest?cb=20141127172044&path-prefix=fr
+2013;8,1;Languedoc;Emmanuelle Fabre;22;173;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/0/0b/Languedoc_2012.jpg/revision/latest?cb=20141127172112&path-prefix=fr
+2013;8,1;Limousin;Sandra Longeaud;23;172;Blonds;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/3/38/Limousin_2012.jpg/revision/latest?cb=20141127172136&path-prefix=fr
+2013;8,1;Lorraine;Divanna Pljevalcic;20;172;Noirs;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/5/59/Lorraine_2012.jpg/revision/latest?cb=20141127172205&path-prefix=fr
+2013;8,1;Martinique;Camille René;18;177;Noirs;Noirs;Métisse;4.0;0;0;https://static.wikia.nocookie.net/miss/images/b/b6/Martinique_2012.jpg/revision/latest?cb=20141127172235&path-prefix=fr
+2013;8,1;Mayotte;Stanisla Saïd;22;176;Bruns;Noirs;Noire ;;0;0;https://static.wikia.nocookie.net/miss/images/5/5c/Mayotte_2012.jpg/revision/latest?cb=20141127172318&path-prefix=fr
+2013;8,1;Midi-Pyrénées;Célia Guermoudj;22;170;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/5a/Midi-Pyr%C3%A9n%C3%A9es_2012.jpg/revision/latest?cb=20141127172456&path-prefix=fr
+2013;8,1;Nord-Pas-de-Calais;Sophie Garénaux;22;172;Chatains;Marrons;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/1/1e/Nord-Pas-de-Calais_2012.jpg/revision/latest?cb=20141127172530&path-prefix=fr
+2013;8,1;Normandie;Pauline Llorca;24;171;Bruns ;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/c/c2/Normandie_2012.jpg/revision/latest?cb=20141127172559&path-prefix=fr
+2013;8,1;Nouvelle-Calédonie;Sandra Bergès;18;173;Roux;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/1d/Nouvelle-Cal%C3%A9donie_2012.jpg/revision/latest?cb=20141127172622&path-prefix=fr
+2013;8,1;Orléanais;Joy Lartigue;21;174;Roux;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/29/Orl%C3%A9anais_2012.jpg/revision/latest?cb=20141127172730&path-prefix=fr
+2013;8,1;Pays de Loire;Mélinda Paré;18;176;Bruns;Marrons;Blanche ;5.0;0;0;https://static.wikia.nocookie.net/miss/images/d/d7/Pays_de_Loire_2012.jpg/revision/latest?cb=20141127172753&path-prefix=fr
+2013;8,1;Pays de Savoie;Graziella Byhet;24;177;Blonds;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/d/d4/Pays_de_Savoie_2012.jpg/revision/latest?cb=20141127172814&path-prefix=fr
+2013;8,1;Picardie;Émilie Mika;20;175;Blonds;Bleus;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/b/b7/Picardie_2012.jpg/revision/latest?cb=20141127172917&path-prefix=fr
+2013;8,1;Poitou-Charentes;Typhanie Soulat;21;171;Bruns;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/d/d0/Poitou-Charentes_2012.jpg/revision/latest?cb=20141127172941&path-prefix=fr
+2013;8,1;Provence;Marine Mahiques;19;176;Chatains;Marrons;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/b/ba/Provence_2012.jpg/revision/latest?cb=20141127173014&path-prefix=fr
+2013;8,1;Réunion;Stéphanie Robert;21;172;Bruns;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/6/63/R%C3%A9union_2012.jpg/revision/latest?cb=20141127173035&path-prefix=fr
+2013;8,1;Rhône-Alpes;Julie Jacquot;24;172;Blonds;Gris;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/0/00/Rh%C3%B4ne-Alpes_2012.jpg/revision/latest?cb=20141127173055&path-prefix=fr
+2013;8,1;Roussillon;Marilou Cubaynes;24;173;Bruns;Marrons ;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/4/47/Roussillon_2012.jpg/revision/latest?cb=20141127173146&path-prefix=fr
+2013;8,1;Saint-Martin;Suzon Bonnet;22;175;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/8c/Saint-Martin_2012.jpg/revision/latest?cb=20141127173232&path-prefix=fr
+2013;8,1;Tahiti;Hinarani de Longeaux;22;177;Chatains;Verts;Métisse;2.0;0;0;https://static.wikia.nocookie.net/miss/images/b/b0/Tahiti_2012.jpg/revision/latest?cb=20141127173255&path-prefix=fr
+2014;8,1;Alsace;Laura Strubel;24;182;Chatains;Marrons;Blanche;8.0;1;0;https://static.wikia.nocookie.net/miss/images/6/6c/Alsace_2013.jpg/revision/latest?cb=20141127190248&path-prefix=fr
+2014;8,1;Aquitaine;Camille Gafa;22;177;Chatains;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/f/f3/Aquitaine_2013.jpg/revision/latest?cb=20141127194619&path-prefix=fr
+2014;8,1;Auvergne;Camille Blond;18;171;Blonds;Marrons;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/3/36/Auvergne_2013.jpg/revision/latest?cb=20141127194732&path-prefix=fr
+2014;8,1;Bourgogne;Marie Reintz;22;179;Chatains;Gris;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/8/87/Bourgogne_2013.jpg/revision/latest?cb=20141127194813&path-prefix=fr
+2014;8,1;Bretagne;Marie Chartier;19;172;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/f8/Bretagne_2013.jpg/revision/latest?cb=20141127194843&path-prefix=fr
+2014;8,1;Centre;Laure Moreau;20;180;Noirs;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/20/Centre_2013.jpg/revision/latest?cb=20141127194859&path-prefix=fr
+2014;8,1;Champagne-Ardenne;Louise Bataille;18;178;Chatains;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/b7/Champagne-Ardenne_2013.jpg/revision/latest?cb=20141127195223&path-prefix=fr
+2014;8,1;Corse;Cécilia Napoli;19;171;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/fe/Corse_2013.jpg/revision/latest?cb=20141127195252&path-prefix=fr
+2014;8,1;Côte d'Azur;Aurianne Sinacola;19;177;Bruns;Marrons;Blanche;4.0;0;0;https://static.wikia.nocookie.net/miss/images/a/a9/C%C3%B4te_d%27Azur_2013.jpg/revision/latest?cb=20141127195317&path-prefix=fr
+2014;8,1;Franche-Comté;Camille Duban;19;174;Bruns;Marrons;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/8/89/Franche-Comt%C3%A9_2013.jpg/revision/latest?cb=20141127195351&path-prefix=fr
+2014;8,1;Guadeloupe;Chloé Deher;18;177;Blonds;Marrons;Blanche;5.0;0;0;https://static.wikia.nocookie.net/miss/images/8/8e/Guadeloupe_2013.jpg/revision/latest?cb=20141127195446&path-prefix=fr
+2014;8,1;Guyane;Henriette Groneveltd;21;173;Bruns;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/b/b3/Guyane_2013.jpg/revision/latest?cb=20141127195503&path-prefix=fr
+2014;8,1;Île-de-France;Laetitia Vuillemard;20;175;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/5d/%C3%8Ele-de-France_2013.jpg/revision/latest?cb=20141127195602&path-prefix=fr
+2014;8,1;Languedoc;Anaïs Franchini;22;173;Bruns;Gris;Blanche;7.0;0;0;https://static.wikia.nocookie.net/miss/images/8/8f/Languedoc_2013.jpg/revision/latest?cb=20141127195624&path-prefix=fr
+2014;8,1;Limousin;Caroline Dubreuil;21;177;Bruns;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/5/5e/Limousin_2013.jpg/revision/latest?cb=20141127195647&path-prefix=fr
+2014;8,1;Lorraine;Charline Keck;19;178;Blonds;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/ce/Lorraine_2013.jpg/revision/latest?cb=20141127195741&path-prefix=fr
+2014;8,1;Martinique;Nathalie Frédal;19;175;Noirs;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/9/95/Martinique_2013.jpg/revision/latest?cb=20141127195758&path-prefix=fr
+2014;8,1;Mayotte;Daniati Yves;24;170;Noirs;Marrons;Métisse ;;0;0;https://static.wikia.nocookie.net/miss/images/5/5e/Mayotte_2013.jpg/revision/latest?cb=20141127195846&path-prefix=fr
+2014;8,1;Midi-Pyrénées;Audrey Bernès;20;181;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/23/Midi-Pyr%C3%A9n%C3%A9es_2013.jpg/revision/latest?cb=20141127195946&path-prefix=fr
+2014;8,1;Nord-Pas-de-Calais;Gaëlle Mans;23;180;Bruns;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/7e/Nord-Pas-de-Calais_2013.jpg/revision/latest?cb=20141127200001&path-prefix=fr
+2014;8,1;Normandie;Ophélie Genest;19;173;Bruns;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/8/88/Normandie_2013.jpg/revision/latest?cb=20141127200122&path-prefix=fr
+2014;8,1;Nouvelle-Calédonie;Agnès Latchimy;23;172;Bruns;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/d/d6/Nouvelle-Cal%C3%A9donie_2013.jpg/revision/latest?cb=20141127200206&path-prefix=fr
+2014;8,1;Orléanais;Flora Coquerel;19;182;Noirs;Marrons;Métisse;1.0;0;0;https://static.wikia.nocookie.net/miss/images/2/21/Flora_Coquerel.jpg/revision/latest?cb=20181209135432&path-prefix=fr
+2014;8,1;Pays de Loire;Marie Plessis;22;173;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/ba/Pays_de_Loire_2013.jpg/revision/latest?cb=20141127200302&path-prefix=fr
+2014;8,1;Pays de Savoie;Julie Legros;22;172;Noirs;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/6/6a/Pays_de_Savoie_2013.jpg/revision/latest?cb=20141127200322&path-prefix=fr
+2014;8,1;Picardie;Manon Beurey;19;174;Blonds;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/a/ad/Picardie_2013.jpg/revision/latest?cb=20141127200416&path-prefix=fr
+2014;8,1;Poitou-Charentes;Laura Pierre;19;174;Bruns;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/59/Poitou-Charentes_2013.jpg/revision/latest?cb=20141127200439&path-prefix=fr
+2014;8,1;Provence;Laëtizia Penmellen;19;171;Blonds;Verts;Blanche ;3.0;0;0;https://static.wikia.nocookie.net/miss/images/b/b7/Provence_2013.jpg/revision/latest?cb=20141127200629&path-prefix=fr
+2014;8,1;Réunion;Vanille M'Doihoma;21;174;Noirs;Marrons;Métisse;12.0;0;0;https://static.wikia.nocookie.net/miss/images/a/ab/R%C3%A9union_2013.jpg/revision/latest?cb=20141127200701&path-prefix=fr
+2014;8,1;Rhône-Alpes;Mylène Angelier;22;177;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/24/Rh%C3%B4ne-Alpes_2013.jpg/revision/latest?cb=20141127200742&path-prefix=fr
+2014;8,1;Roussillon;Sabine Banet;21;173;Blonds;Marrons;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/9/96/Roussillon_2013.jpg/revision/latest?cb=20141127200821&path-prefix=fr
+2014;8,1;Saint-Pierre-et-Miquelon;Clio Victorri;23;175;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/d/d2/Saint-Pierre-et-Miquelon_2013.jpg/revision/latest?cb=20141127200854&path-prefix=fr
+2014;8,1;Tahiti;Mehiata Riaria;22;178;Noirs;Marrons;Blanche;2.0;0;0;https://static.wikia.nocookie.net/miss/images/e/ed/Tahiti_2013.jpg/revision/latest?cb=20141127200908&path-prefix=fr
+2015;8,5;Alsace;Alyssa Wurtz;24;176;Blonds;Bleus;Blanche;5.0;0;0;https://static.wikia.nocookie.net/miss/images/2/21/Alsace_2014.jpg/revision/latest?cb=20141126141825&path-prefix=fr
+2015;8,5;Aquitaine;Malaurie Eugénie;20;176;Bruns;Marrons;Blanche;4.0;0;0;https://static.wikia.nocookie.net/miss/images/a/ac/Aquitaine_2014.jpg/revision/latest?cb=20141126141850&path-prefix=fr
+2015;8,5;Auvergne;Morgane Laporte;20;178;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/1c/Auvergne_2014.jpg/revision/latest?cb=20141126141917&path-prefix=fr
+2015;8,5;Bourgogne;Janyce Guillot;19;180;Bruns;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/8a/Bourgogne_2014.jpg/revision/latest?cb=20141126142038&path-prefix=fr
+2015;8,5;Bretagne;Maïlys Bonnet;20;178;Bruns;Bleus;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/f/f0/Bretagne_2014.jpg/revision/latest?cb=20141126142059&path-prefix=fr
+2015;8,5;Centre;Amanda Xeres;18;175;Blonds;Gris;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/5/58/Centre_2014.jpg/revision/latest?cb=20141126142127&path-prefix=fr
+2015;8,5;Champagne-Ardenne;Mélissa Cervoni;20;177;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/70/Champagne-Ardenne_2014.jpg/revision/latest?cb=20141126142230&path-prefix=fr
+2015;8,5;Corse;Dorine Rossi;20;183;Blonds;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/8e/Corse_2014.jpg/revision/latest?cb=20141126142249&path-prefix=fr
+2015;8,5;Côte d'Azur;Charlotte Pirroni;20;170;Chatains;Gris;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/8/82/C%C3%B4te_d%27Azur_2014.jpg/revision/latest?cb=20141126142317&path-prefix=fr
+2015;8,5;Franche-Comté;Anne-Mathilde Cali;24;178;Noirs;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/b0/Franche-Comt%C3%A9_2014.jpg/revision/latest?cb=20141126142339&path-prefix=fr
+2015;8,5;Guadeloupe;Chloé Mozar;18;179;Bruns;Marrons;Noire ;10.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e7/Guadeloupe_2014.jpg/revision/latest?cb=20141126142405&path-prefix=fr
+2015;8,5;Guyane;Valeria Coelho Maciel;19;171;Bruns;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/9/90/Guyane_2014.jpg/revision/latest?cb=20141126142424&path-prefix=fr
+2015;8,5;Île-de-France;Margaux Savarit;23;175;Blonds;Bleus;Blanche;11.0;1;0;https://static.wikia.nocookie.net/miss/images/5/59/%C3%8Ele-de-France_2014.jpg/revision/latest?cb=20141126142509&path-prefix=fr
+2015;8,5;Languedoc;Marie Fabre;21;170;Blonds;Gris;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/3/30/Languedoc_2014.jpg/revision/latest?cb=20141126142544&path-prefix=fr
+2015;8,5;Limousin;Léa Froidefond;19;172;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/8c/Limousin_2014.jpg/revision/latest?cb=20141126145936&path-prefix=fr
+2015;8,5;Lorraine;Charlène Lallemand;18;176;Bruns;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/99/Lorraine_2014.jpg/revision/latest?cb=20141126150007&path-prefix=fr
+2015;8,5;Martinique;Moëra Michalon;19;171;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/c/c3/Martinique_2014.jpg/revision/latest?cb=20141126150034&path-prefix=fr
+2015;8,5;Mayotte;Ludy Langlade;18;177;Bruns;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/1/12/Mayotte_2014.jpg/revision/latest?cb=20141126150051&path-prefix=fr
+2015;8,5;Midi-Pyrénées;Laura Pelos;24;180;Noirs;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/e5/Midi-Pyr%C3%A9n%C3%A9es_2014.jpg/revision/latest?cb=20141126150115&path-prefix=fr
+2015;8,5;Nord-Pas-de-Calais;Camille Cerf;19;179;Blonds;Verts;Blanche;1.0;0;0;https://static.wikia.nocookie.net/miss/images/f/f4/Camille_Cerf.jpg/revision/latest?cb=20181209140532&path-prefix=fr
+2015;8,5;Normandie;Estrella Ramirez;23;172;Noirs;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/31/Normandie_2014.jpg/revision/latest?cb=20141126150221&path-prefix=fr
+2015;8,5;Nouvelle-Calédonie;Mondy Laigle;19;173;Bruns;Noirs;Blanche;7.0;0;0;https://static.wikia.nocookie.net/miss/images/2/20/Nouvelle-Cal%C3%A9donie_2014.jpg/revision/latest?cb=20141126150246&path-prefix=fr
+2015;8,5;Orléanais;Solène Salmagne;18;175;Noirs;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/d/db/Orl%C3%A9anais_2014.jpg/revision/latest?cb=20141126150308&path-prefix=fr
+2015;8,5;Pays de Loire;Flavy Facon;20;176;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/24/Pays_de_Loire_2014.jpg/revision/latest?cb=20141126150332&path-prefix=fr
+2015;8,5;Pays de Savoie;Aurore Péron;18;175;Blonds ;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/64/Pays_de_Savoie_2014.jpg/revision/latest?cb=20141126150353&path-prefix=fr
+2015;8,5;Picardie;Adeline Legris-Croisel;21;176;Blonds;Bleus;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/3/32/Picardie_2014.jpg/revision/latest?cb=20141126150413&path-prefix=fr
+2015;8,5;Poitou-Charentes;Mathilde Hubert;19;173;Bruns;Marrons ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/cf/Poitou-Charentes_2014.jpg/revision/latest?cb=20141126150433&path-prefix=fr
+2015;8,5;Provence;Anne-Laure Fourmont;21;174;Chatains;Verts;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e3/Provence_2014.jpg/revision/latest?cb=20141126150513&path-prefix=fr
+2015;8,5;Réunion;Ingreed Mercredi;19;170;Noirs;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/6/6b/R%C3%A9union_2014.jpg/revision/latest?cb=20141126150540&path-prefix=fr
+2015;8,5;Rhône-Alpes;Aurore Thibaud;20;176;Bruns;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/3/3b/Rh%C3%B4ne-Alpes_2014.jpg/revision/latest?cb=20141126150648&path-prefix=fr
+2015;8,5;Roussillon;Sheana Vila Real;20;171;Blonds;Marrons;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/c/ca/Roussillon_2014.jpg/revision/latest?cb=20141126150708&path-prefix=fr
+2015;8,5;Saint-Martin;Nadika Matthew-Gauthier;19;173;Chatains;Gris;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/2/29/Saint-Martin_2014.jpg/revision/latest?cb=20141126150729&path-prefix=fr
+2015;8,5;Tahiti;Hinarere Taputu;24;175;Noirs;Noirs;Métisse;2.0;0;0;https://static.wikia.nocookie.net/miss/images/8/89/Tahiti_2014.jpg/revision/latest?cb=20141126150748&path-prefix=fr
+2016;7,9;Alsace;Laura Muller;19;171;Blonds;Bleus;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/6/67/Alsace_2015.jpg/revision/latest?cb=20151204183456&path-prefix=fr
+2016;7,9;Aquitaine;Gennifer Demey;22;171;Blonds;Bleus;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/d/d7/Aquitaine_2015.jpg/revision/latest?cb=20151204183712&path-prefix=fr
+2016;7,9;Auvergne;Pauline Bazoge;18;171;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/a/af/Auvergne_2015.jpg/revision/latest?cb=20151204184056&path-prefix=fr
+2016;7,9;Bourgogne;Jade Vélon;20;175;Chatains;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/77/Bourgogne_2015.jpg/revision/latest?cb=20151204184143&path-prefix=fr
+2016;7,9;Bretagne;Léa Bizeul;18;176;Chatains;Marrons;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/b/b2/Bretagne_2015.jpg/revision/latest?cb=20151204184411&path-prefix=fr
+2016;7,9;Centre-Val-de-Loire;Margaux Bourdin;18;176;Bruns;Marrons;Métisse;7.0;0;0;https://static.wikia.nocookie.net/miss/images/7/77/Centre-Val-de-Loire_2015.jpg/revision/latest?cb=20151204184508&path-prefix=fr
+2016;7,9;Champagne-Ardenne;Oceane Pagenot;20;170;Chatains;Marrons ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/76/Champagne-Ardenne_2015.jpg/revision/latest?cb=20151204184620&path-prefix=fr
+2016;7,9;Corse;Jessica Garcia;21;171;Chatains;Verts ;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/0/00/Corse_2015.jpg/revision/latest?cb=20151204184701&path-prefix=fr
+2016;7,9;Côte d'Azur;Léanna Ferrero;20;172;Bruns;Marrons;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/2/24/C%C3%B4te_d%27Azur_2015.jpg/revision/latest?cb=20151204184752&path-prefix=fr
+2016;7,9;Franche-Comté;Alizée Vannier;19;172;Bruns;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/d/d8/Franche-Comt%C3%A9_2015.jpg/revision/latest?cb=20151204184909&path-prefix=fr
+2016;7,9;Guadeloupe;Johanna Delphin;20;177;Bruns;Marrons;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/e/e2/Guadeloupe_2015.jpg/revision/latest?cb=20151204184956&path-prefix=fr
+2016;7,9;Guyane;Estelle Merlin;21;182;Bruns;Marrons;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/6/6f/Guyane_2015.jpg/revision/latest?cb=20151204185045&path-prefix=fr
+2016;7,9;Île-de-France;Fanny Harcaut;18;175;Bruns;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/66/%C3%8Ele-de-France_2015.jpg/revision/latest?cb=20151204185147&path-prefix=fr
+2016;7,9;Languedoc;Lena Stachurski;20;173;Blonds;Bleus;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/d/dc/Languedoc_2015.jpg/revision/latest?cb=20151204185314&path-prefix=fr
+2016;7,9;Limousin;Emma Bourroux;19;178;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/cb/Limousin_2015.jpg/revision/latest?cb=20151204185401&path-prefix=fr
+2016;7,9;Lorraine;Jessica Molle;18;171;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/97/Lorraine_2015.jpg/revision/latest?cb=20151204185500&path-prefix=fr
+2016;7,9;Martinique;Morgane Edvige;19;177;Noirs;Noirs;Noire ;2.0;0;0;https://static.wikia.nocookie.net/miss/images/1/15/Martinique_2015.jpg/revision/latest?cb=20151204185601&path-prefix=fr
+2016;7,9;Mayotte;Ramatou Rajiabo;18;170;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/5/59/Mayotte_2015.jpg/revision/latest?cb=20151204185809&path-prefix=fr
+2016;7,9;Midi-Pyrénées;Emily Segouffin;23;174;Bruns;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/c6/Midi-Pyr%C3%A9n%C3%A9es_2015.jpg/revision/latest?cb=20151204185947&path-prefix=fr
+2016;7,9;Nord-Pas-de-Calais;Iris Mittenaere;22;172;Bruns;Marrons;Blanche;1.0;1;0;https://static.wikia.nocookie.net/miss/images/4/41/Iris_Mittenaere.jpg/revision/latest?cb=20181209141253&path-prefix=fr
+2016;7,9;Normandie;Daphné Bruman;23;178;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/f5/Normandie_2015.jpg/revision/latest?cb=20151204190202&path-prefix=fr
+2016;7,9;Nouvelle-Calédonie;Gyna Moereo;18;176;Noirs;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/60/Nouvelle-Cal%C3%A9donie_2015.jpg/revision/latest?cb=20151204190250&path-prefix=fr
+2016;7,9;Pays de Loire;Angélina Laurent;20;173;Blonds;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/0/0e/Pays_de_Loire_2015.jpg/revision/latest?cb=20151204190405&path-prefix=fr
+2016;7,9;Picardie;Emilie Delaplace;19;174;Blonds;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/6e/Picardie_2015.jpg/revision/latest?cb=20151204190520&path-prefix=fr
+2016;7,9;Poitou-Charentes;Manon Rougier;19;178;Chatains;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/23/Poitou-Charentes_2015.jpg/revision/latest?cb=20151204190629&path-prefix=fr
+2016;7,9;Provence;Julia Courtès;17;173;Chatains;Bleus;Blanche;4.0;0;0;https://static.wikia.nocookie.net/miss/images/a/a8/Provence_2015.jpg/revision/latest?cb=20151204190736&path-prefix=fr
+2016;7,9;Réunion;Azuima Issa;19;181;Noirs;Marrons;Métisse;5.0;0;0;https://static.wikia.nocookie.net/miss/images/5/58/R%C3%A9union_2015.jpg/revision/latest?cb=20151204191027&path-prefix=fr
+2016;7,9;Rhône-Alpes;Nora Bengrine;20;172;Bruns;Verts;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/4/44/Rh%C3%B4ne-Alpes_2015.jpg/revision/latest?cb=20151204191717&path-prefix=fr
+2016;7,9;Roussillon;Anais Marin;21;178;Bruns;Marrons ;Blanche;;0;0;
+2016;7,9;Saint-Pierre-et-Miquelon;Julie Briand;18;174;Blonds;Verts;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/9/98/Saint-Pierre-et-Miquelon_2015.jpg/revision/latest?cb=20151204192235&path-prefix=fr
+2016;7,9;Tahiti;Vaimiti Teiefitu;18;178;Bruns;Marrons;Métisse;3.0;0;0;https://static.wikia.nocookie.net/miss/images/4/4d/Tahiti_2015.jpg/revision/latest?cb=20151204192322&path-prefix=fr
+2017;7,35;Alsace;Claire Godard;19;180;Blonds;Marrons ;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/f/f6/Alsace_2016.jpg/revision/latest?cb=20161123220721&path-prefix=fr
+2017;7,35;Aquitaine;Axelle Bonnemaison;19;176;Chatains;Bleus;Blanche ;11.0;0;0;https://static.wikia.nocookie.net/miss/images/d/df/Aquitaine_2016.jpg/revision/latest?cb=20161123220527&path-prefix=fr
+2017;7,35;Auvergne;Océane Faure;20;170;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/2f/Auvergne_2016.jpg/revision/latest?cb=20161123221928&path-prefix=fr
+2017;7,35;Bourgogne;Naomi Bailly;21;171;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/a/a8/Bourgogne_2016.jpg/revision/latest?cb=20161123221339&path-prefix=fr
+2017;7,35;Bretagne;Maurane Bouazza;20;174;Blonds;Bleus;Blanche ;7.0;0;0;https://static.wikia.nocookie.net/miss/images/8/87/Bretagne_2016.jpg/revision/latest?cb=20161123222008&path-prefix=fr
+2017;7,35;Centre-Val-de-Loire;Cassandre Joris;20;170;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/e7/Centre-Val-de-Loire_2016.jpg/revision/latest?cb=20161123215957&path-prefix=fr
+2017;7,35;Champagne-Ardenne;Charlotte Patat;19;182;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/d/dc/Champagne-Ardenne_2016.jpg/revision/latest?cb=20161123220641&path-prefix=fr
+2017;7,35;Corse;Laëtitia Duclos;19;171;Noirs;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/7c/Corse_2016.jpg/revision/latest?cb=20161123221420&path-prefix=fr
+2017;7,35;Côte d'Azur;Jade Scotte;23;173;Chatains;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/21/C%C3%B4te_d%27Azur_2016.jpg/revision/latest?cb=20161123215910&path-prefix=fr
+2017;7,35;Franche-Comté;Melissa Nourry;20;171;Bruns;Marrons ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/a/ab/Franche-Comt%C3%A9_2016.jpg/revision/latest?cb=20161123222214&path-prefix=fr
+2017;7,35;Guadeloupe;Morgane Thérésine;21;178;Noirs;Marrons;Noire;4.0;0;0;https://static.wikia.nocookie.net/miss/images/c/cd/Guadeloupe_2016.jpg/revision/latest?cb=20161123222140&path-prefix=fr
+2017;7,35;Guyane;Alicia Aylies;18;178;Bruns;Verts;Métisse;1.0;0;0;https://static.wikia.nocookie.net/miss/images/9/99/Alicia_Aylies.jpg/revision/latest?cb=20181209141835&path-prefix=fr
+2017;7,35;Île-de-France;Meggy Pyaneeandee;22;172;Noirs;Marrons;Noire;10.0;1;0;https://static.wikia.nocookie.net/miss/images/d/d4/%C3%8Ele-de-France_2016.jpg/revision/latest?cb=20161123222107&path-prefix=fr
+2017;7,35;Languedoc-Roussillon;Aurore Kichenin;21;173;Bruns;Marrons;Blanche;2.0;0;0;https://static.wikia.nocookie.net/miss/images/7/7f/Languedoc-Roussillon_2016.jpg/revision/latest?cb=20161123220320&path-prefix=fr
+2017;7,35;Limousin;Romane Komar;18;175;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/ed/Limousin_2016.jpg/revision/latest?cb=20161123222258&path-prefix=fr
+2017;7,35;Lorraine;Justine Kamara;19;173;Noirs;Noirs;Noire;5.0;0;0;https://static.wikia.nocookie.net/miss/images/9/90/Lorraine_2016.jpg/revision/latest?cb=20161123221140&path-prefix=fr
+2017;7,35;Martinique;Aurélie Joachim;18;178;Noirs;Noirs ;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/e/ec/Martinique_2016.jpg/revision/latest?cb=20161123220448&path-prefix=fr
+2017;7,35;Mayotte;Naïma Madi Mahadali;19;175;Noirs;Noirs;Noire;;0;1;https://static.wikia.nocookie.net/miss/images/d/d3/Mayotte_2016.jpg/revision/latest?cb=20161123221625&path-prefix=fr
+2017;7,35;Midi-Pyrénées;Virginie Guillin;23;178;Blonds;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/36/Midi-Pyr%C3%A9n%C3%A9es_2016.jpg/revision/latest?cb=20161123221710&path-prefix=fr
+2017;7,35;Nord-Pas-de-Calais;Laurine Maricau;22;174;Chatains;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/a/a9/Nord-Pas-de-Calais_2016.jpg/revision/latest?cb=20161123221215&path-prefix=fr
+2017;7,35;Normandie;Esther Houdement;20;183;Chatains;Marrons;Blanche ;12.0;0;0;https://static.wikia.nocookie.net/miss/images/1/1d/Normandie_2016.jpg/revision/latest?cb=20161123220910&path-prefix=fr
+2017;7,35;Nouvelle-Calédonie;Andréa Lux;18;175;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/84/Nouvelle-Cal%C3%A9donie_2016.jpg/revision/latest?cb=20161123220146&path-prefix=fr
+2017;7,35;Pays de Loire;Carla Loones;21;178;Noirs;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/2d/Pays_de_Loire_2016.jpg/revision/latest?cb=20161123220601&path-prefix=fr
+2017;7,35;Picardie;Myrtille Cauchefer;24;176;Bruns;Marrons;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/8/8d/Picardie_2016.jpg/revision/latest?cb=20161123221549&path-prefix=fr
+2017;7,35;Poitou-Charentes;Magdalene Chollet;19;172;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/f8/Poitou-Charentes_2016.jpg/revision/latest?cb=20161123221504&path-prefix=fr
+2017;7,35;Provence;Noémie Mazella;22;179;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/5c/Provence_2016.jpg/revision/latest?cb=20161123221830&path-prefix=fr
+2017;7,35;Réunion;Ambre Nguyen;19;177;Bruns;Marrons;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/d/dd/R%C3%A9union_2016.jpg/revision/latest?cb=20161123215352&path-prefix=fr
+2017;7,35;Rhône-Alpes;Camille Bernard;20;175;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/bb/Rh%C3%B4ne-Alpes_2016.jpg/revision/latest?cb=20161123220405&path-prefix=fr
+2017;7,35;Saint-Martin Saint-Barthélemy;Anaëlle Hyppolite;18;177;Noirs;Noirs;Noire ;;0;0;https://static.wikia.nocookie.net/miss/images/6/66/Saint-Martin_Saint-Barth%C3%A9lemy_2016.jpg/revision/latest?cb=20161123215829&path-prefix=fr
+2017;7,35;Tahiti;Vaea Ferrand;22;175;Bruns;Bleus;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/f/f3/Tahiti_2016.jpg/revision/latest?cb=20161123221754&path-prefix=fr
+2018;7,4;Alsace;Joséphine Meisberger;20;171;Chatains;Marrons;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/f/f4/Alsace_2017.jpg/revision/latest?cb=20171116195225&path-prefix=fr
+2018;7,4;Aquitaine;Cassandra Jullia;18;173;Blonds;Bleus;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/0/0b/Aquitaine_2017.jpg/revision/latest?cb=20171116194522&path-prefix=fr
+2018;7,4;Auvergne;Marie-Anne Halbwachs;19;182;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/6d/Auvergne_2017.jpg/revision/latest?cb=20171116200436&path-prefix=fr
+2018;7,4;Bourgogne;Mélanie Soarès;22;173;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/72/Bourgogne_2017.jpg/revision/latest?cb=20171116200505&path-prefix=fr
+2018;7,4;Bretagne;Caroline Lemée;24;176;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/6f/Bretagne_2017.jpg/revision/latest?cb=20171116194347&path-prefix=fr
+2018;7,4;Centre-Val-de-Loire;Marie Thorin;20;177;Blonds;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/54/Centre-Val-de-Loire_2017.jpg/revision/latest?cb=20171116195559&path-prefix=fr
+2018;7,4;Champagne-Ardenne;Safiatou Guinot;19;170;Bruns;Marrons;Noire;4.0;0;0;https://static.wikia.nocookie.net/miss/images/9/95/Champagne-Ardenne_2017.jpg/revision/latest?cb=20171116195913&path-prefix=fr
+2018;7,4;Corse;Eva Colas;20;172;Chatains;Marrons;Blanche ;2.0;1;0;https://static.wikia.nocookie.net/miss/images/f/fd/Corse_2017.jpg/revision/latest?cb=20171116194929&path-prefix=fr
+2018;7,4;Côte d'Azur;Julia Sidi Atman;21;180;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/13/C%C3%B4te_d%27Azur_2017.jpg/revision/latest?cb=20171116195307&path-prefix=fr
+2018;7,4;Franche-Comté;Mathilde Klinguer;21;177;Noirs ;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/87/Franche-Comt%C3%A9_2017.jpg/revision/latest?cb=20171116195948&path-prefix=fr
+2018;7,4;Guadeloupe;Johane Matignon;18;176;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/3/3e/Guadeloupe_2017.jpg/revision/latest?cb=20171116195131&path-prefix=fr
+2018;7,4;Guyane;Ruth Briquet;24;174;Noirs;Noirs;Noire;7.0;0;0;https://static.wikia.nocookie.net/miss/images/6/64/Guyane_2017.jpg/revision/latest?cb=20171116195635&path-prefix=fr
+2018;7,4;Île-de-France;Lison Di Martino;18;172;Bruns;Marrons;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/9/94/%C3%8Ele-de-France_2017.jpg/revision/latest?cb=20171116195427&path-prefix=fr
+2018;7,4;Languedoc-Roussillon;Alizée Rieu;20;176;Blonds;Marrons;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/b/be/Languedoc-Roussillon_2017.jpg/revision/latest?cb=20171116193833&path-prefix=fr
+2018;7,4;Limousin;Anais Berthomier;19;171;Chatains;Marrons;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/c/c4/Limousin_2017.jpg/revision/latest?cb=20171116193931&path-prefix=fr
+2018;7,4;Lorraine;Cloé Cirelli;20;171;Blonds;Bleus;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/1/18/Lorraine_2017.jpg/revision/latest?cb=20171116194745&path-prefix=fr
+2018;7,4;Martinique;Laure-Anaïs Abidal;21;176;Noirs;Noirs ;Noire;9.0;0;0;https://static.wikia.nocookie.net/miss/images/1/14/Martinique_2017.jpg/revision/latest?cb=20171116200203&path-prefix=fr
+2018;7,4;Mayotte;Vanylle Emasse;20;170;Chatains;Marrons;Noire ;;0;0;https://static.wikia.nocookie.net/miss/images/4/41/Mayotte_2017.jpg/revision/latest?cb=20171116195807&path-prefix=fr
+2018;7,4;Midi-Pyrénées;Anais Dufillo-Medellel;18;171;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/77/Midi-Pyr%C3%A9n%C3%A9es_2017.jpg/revision/latest?cb=20171116193600&path-prefix=fr
+2018;7,4;Nord-Pas-de-Calais;Maëva Coucke;23;176;Roux;Verts;Blanche;1.0;0;0;https://static.wikia.nocookie.net/miss/images/5/53/Ma%C3%ABva_Coucke.jpg/revision/latest?cb=20181107212429&path-prefix=fr
+2018;7,4;Normandie;Alexane Dubourg;20;170;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/4c/Normandie_2017.jpg/revision/latest?cb=20171116193654&path-prefix=fr
+2018;7,4;Nouvelle-Calédonie;Lévina Napoléon;18;172;Bruns;Verts;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/8/8e/Nouvelle-Cal%C3%A9donie_2017.jpg/revision/latest?cb=20171116200401&path-prefix=fr
+2018;7,4;Pays de Loire;Chloé Guémard;20;176;Blonds ;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/ed/Pays_de_Loire_2017.jpg/revision/latest?cb=20171116194613&path-prefix=fr
+2018;7,4;Picardie;Paoulina Prylutska;19;171;Bruns;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/1e/Picardie_2017.jpg/revision/latest?cb=20171116200038&path-prefix=fr
+2018;7,4;Poitou-Charentes;Ophélie Forgit;19;171;Blonds;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/3a/Poitou-Charentes_2017.jpg/revision/latest?cb=20171116195523&path-prefix=fr
+2018;7,4;Provence;Kleofina Pnishi;23;170;Bruns;Marrons;Blanche ;10.0;0;0;https://static.wikia.nocookie.net/miss/images/7/7d/Provence_2017.jpg/revision/latest?cb=20171116193420&path-prefix=fr
+2018;7,4;Réunion;Audrey Chane Pao Kan;19;171;Noirs;Marrons;Métisse;5.0;0;0;https://static.wikia.nocookie.net/miss/images/5/5b/R%C3%A9union_2017.jpg/revision/latest?cb=20171116194237&path-prefix=fr
+2018;7,4;Rhône-Alpes;Dalida Benaoudia;24;178;Chatains ;Marrons;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/1/1f/Rh%C3%B4ne-Alpes_2017.jpg/revision/latest?cb=20171116194836&path-prefix=fr
+2018;7,4;Saint-Pierre-et-Miquelon;Heloise Urtizberea;18;180;Roux;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/79/Saint-Pierre-et-Miquelon_2017.jpg/revision/latest?cb=20171116195033&path-prefix=fr
+2018;7,4;Tahiti;Turouru Temorere;20;172;Noirs;Marrons;Métisse ;;0;0;https://static.wikia.nocookie.net/miss/images/0/09/Tahiti_2017.jpg/revision/latest?cb=20171116200539&path-prefix=fr
+2019;7,3;Alsace;Léa Reboul;22;173;Chatains ;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/0/0f/Alsace_2018.jpg/revision/latest?cb=20181119202647&path-prefix=fr
+2019;7,3;Aquitaine;Carla Bonesso;20;173;Bruns;Marrons;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e3/Aquitaine_2018.jpg/revision/latest?cb=20181119202804&path-prefix=fr
+2019;7,3;Auvergne;Romane Eichstadt;19;181;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/4d/Auvergne_2018.jpg/revision/latest?cb=20181119202940&path-prefix=fr
+2019;7,3;Bourgogne;Coline Touret;19;173;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/7b/Bourgogne_2018.jpg/revision/latest?cb=20181119203008&path-prefix=fr
+2019;7,3;Bretagne;Emilie Bachellereau;22;180;Blonds;Bleus;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/f/f5/Bretagne_2018.jpg/revision/latest?cb=20181119203045&path-prefix=fr
+2019;7,3;Centre-Val-de-Loire;Laurie Derouard;23;176;Bruns;Marrons;Blanche;;1;0;https://static.wikia.nocookie.net/miss/images/3/3b/Centre-Val-de-Loire_2018.jpg/revision/latest?cb=20181119203139&path-prefix=fr
+2019;7,3;Champagne-Ardenne;Paméla Texier;22;170;Blonds ;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/62/Champagne-Ardenne_2018.jpg/revision/latest?cb=20181119203206&path-prefix=fr
+2019;7,3;Corse;Manon Jean-Mistral;18;174;Blonds;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/54/Corse_2018.jpg/revision/latest?cb=20181119203235&path-prefix=fr
+2019;7,3;Côte d'Azur;Caroline Perengo;22;171;Bruns;Marrons;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/4/45/C%C3%B4te_d%27Azur_2018.jpg/revision/latest?cb=20181119203331&path-prefix=fr
+2019;7,3;Franche-Comté;Lauralyne Demesmay;18;180;Chatains;Verts;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/c/c5/Franche-Comt%C3%A9_2018.jpg/revision/latest?cb=20181119203403&path-prefix=fr
+2019;7,3;Guadeloupe;Ophély Mézino;19;173;Bruns;Marrons;Blanche;2.0;0;0;https://static.wikia.nocookie.net/miss/images/5/59/Guadeloupe_2018.jpg/revision/latest?cb=20181119203750&path-prefix=fr
+2019;7,3;Guyane;Laureline Decocq;18;177;Chatains;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/a/a5/Guyane_2018.jpg/revision/latest?cb=20181119203819&path-prefix=fr
+2019;7,3;Île-de-France;Alice Quérette;24;177;Blonds;Bleus;Blanche;7.0;0;0;https://static.wikia.nocookie.net/miss/images/c/ca/%C3%8Ele-de-France_2018.jpg/revision/latest?cb=20181119203843&path-prefix=fr
+2019;7,3;Languedoc-Roussillon;Lola Brengues;18;178;Bruns;Marrons;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/7/7e/Languedoc-Roussillon_2018.jpg/revision/latest?cb=20181119203915&path-prefix=fr
+2019;7,3;Limousin;Aude Destour;23;177;Bruns;Marrons;Métisse;5.0;0;0;https://static.wikia.nocookie.net/miss/images/7/7b/Limousin_2018.jpg/revision/latest?cb=20181119203943&path-prefix=fr
+2019;7,3;Lorraine;Emma Virtz;21;171;Bruns;Marrons;Métisse;10.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e4/Lorraine_2018.jpg/revision/latest?cb=20181119204021&path-prefix=fr
+2019;7,3;Martinique;Olivia Luscap;18;176;Bruns ;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/b/b7/Martinique_2018.jpg/revision/latest?cb=20181119204222&path-prefix=fr
+2019;7,3;Mayotte;Ousna Attoumani;20;177;Bruns;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/c/cb/Mayotte_2018.jpg/revision/latest?cb=20181119204819&path-prefix=fr
+2019;7,3;Midi-Pyrénées;Axelle Breil;20;177;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/90/Midi-Pyr%C3%A9n%C3%A9es_2018.jpg/revision/latest?cb=20181119204854&path-prefix=fr
+2019;7,3;Nord-Pas-de-Calais;Annabelle Varane;19;181;Bruns;Marrons;Noire;9.0;0;0;https://static.wikia.nocookie.net/miss/images/8/8a/Nord-Pas-de-Calais_2018.jpg/revision/latest?cb=20181119204948&path-prefix=fr
+2019;7,3;Normandie;Anaëlle Chrétien;21;182;Blonds;Bleus ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/9e/Normandie_2018.jpg/revision/latest?cb=20181119205028&path-prefix=fr
+2019;7,3;Nouvelle-Calédonie;Amandine Chabrier;19;171;Bruns ;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/a/a2/Nouvelle-Cal%C3%A9donie_2018.jpg/revision/latest?cb=20181119205058&path-prefix=fr
+2019;7,3;Pays de la Loire;Diane Le Roux;22;183;Noirs ;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/b/b6/Pays_de_la_Loire_2018.jpg/revision/latest?cb=20181119205122&path-prefix=fr
+2019;7,3;Picardie;Assia Kerim;22;170;Noirs;Noirs ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/79/Picardie_2018.jpg/revision/latest?cb=20181119205150&path-prefix=fr
+2019;7,3;Poitou-Charentes;Marion Sokolik;23;174;Blonds ;Bleus;Blanche ;;0;0;https://static.wikia.nocookie.net/miss/images/b/b8/Poitou-Charentes_2018.jpg/revision/latest?cb=20181119205218&path-prefix=fr
+2019;7,3;Provence;Wynona Gueraini;19;174;Blonds;Bleus;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/9/97/Provence_2018.jpg/revision/latest?cb=20181119205306&path-prefix=fr
+2019;7,3;Réunion;Morgane Soucramanien;18;174;Noirs;Marrons;Métisse;4.0;0;0;https://static.wikia.nocookie.net/miss/images/f/f2/R%C3%A9union_2018.jpg/revision/latest?cb=20181119205352&path-prefix=fr
+2019;7,3;Rhône-Alpes;Pauline Ianiro;19;179;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/b/bf/Rh%C3%B4ne-Alpes_2018.jpg/revision/latest?cb=20181119205440&path-prefix=fr
+2019;7,3;Saint-Martin Saint-Barthélemy;Allisson Georges;18;172;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/a/ac/Saint-Martin_Saint-Barth%C3%A9lemy_2018.jpg/revision/latest?cb=20181119205512&path-prefix=fr
+2019;7,3;Tahiti;Vaimalama Chaves;23;178;Bruns;Bleus;Métisse;1.0;0;0;https://static.wikia.nocookie.net/miss/images/2/28/Vaimalama_Chaves.jpg/revision/latest?cb=20190209103511&path-prefix=fr
+2020;6,9;Alsace;Laura Theodori;23;171;Bruns;Marrrons ;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e8/Alsace_2019.jpg/revision/latest?cb=20191116082750&path-prefix=fr
+2020;6,9;Aquitaine;Justine Delmas;21;177;Bruns;Marrons;Blanche;14.0;0;0;https://static.wikia.nocookie.net/miss/images/2/22/Aquitaine_2019.jpg/revision/latest?cb=20191116083112&path-prefix=fr
+2020;6,9;Auvergne;Meïssa Ameur;21;186;Noirs;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/39/Auvergne_2019.jpg/revision/latest?cb=20191116083322&path-prefix=fr
+2020;6,9;Bourgogne;Sophie Diry;21;176;Bruns ;Marrons;Blanche;4.0;0;0;https://static.wikia.nocookie.net/miss/images/3/3c/Bourgogne_2019.jpg/revision/latest?cb=20191116083414&path-prefix=fr
+2020;6,9;Bretagne;Romane Edern;24;173;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/47/Bretagne_2019.jpg/revision/latest?cb=20191116083603&path-prefix=fr
+2020;6,9;Centre-Val-de-Loire;Jade Simon-Abadie;22;173;Blonds;Bleus;Blanche;15.0;0;0;https://static.wikia.nocookie.net/miss/images/6/6b/Centre-Val-de-Loire_2019.jpg/revision/latest?cb=20191116083707&path-prefix=fr
+2020;6,9;Champagne-Ardenne;Lucille Moine;18;173;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/3a/Champagne-Ardenne_2019.jpg/revision/latest?cb=20191116083754&path-prefix=fr
+2020;6,9;Corse;Alixia Cauro;20;177;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/3c/Corse_2019.jpg/revision/latest?cb=20191116083836&path-prefix=fr
+2020;6,9;Côte d'Azur;Manelle Souahlia;18;172;Chatains;Bleus ;Blanche;5.0;0;0;https://static.wikia.nocookie.net/miss/images/f/fe/C%C3%B4te_d%27Azur_2019.jpg/revision/latest?cb=20191116084210&path-prefix=fr
+2020;6,9;Franche-Comté;Solène Bernardin;23;176;Chatains;Bleus ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/ce/Franche-Comt%C3%A9_2019.jpg/revision/latest?cb=20191116084526&path-prefix=fr
+2020;6,9;Guadeloupe;Clémence Botino;22;174;Noirs;Marrons;Métisse;1.0;1;0;https://static.wikia.nocookie.net/miss/images/2/29/Guadeloupe_2019.jpg/revision/latest?cb=20191116084646&path-prefix=fr
+2020;6,9;Guyane;Dariana Abé;21;173;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/5/57/Guyane_2019.jpg/revision/latest?cb=20191116084729&path-prefix=fr
+2020;6,9;Île-de-France;Evelyne de Larichaudy;23;172;Bruns;Noirs;Blanche;13.0;0;0;https://static.wikia.nocookie.net/miss/images/5/59/%C3%8Ele-de-France_2019.jpg/revision/latest?cb=20191116084828&path-prefix=fr
+2020;6,9;Languedoc-Roussillon;Lucie Caussanel;18;180;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/a/a8/Languedoc-Roussillon_2019.jpg/revision/latest?cb=20191116084923&path-prefix=fr
+2020;6,9;Limousin;Alison Salapic;22;172;Bruns;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/97/Limousin_2019.jpg/revision/latest?cb=20191116084953&path-prefix=fr
+2020;6,9;Lorraine;Ilona Robelin;17;178;Blonds;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/78/Lorraine_2019.jpg/revision/latest?cb=20191116085019&path-prefix=fr
+2020;6,9;Martinique;Ambre Bozza;21;175;Bruns;Marrons;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/a/ac/Martinique_2019.jpg/revision/latest?cb=20191116085100&path-prefix=fr
+2020;6,9;Mayotte;Eva Labourdère;19;175;Bruns;Marrons;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/c/c1/Mayotte_2019.jpg/revision/latest?cb=20191116085129&path-prefix=fr
+2020;6,9;Midi-Pyrénées;Andréa Magalhaes;21;172;Bruns;Marrons ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/e9/Midi-Pyr%C3%A9n%C3%A9es_2019.jpg/revision/latest?cb=20191116085151&path-prefix=fr
+2020;6,9;Nord-Pas-de-Calais;Florentine Somers;19;177;Blonds;Verts ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/83/Nord-Pas-de-Calais_2019.jpg/revision/latest?cb=20191116085222&path-prefix=fr
+2020;6,9;Normandie;Marine Clautour;21;172;Roux;Bleus;Blanche ;6.0;0;0;https://static.wikia.nocookie.net/miss/images/a/a9/Normandie_2019.jpg/revision/latest?cb=20191116085247&path-prefix=fr
+2020;6,9;Nouvelle-Calédonie;Anaïs Toven;18;170;Bruns;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/d/d7/Nouvelle-Cal%C3%A9donie_2019.jpg/revision/latest?cb=20191116085323&path-prefix=fr
+2020;6,9;Pays de la Loire;Yvana Cartaud;18;173;Bruns;Marrons;Blanche;7.0;0;0;https://static.wikia.nocookie.net/miss/images/8/8c/Pays_de_la_Loire_2019.jpg/revision/latest?cb=20191116085346&path-prefix=fr
+2020;6,9;Picardie;Morgane Fradon;20;174;Bruns ;Marrons;Métisse;9.0;0;0;https://static.wikia.nocookie.net/miss/images/0/03/Picardie_2019.jpg/revision/latest?cb=20191116085414&path-prefix=fr
+2020;6,9;Poitou-Charentes;Andréa Galland;19;172;Blonds;Marrons;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/5/54/Poitou-Charentes_2019.jpg/revision/latest?cb=20191116085502&path-prefix=fr
+2020;6,9;Provence;Lou Ruat;18;171;Blonds;Bleus;Blanche;2.0;0;0;https://static.wikia.nocookie.net/miss/images/4/48/Provence_2019.jpg/revision/latest?cb=20191116085536&path-prefix=fr
+2020;6,9;Réunion;Morgane Lebon;21;176;Bruns;Gris;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/2/2e/R%C3%A9union_2019.jpg/revision/latest?cb=20191116085607&path-prefix=fr
+2020;6,9;Rhône-Alpes;Chloé Prost;20;177;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/e/ed/Rh%C3%B4ne-Alpes_2019.jpg/revision/latest?cb=20191116085631&path-prefix=fr
+2020;6,9;Saint-Martin Saint-Barthélemy;Layla Berry;20;175;Bruns;Marrons;Métisse;11.0;0;0;https://static.wikia.nocookie.net/miss/images/b/ba/Saint-Martin_Saint-Barth%C3%A9lemy_2019.jpg/revision/latest?cb=20191116085702&path-prefix=fr
+2020;6,9;Tahiti;Matahari Bousquet;22;180;Bruns;Marrons;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/2/2f/Tahiti_2019.jpg/revision/latest?cb=20191116085729&path-prefix=fr
+2021;10,4;Alsace;Aurélie Roux;24;172;Chatains;Gris;Métisse;4.0;0;0;https://static.wikia.nocookie.net/miss/images/0/0a/Alsace_2020.jpg/revision/latest?cb=20201130213002&path-prefix=fr
+2021;10,4;Aquitaine;Leïla Veslard;18;177;Bruns ;Noirs;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/1/1f/Aquitaine_2020.jpg/revision/latest?cb=20201130213319&path-prefix=fr
+2021;10,4;Auvergne;Géromine Prique;21;171;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/6b/Auvergne_2020.jpg/revision/latest?cb=20201130213557&path-prefix=fr
+2021;10,4;Bourgogne;Lou-Anne Lorphelin;23;171;Bruns;Bleus;Blanche ;5.0;1;0;https://static.wikia.nocookie.net/miss/images/4/45/Bourgogne_2020.jpg/revision/latest?cb=20201130215900&path-prefix=fr
+2021;10,4;Bretagne;Julie Foricher;23;178;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/ca/Bretagne_2020.jpg/revision/latest?cb=20201130220041&path-prefix=fr
+2021;10,4;Centre-Val-de-Loire;Cloé Delavalle;23;171;Chatains;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/3/33/Centre-Val-de-Loire_2020.jpg/revision/latest?cb=20201130221338&path-prefix=fr
+2021;10,4;Champagne-Ardenne;Gwenegann Saillard;21;170;Bruns;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/9d/Champagne-Ardenne_2020.jpg/revision/latest?cb=20201130221439&path-prefix=fr
+2021;10,4;Corse;Noémie Leca;20;178;Blonds;Marrons;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/0/02/Corse_2020.jpg/revision/latest?cb=20201130221530&path-prefix=fr
+2021;10,4;Côte d'Azur;Lara Gautier;22;173;Bruns;Gris;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/9/9d/C%C3%B4te_d%27Azur_2020.jpg/revision/latest?cb=20201130221622&path-prefix=fr
+2021;10,4;Franche-Comté;Coralie Gandelin;23;172;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/69/Franche-Comt%C3%A9_2020.jpg/revision/latest?cb=20201130221723&path-prefix=fr
+2021;10,4;Guadeloupe;Kenza Andreze-Louison;20;175;Noirs;Noirs;Noire;8.0;0;0;https://static.wikia.nocookie.net/miss/images/3/33/Guadeloupe_2020.jpg/revision/latest?cb=20201130221814&path-prefix=fr
+2021;10,4;Guyane;Héléneschka Horth;23;175;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/f/f1/Guyane_2020.jpg/revision/latest?cb=20201130221906&path-prefix=fr
+2021;10,4;Île-de-France;Lara Lourenço;18;171;Blonds;Marrons;Blanche;7.0;0;0;https://static.wikia.nocookie.net/miss/images/6/69/%C3%8Ele-de-France_2020.jpg/revision/latest?cb=20201130221933&path-prefix=fr
+2021;10,4;Languedoc-Roussillon;Illana Barry;19;176;Bruns;Gris;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/1/19/Languedoc-Roussillon_2020.jpg/revision/latest?cb=20201130222012&path-prefix=fr
+2021;10,4;Limousin;Léa Graniou;20;171;Roux;Gris;Blanche;15.0;0;0;https://static.wikia.nocookie.net/miss/images/f/fe/Limousin_2020.jpg/revision/latest?cb=20201130222050&path-prefix=fr
+2021;10,4;Lorraine;Diane Febvay;19;177;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/35/Lorraine_2020.jpg/revision/latest?cb=20201130222129&path-prefix=fr
+2021;10,4;Martinique;Séphorah Azur;23;179;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/a/af/Martinique_2020.jpg/revision/latest?cb=20201130222828&path-prefix=fr
+2021;10,4;Mayotte;Anlia Charifa;23;178;Noirs;Noirs;Noire;13.0;0;0;https://static.wikia.nocookie.net/miss/images/0/05/Mayotte_2020.jpg/revision/latest?cb=20201130222947&path-prefix=fr
+2021;10,4;Midi-Pyrénées;Emma Arrebot-Natou;19;177;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/60/Midi-Pyr%C3%A9n%C3%A9es_2020.jpg/revision/latest?cb=20201130223025&path-prefix=fr
+2021;10,4;Nord-Pas-de-Calais;Laura Cornillot;24;178;Bruns;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/71/Nord-Pas-de-Calais_2020.jpg/revision/latest?cb=20201130223138&path-prefix=fr
+2021;10,4;Normandie;Amandine Petit;23;175;Blonds;Bleus;Blanche;1.0;0;0;https://static.wikia.nocookie.net/miss/images/c/c3/Normandie_2020.jpg/revision/latest?cb=20201130223219&path-prefix=fr
+2021;10,4;Nouvelle-Calédonie;Louisa Salvan;19;174;Bruns;Noirs ;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/81/Nouvelle-Cal%C3%A9donie_2020.jpg/revision/latest?cb=20201130223308&path-prefix=fr
+2021;10,4;Pays de la Loire;Julie Tagliavacca;24;174;Chatains;Marrons;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/e/ea/Pays_de_la_Loire_2020.jpg/revision/latest?cb=20201130223339&path-prefix=fr
+2021;10,4;Picardie;Tara de Mets;22;179;Blonds;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/5/5e/Picardie_2020.jpg/revision/latest?cb=20201130223524&path-prefix=fr
+2021;10,4;Poitou-Charentes;Justine Dubois;24;174;Blonds ;Marrons;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/2/2a/Poitou-Charentes_2020.jpg/revision/latest?cb=20201130223611&path-prefix=fr
+2021;10,4;Provence;April Benayoum;21;176;Blonds;Bleus;Blanche;2.0;0;0;https://static.wikia.nocookie.net/miss/images/a/a7/Provence_2020.jpg/revision/latest?cb=20201130223657&path-prefix=fr
+2021;10,4;Réunion;Lyna Boyer;21;176;Chatains;Marrons;Métisse;6.0;0;0;https://static.wikia.nocookie.net/miss/images/e/e9/R%C3%A9union_2020.jpg/revision/latest?cb=20201130223733&path-prefix=fr
+2021;10,4;Rhône-Alpes;Anais Roux;23;172;Blond;Gris;Blanche;14.0;0;0;https://static.wikia.nocookie.net/miss/images/3/36/Rh%C3%B4ne-Alpes_2020.jpg/revision/latest?cb=20201130223757&path-prefix=fr
+2021;10,4;Wallis-et-Futuna;Mylène Halemai;19;177;Noirs;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/2/2c/Wallis-et-Futuna_2020.jpg/revision/latest?cb=20201130223823&path-prefix=fr
+2022;6,7;Alsace;Cécile Wolfrom;23;174;Bruns;Marrons;Blanche;3.0;1;1;https://static.wikia.nocookie.net/miss/images/4/42/Alsace_2021.jpg/revision/latest?cb=20211206171311&path-prefix=fr
+2022;6,7;Aquitaine;Ambre Andrieu;22;178;Blond;Marrons;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/a/a2/Aquitaine_2021.jpg/revision/latest?cb=20211206171510&path-prefix=fr
+2022;6,7;Auvergne;Anaïs Werestchack;24;177;Blond;Verts ???;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/ca/Auvergne_2021.jpg/revision/latest?cb=20211206171558&path-prefix=fr
+2022;6,7;Bourgogne;Chloé Galissi;21;172;Bruns;Verts;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/24/Bourgogne_2021.jpg/revision/latest?cb=20211206171802&path-prefix=fr
+2022;6,7;Bretagne;Sarah Conan;22;174;Blond;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/4c/Bretagne_2021.jpg/revision/latest?cb=20211206171850&path-prefix=fr
+2022;6,7;Centre-Val-de-Loire;Jade Lange;19;175;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/3/39/Centre-Val-de-Loire_2021.jpg/revision/latest?cb=20211206172053&path-prefix=fr
+2022;6,7;Champagne-Ardenne;Léna Massinger;20;170;Noirs;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/7/7b/Champagne-Ardenne_2021.jpg/revision/latest?cb=20211206172127&path-prefix=fr
+2022;6,7;Corse;Emma Renucci;18;176;Blond;Bleus;Blanche;14.0;0;0;https://static.wikia.nocookie.net/miss/images/a/aa/Corse_2021.jpg/revision/latest?cb=20211206172406&path-prefix=fr
+2022;6,7;Côte d'Azur;Valeria Pavelin;24;185;Blond;Bleus;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/4/48/C%C3%B4te_d%27Azur_2021.jpg/revision/latest?cb=20211206172435&path-prefix=fr
+2022;6,7;Franche-Comté;Julie Cretin;21;170;Blond;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/6/6a/Franche-Comt%C3%A9_2021.jpg/revision/latest?cb=20211206172700&path-prefix=fr
+2022;6,7;Guadeloupe;Ludivine Edmond;20;177;Noirs ;Marrons;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/2/2c/Guadeloupe_2021.jpg/revision/latest?cb=20211206172755&path-prefix=fr
+2022;6,7;Guyane;Mélysa Stéphenson;19;171;Noirs;Marrons;Noire;13.0;0;0;https://static.wikia.nocookie.net/miss/images/5/5a/Guyane_2021.jpg/revision/latest?cb=20211206172939&path-prefix=fr
+2022;6,7;Île-de-France;Diane Leyre;24;177;Bruns;Marrons;Blanche;1.0;0;1;https://static.wikia.nocookie.net/miss/images/c/c5/%C3%8Ele-de-France_2021.jpg/revision/latest?cb=20211206173022&path-prefix=fr
+2022;6,7;Languedoc-Roussillon;Marion Ratié;20;172;Bruns;Marrons;Blanche;15.0;0;0;https://static.wikia.nocookie.net/miss/images/2/2a/Languedoc-Roussillon_2021.jpg/revision/latest?cb=20211206173228&path-prefix=fr
+2022;6,7;Limousin;Julie Bève;23;171;Chatains;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/1/18/Limousin_2021.jpg/revision/latest?cb=20211206173301&path-prefix=fr
+2022;6,7;Lorraine;Marine Sauvage;23;175;Noirs;Marrons;Blanche;11.0;0;0;https://static.wikia.nocookie.net/miss/images/c/c0/Lorraine_2021.jpg/revision/latest?cb=20211206173558&path-prefix=fr
+2022;6,7;Martinique;Floriane Bascou;19;171;Noirs;Noirs;Noire;2.0;0;0;https://static.wikia.nocookie.net/miss/images/4/44/Martinique_2021.jpg/revision/latest?cb=20211206173634&path-prefix=fr
+2022;6,7;Mayotte;Anna Ousseni;24;170;Noirs;Noirs;Noire;;0;0;https://static.wikia.nocookie.net/miss/images/e/e0/Mayotte_2021.jpg/revision/latest?cb=20211206173813&path-prefix=fr
+2022;6,7;Midi-Pyrénées;Hannah Friconnet;22;170;Blond;Gris;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/0/03/Midi-Pyr%C3%A9n%C3%A9es_2021.jpg/revision/latest?cb=20211206173851&path-prefix=fr
+2022;6,7;Nord-Pas-de-Calais;Donatella Meden;20;174;Bruns ;Marrons;Blanche;8.0;0;0;https://static.wikia.nocookie.net/miss/images/1/1e/Nord-Pas-de-Calais_2021.jpg/revision/latest?cb=20211206174049&path-prefix=fr
+2022;6,7;Normandie;Youssra Askry;24;172;Noirs;Noirs;Métisse;5.0;1;0;https://static.wikia.nocookie.net/miss/images/9/9e/Normandie_2021.jpg/revision/latest?cb=20211206174116&path-prefix=fr
+2022;6,7;Nouvelle-Calédonie;Emmy Chenin;18;175;Noirs;Noirs;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/5/57/Nouvelle-Cal%C3%A9donie_2021.jpg/revision/latest?cb=20211206174536&path-prefix=fr
+2022;6,7;Pays de la Loire;Line Carvalho;20;178;Chatains;Marrons;Blanche;12.0;0;0;https://static.wikia.nocookie.net/miss/images/5/54/Pays_de_la_Loire_2021.jpg/revision/latest?cb=20211206174606&path-prefix=fr
+2022;6,7;Picardie;Hayate El Gharmaoui;21;172;Blond;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/28/Picardie_2021.jpg/revision/latest?cb=20211206174909&path-prefix=fr
+2022;6,7;Poitou-Charentes;Lolita Ferrari;24;172;Noirs;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/44/Poitou-Charentes_2021.jpg/revision/latest?cb=20211206174940&path-prefix=fr
+2022;6,7;Provence;Eva Navarro;19;170;Noirs ;Noirs;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/c8/Provence_2021.jpg/revision/latest?cb=20211206175254&path-prefix=fr
+2022;6,7;Réunion;Dana Virin;22;173;Noirs;Noirs;Noire;7.0;0;0;https://static.wikia.nocookie.net/miss/images/0/06/R%C3%A9union_2021.jpg/revision/latest?cb=20211206175344&path-prefix=fr
+2022;6,7;Rhône-Alpes;Charlotte Faure;20;173;Chatains;Bleus;Blanche;9.0;0;0;https://static.wikia.nocookie.net/miss/images/1/12/Rh%C3%B4ne-Alpes_2021.jpg/revision/latest?cb=20211206175411&path-prefix=fr
+2022;6,7;Tahiti;Tumateata Buisson;24;181;Bruns;Marrons;Métisse;4.0;0;0;https://static.wikia.nocookie.net/miss/images/2/28/Tahiti_2021.jpg/revision/latest?cb=20211206175443&path-prefix=fr
+2023;6,7;Alsace;Camille Sedira;20;175;Bruns;Marrons;Blanche;;1;0;https://static.wikia.nocookie.net/miss/images/d/de/Alsace_2022.jpg/revision/latest?cb=20221122120746&path-prefix=fr
+2023;6,7;Aquitaine;Orianne Galvez-Soto;23;176;Noirs ;Noirs ;Noire;15.0;0;0;https://static.wikia.nocookie.net/miss/images/1/1a/Aquitaine_2022.jpg/revision/latest?cb=20221122120819&path-prefix=fr
+2023;6,7;Auvergne;Alissia Ladevèze;21;184;Chatains;Verts;Blanche;5.0;0;0;https://static.wikia.nocookie.net/miss/images/6/60/Auvergne_2022.jpg/revision/latest?cb=20221122120850&path-prefix=fr
+2023;6,7;Bourgogne;Lara Lebretton;23;176;Blond;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/d/d4/Bourgogne_2022.jpg/revision/latest?cb=20221122120937&path-prefix=fr
+2023;6,7;Bretagne;Enora Moal;20;171;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/c/ce/Bretagne_2022.jpg/revision/latest?cb=20221122120959&path-prefix=fr
+2023;6,7;Centre-Val-de-Loire;Coraline Larasle;22;177;Bruns;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/4/4c/Centre-Val-de-Loire_2022.jpg/revision/latest?cb=20221122121158&path-prefix=fr
+2023;6,7;Champagne-Ardenne;Solène Scholer;20;180;Blond;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/82/Champagne-Ardenne_2022.jpg/revision/latest?cb=20221122121459&path-prefix=fr
+2023;6,7;Corse;Orianne Meloni;22;183;Chatains;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/8/8d/Corse_2022.jpg/revision/latest?cb=20221122121532&path-prefix=fr
+2023;6,7;Côte d'Azur;Flavy Barla;19;172;Blond;Verts;Blanche;6.0;0;0;https://static.wikia.nocookie.net/miss/images/7/77/C%C3%B4te_d%27Azur_2022.jpg/revision/latest?cb=20221122121611&path-prefix=fr
+2023;6,7;Franche-Comté;Marion Navarro;19;173;Bruns;Marrons;Blanche;3.0;0;0;https://static.wikia.nocookie.net/miss/images/9/90/Franche-Comt%C3%A9_2022.jpg/revision/latest?cb=20221122121637&path-prefix=fr
+2023;6,7;Guadeloupe;Indira Ampiot;18;177;Chatains;Marrons;Métisse;1.0;0;0;https://static.wikia.nocookie.net/miss/images/d/dd/Guadeloupe_2022.jpg/revision/latest?cb=20221122121710&path-prefix=fr
+2023;6,7;Guyane;Shaïna Robin;20;173;Blond;Marrons;Métisse;;0;0;https://static.wikia.nocookie.net/miss/images/f/f1/Guyane_2022.jpg/revision/latest?cb=20221122121736&path-prefix=fr
+2023;6,7;Île-de-France;Adèle Bonnamour;18;186;Bruns ;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/2/26/%C3%8Ele-de-France_2022.jpg/revision/latest?cb=20221122121816&path-prefix=fr
+2023;6,7;Languedoc;Cameron Vallière;23;174;Bruns;Noirs;Blanche;10.0;0;0;https://static.wikia.nocookie.net/miss/images/5/55/Languedoc_2022.jpg/revision/latest?cb=20221122121849&path-prefix=fr
+2023;6,7;Limousin;Salomé Maud;23;174;Blond;Bleus;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/9/91/Limousin_2022.jpg/revision/latest?cb=20221122121904&path-prefix=fr
+2023;6,7;Lorraine;Sarah Aoutar;25;173;Noirs;Noirs ;Métisse;7.0;0;0;https://static.wikia.nocookie.net/miss/images/6/62/Lorraine_2022.jpg/revision/latest?cb=20221122121933&path-prefix=fr
+2023;6,7;Martinique;Axelle René;21;177;Noirs;Noirs;Noire;4.0;0;0;
+2023;6,7;Midi-Pyrénées;Florence Demortier;22;171;Chatains;Marrons ;Blanche;8.0;0;0;
+2023;6,7;Nord-Pas-de-Calais;Agathe Cauet;23;179;Blonds;Verts;Blanche;2.0;0;0;
+2023;6,7;Normandie;Perrine Prunier;23;171;Bruns;Marrons;Blanche;;1;0;
+2023;6,7;Nouvelle-Calédonie;Océane Le Goff;26;173;Roux;Marrons;Blanche;;0;0;https://static.wikia.nocookie.net/miss/images/f/ff/Miss_Nouvelle-Cal%C3%A9donie_2022.jpg/revision/latest?cb=20230915071010&path-prefix=fr
+2023;6,7;Pays de la Loire;Emma Guibert;20;176;Chatains;Marrons;Blanche;12.0;0;0;
+2023;6,7;Picardie;Bérénice Legendre;25;171;Noirs;Bleus;Blanche;9.0;0;0;
+2023;6,7;Poitou-Charentes;Marine Paulais;20;175;Chatains;Marrons;Blanche;14.0;0;0;
+2023;6,7;Provence;Chana Goyons;18;180;Chatains;Marrons;Blanche;;0;0;
+2023;6,7;Réunion;Marion Marimoutou;18;172;Noirs;Marrons;Métisse;;0;0;
+2023;6,7;Rhône-Alpes;Esther Coutin;24;171;Chatains;Marrons ;Blanche;11.0;0;0;
+2023;6,7;Roussillon;Chiara Fontaine;20;174;Bruns;Marrons;Métisse;13.0;1;1;https://static.wikia.nocookie.net/miss/images/f/fc/Roussillon_2022.jpg/revision/latest?cb=20221122122506&path-prefix=fr
+2023;6,7;Saint-Martin Saint-Barthélemy;Inès Tessier;20;170;Blonds;Marrons;Blanche;;0;0;
+2023;6,7;Tahiti;Herenui Tuheiava;23;177;Noirs;Noirs;Métisse;;0;0;
+2024;7,54;Alsace;Adeline Vetter;27;171;Chatains;Bleus;Blanche;;1;0;
+2024;7,54;Aquitaine;Lola Turpin;19;173;Bruns;Marrons;Blanche;;0;0;
+2024;7,54;Auvergne;Oriane Mallet;22;183;Blonds;Bleus;Blanche;;0;0;
+2024;7,54;Bourgogne;Luna Lacharme;18;175;Bruns;Marrons;Métisse;10.0;0;0;
+2024;7,54;Bretagne;Noémie Le Bras;21;175;Roux;Verts ;Blanche;;0;0;
+2024;7,54;Centre-Val de Loire;Emmy Gisclon;22;176;Bruns;Marrons;Blanche;13.0;0;0;
+2024;7,54;Champagne-Ardenne;Noa Dutitre;21;170;Blonds;Bleus;Blanche;;0;0;
+2024;7,54;Corse;Sandra Bak;22;171;Chatains;Verts;Blanche;14.0;0;0;
+2024;7,54;Côte d'Azur;Karla Bchir;19;175;Noirs;Marrons;Blanche;12.0;0;0;
+2024;7,54;Franche-Comté;Sonia Coutant;24;172;Noirs;Noirs;Blanche ;;0;0;
+2024;7,54;Guadeloupe;Jalylane Maës;18;173;Noirs ;Noirs;Noire ;4.0;1;0;
+2024;7,54;Guyane;Audrey Ho-Wen-Tsaï;17;173;Bruns;Marrons;Noire;2.0;0;0;
+2024;7,54;Île-de-France;Elena Faliez;28;174;Chatains;Marrons;Blanche;8.0;0;0;
+2024;7,54;Languedoc;Maxime Teissier;19;173;Blonds;Bleus;Blanche;5.0;0;0;
+2024;7,54;Limousin;Agathe Toullieu;21;177;Bruns;Marrons;Blanche;;0;0;
+2024;7,54;Lorraine;Angéline Aron-Clauss;26;170;Roux;Marrons ;Blanche;;0;0;
+2024;7,54;Martinique;Chléo Modestine;21;175;Noirs;Noirs;Noire;;0;0;
+2024;7,54;Mayotte;Houdayifa Chibaco;21;172;Noirs;Noirs ;Noire;;0;0;
+2024;7,54;Midi-Pyrénées;Nadine Benaboud;22;171;Bruns;Marrons;Métisse;15.0;0;0;
+2024;7,54;Nord-Pas-de-Calais;Ève Gilles;20;171;Noirs;Noirs;Métisse;1.0;0;0;
+2024;7,54;Normandie;Wissem Morel-Omari;21;176;Bruns;Marrons ;Blanche;6.0;0;0;
+2024;7,54;Nouvelle-Calédonie;Emma Grousset;21;180;Blonds ;Bleus;Blanche ;;0;0;
+2024;7,54;Pays de la Loire;Clémence Ménard;25;174;Chatains;Gris;Blanche;9.0;0;0;
+2024;7,54;Picardie;Charlotte Cresson;23;171;Bruns;Marrons;Blanche;;0;0;
+2024;7,54;Poitou-Charentes;Lounès Texier;18;173;Chatains;Verts ;Blanche;;0;0;
+2024;7,54;Provence;Adélina Blanc;25;173;Blonds;Gris;Blanche;3.0;0;0;
+2024;7,54;Réunion;Mélanie Odules;20;178;Bruns;Noirs;Métisse;;0;0;
+2024;7,54;Rhône-Alpes;Alizée Bidaut;22;174;Blonds;Bleus;Blanche;;0;0;
+2024;7,54;Roussillon;Élise Aquilina;21;171;Bruns;Marrons;Blanche;11.0;1;0;
+2024;7,54;Tahiti;Ravahere Silloux;24;172;Bruns;Marrons;Métisse;7.0;0;0;
