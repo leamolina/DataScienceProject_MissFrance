@@ -28,7 +28,7 @@ def page_un():
     st.title("Nos données")
     st.write("Ici on va présenter notre Dataset.")
 
-# Fonction pour afficher la deuxième page
+
 def page_deux():
     st.title("Prédictions")
     st.write("Ici on va prédire notre future Miss France.")
