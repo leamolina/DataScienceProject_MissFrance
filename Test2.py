@@ -60,25 +60,25 @@ def contact():
     st.write("anaelle.cohen@dauphine.eu")
     st.write("lea.molina@dauphine.eu")
 
-def main():
-    st.sidebar.title("Projet")
-    pages = {
-        "Accueil": page_accueil,
-        "Qu\'est-ce-que Miss France ?": page_1,
-        "Page 2": page_2,
-        "Contact": contact
-    }
-    choix_page = st.sidebar.radio("Aller à", list(pages.keys()))
 
-    # Charger l'image de paillettes
-    #chemin_image_paillettes = '/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/sources/paillettes2.jpeg'
-    #st.image(chemin_image_paillettes, use_column_width=True, caption='Image de paillettes')
+st.sidebar.title("Projet")
+pages = {
+    "Accueil": page_accueil,
+    "Qu\'est-ce-que Miss France ?": page_1,
+    "Page 2": page_2,
+    "Contact": contact
+}
+choix_page = st.sidebar.radio("Aller à", list(pages.keys()))
 
-    # Exécuter la fonction correspondant à la page sélectionnée
-    pages[choix_page]()
+# Charger l'image de paillettes
+#chemin_image_paillettes = '/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/sources/paillettes2.jpeg'
+#st.image(chemin_image_paillettes, use_column_width=True, caption='Image de paillettes')
 
-if __name__ == "__main__":
-    main()
+# Exécuter la fonction correspondant à la page sélectionnée
+pages[choix_page]()
+
+
+
 
 
 
