@@ -15,7 +15,7 @@ chemin_video_lea = "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Proj
 chemin_video_ana = "/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/sources/Couronnement.mp4"
 
 #Charger les données
-data = pd.read_csv(chemin_ana)
+data = pd.read_csv(chemin_ana,delimiter=';')
 # data = pd.read_csv(chemin_lea)
 
 
@@ -36,18 +36,19 @@ def page_1():
     st.image(chemin_logo_ana, use_column_width=True,width=100)
     st.title("Qu'est-ce-que Miss France ?")
     st.write("C'est la page 1.")
-    st.title("Graphique à barres")
+    st.title("Répartition de la couleur de cheveux des Miss par année")
     data_subset = data[['annee', 'cheveux']]
+    #print(data_subset)
 
     # Regrouper les données par année et par couleur de cheveux, puis compter le nombre d'occurrences
     cheveux_par_annee = data_subset.groupby(['annee', 'cheveux']).size().reset_index(name='nombre')
 
     # Afficher l'histogramme
-    #st.bar_chart(cheveux_par_annee, x='annee', y='nombre', color='cheveux', use_container_width=True)
+    st.bar_chart(cheveux_par_annee, x='annee', y='nombre', color='cheveux', use_container_width=True)
 
     chart_data = pd.DataFrame(cheveux_par_annee, data_subset)
 
-    st.bar_chart(chart_data)
+    #st.bar_chart(chart_data)
 def page_2():
     st.image(chemin_logo_ana, use_column_width=True,width=100)
     st.title("Page 2")
