@@ -7,15 +7,15 @@ import pandas as pd
 
 chemin_lea = '/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/data_missFrance.csv'
 chemin_ana = '/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/data_missFrance.csv'
-chemin_logo_lea_ = '/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/Logo_MissFrance.png'
+chemin_logo_lea = '/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/sources/Logo_MissFrance.png'
 chemin_logo_ana = '/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/sources/Logo_MissFrance.png'
-chemin_audio_lea = "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/Generique_Miss_France.mp3"  # Remplacez par le chemin de votre fichier audio
+chemin_audio_lea = "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/sources/Generique_Miss_France.mp3"  # Remplacez par le chemin de votre fichier audio
 chemin_audio_ana = "/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/sources/Generique_Miss_France.mp3"
-chemin_video_lea = "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/Couronnement.mp4"
+chemin_video_lea = "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/COHEN_Anaelle_MOLINA_Lea/sources/Couronnement.mp4"
 chemin_video_ana = "/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/DataScienceProject_MissFrance/sources/Couronnement.mp4"
 
 #Charger les données
-data = pd.read_csv(chemin_ana,delimiter=';')
+data = pd.read_csv(chemin_lea,delimiter=';')
 # data = pd.read_csv(chemin_lea)
 
 
@@ -28,36 +28,36 @@ couleurDuTexte = "#000000"
 
 def page_accueil():
     st.title("Qui sera Miss France 2025 ?")
-    st.audio(chemin_audio_ana, format='audio/mp3')
-    st.video(chemin_video_ana, format="video/mp4", start_time=0, subtitles=None)
+    st.audio(chemin_audio_lea, format='audio/mp3')
+    st.video(chemin_video_lea, format="video/mp4", start_time=0, subtitles=None)
     st.write("Bienvenue sur la page d'accueil !")
     st.balloons()
 def page_1():
-    st.image(chemin_logo_ana, use_column_width=True,width=100)
+    st.image(chemin_logo_lea, use_column_width=True,width=100)
     st.title("Qu'est-ce-que Miss France ?")
     st.write("C'est la page 1.")
     st.title("Répartition de la couleur de cheveux des Miss par année")
-    data_subset = data[['annee', 'cheveux']]
+    data_subset = data[['annee', 'couleur_cheveux']]
     #print(data_subset)
 
     # Regrouper les données par année et par couleur de cheveux, puis compter le nombre d'occurrences
-    cheveux_par_annee = data_subset.groupby(['annee', 'cheveux']).size().reset_index(name='nombre')
+    cheveux_par_annee = data_subset.groupby(['annee', 'couleur_cheveux']).size().reset_index(name='nombre')
 
     # Afficher l'histogramme
-    st.bar_chart(cheveux_par_annee, x='annee', y='nombre', color='cheveux', use_container_width=True)
+    st.bar_chart(cheveux_par_annee, x='annee', y='nombre', color='couleur_cheveux', use_container_width=True)
 
     chart_data = pd.DataFrame(cheveux_par_annee, data_subset)
 
     #st.bar_chart(chart_data)
 def page_2():
-    st.image(chemin_logo_ana, use_column_width=True,width=100)
+    st.image(chemin_logo_lea, use_column_width=True,width=100)
     st.title("Page 2")
     st.write("C'est la page 2.")
 
 def contact():
     st.title("Nous contacter")
     st.write("C'est la page de contact.")
-    st.image(chemin_logo_ana, use_column_width=True)
+    st.image(chemin_logo_lea, use_column_width=True)
     st.write("anaelle.cohen@dauphine.eu")
     st.write("lea.molina@dauphine.eu")
 
