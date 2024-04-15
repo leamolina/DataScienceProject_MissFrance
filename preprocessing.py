@@ -1,12 +1,20 @@
 import math
 import numpy as np
+import time
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import GridSearchCV
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
+
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
+
 
 
 
@@ -53,6 +61,7 @@ df_new_data = pd.DataFrame.sparse.from_spmatrix(data_model, columns=columns)
 
 
 #D'abord on ferait le preprocessing (sans pipeline ?)
+
 #cross validation ici (pour trouver quel est le meilleur modèle)
 #for i in range(1,12):
     #faire nos 12 modèles (tester à chaque fois quel est le meilleur modèle / meilleur hyperparamètre ou faire tout le temps le même ?)
@@ -63,15 +72,10 @@ class MyModel(object):
         self.model = model
         self.mydata = mydata
 
-    def fit(self):
-        # Faire nos 12 modèles (tester à chaque fois quel est le meilleur modèle / meilleur hyperparamètre ou faire tout le temps le même ?)
-        list_columns_y = ["is_unranked"]+["is_"+str(i) for i in range (1,13)]
-        X = self.mydata.drop(columns=list_columns_y)
+    def fit(self, X_train, y_train):
         for i in range(1,13):
-            y=X["is_"+str(i)]
-            # Séparation train set & test set
-            self.model[i].fit(X,y)
-            #grid search
+            self.model[i].fit(X_train,y_train[i])
+
 
 
     #Renvoyer la matrice de prédiction (celle avec toutes les probas)
@@ -139,6 +143,86 @@ def give_best_rank(pred_rank_matrix, list_candidate):
             max_score = dico['score']
             best_dico = dico
     return best_dico
+
+
+
+#Séparation des données :
+list_columns_y = ["is_unranked"] + ["is_" + str(i) for i in range(1, 13)]
+df_new_data_copy = df_new_data.copy()
+X = df_new_data.drop(columns=list_columns_y, axis=1).values.tolist()
+y = [df_new_data_copy[column].tolist() for column in list_columns_y[1:]]
+X = np.array(X)
+y = np.array(y)
+
+data_train_test = train_test_split(X, *y, test_size=0.2, random_state=42)
+X_train, X_test, *y_train_test = data_train_test
+
+#Récupération des 12 différents y_train et y_test (un par modèle)
+list_y_train_test = list(y_train_test)
+y_train = []
+y_test = []
+i = 0
+while i < len(list_y_train_test):
+    y_train.append(list_y_train_test[i])
+    y_test.append(list_y_train_test[i+1])
+    i += 2
+y_train = np.array(y_train)
+y_test = np.array(y_test)
+
+
+# Vérification des dimensions de X et y
+print("Dimensions de X_train:", X_train.shape)
+print("Dimensions de X_test:", X_test.shape)
+for i in range(12):
+    print("Dimensions de y_train[", i, "]", y_train[i].shape)
+    print("Dimensions de y_test[", i, "]", y_test[i].shape)
+
+
+
+
+#Grid Search
+models = [SGDClassifier(),LogisticRegression(),SVC(), KNeighborsClassifier()]
+dico_sgd = {'alpha':[0.001, 0.01, 0.1, 1, 10], 'penalty':['l1', 'l2']}
+#dico_logistic = {'penalty':['l1', 'l2'], 'C':[0.001, 0.01, 1, 10, 100]}
+dico_logistic = {'C':[0.001, 0.01, 1, 10, 100]}
+dico_svc = {'C':[1,2, 3, 4, 5, 10, 20, 50, 100, 200],'gamma':[1,0.1,0.001,0.0001],'kernel':['linear','rbf']}
+dico_knn = {'n_neighbors': range(1,10)}
+list_params = [dico_sgd, dico_logistic, dico_svc, dico_knn]
+
+
+
+#Option 1 : juste prendre 1 modele
+start = time.time()
+best_score = 0
+y = df_new_data["is_1"]
+for j in range(len(models)):
+    # Grid Search
+    clf = GridSearchCV(estimator=models[j], param_grid=list_params[j]).fit(X_train, y_train[1])
+    score = clf.best_score_
+    if (score > best_score):
+        best_score = score
+        best_model = clf.best_estimator_
+end = time.time()
+print("Fin option 1 qui a duré " , end-start, "secondes") #Environs 2.5 secondes
+
+#Option 2 : tester sur tous les modèles
+start = time.time()
+best_score = 0
+for j in range(len(models)):
+    sum_scores = 0
+    for i in range(1, 13):
+        y = df_new_data[list_columns_y[i]]
+        # Grid Search
+        clf = GridSearchCV(estimator=models[j], param_grid=list_params[j]).fit(X_train, y_train[i-1])
+        score = clf.best_score_
+        sum_scores += score
+    sum_scores = sum_scores/12
+    if (sum_scores > best_score):
+        best_score = sum_scores
+        best_model = clf.best_estimator_
+end = time.time()
+print("Fin option 2 qui a duré ", end-start, "secondes") #Environs 28 secondes --> Maintenant c'est passé à 14 secondes : Catastrophe j'ai l'impression qu'il apprend le modèle par coeur
+
 
 
 classement_test= np.array([[0.1, 0.2, 0.3, 0.4],[0.3, 0.6, 0.9, 0.2],[0.9, 0.7, 0.8, 0.3],[0.4, 0.3, 0.1, 0.1],[0.8, 0.7, 0.9, 0.6]])
