@@ -81,6 +81,7 @@ def prediction():
     st.title("Prédictions")
     st.write("Ici on va prédire notre future Miss France.")
 
+
 st.sidebar.image(chemin_logo, width=100)
 st.sidebar.markdown(
     "<div style='text-align: center;'><h1>Navigation</h1></div>",

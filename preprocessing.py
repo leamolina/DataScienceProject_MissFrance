@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, KFold, StratifiedKFold, cross_val_score
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import SGDClassifier
@@ -73,6 +73,7 @@ class MyModel(object):
     def fit(self, X_train, y_train):
         for i in range(12):
             self.model[i].fit(X_train,y_train[i])
+            print("Voici le score : ", self.model[i].score(X_test, y_test[i]))
 
 
     #Renvoyer la matrice de prédiction (celle avec toutes les probas)
@@ -80,6 +81,8 @@ class MyModel(object):
     def predictBis(self, X):
         result = []
         for i in range(12):
+            y_pred_real = self.model[i].predict(X)
+            print("voici ce qu'on prédit : ", y_pred_real)
             y_pred = self.model[i].predict_proba(X)
             sublist = []
             for j in range(len(y_pred)):
@@ -110,7 +113,8 @@ def give_rank(initial_rank, pred_rank_matrix, list_candidate):
         max_rank = np.max(pred_rank_matrix)
         index = np.where(pred_rank_matrix == max_rank)
         if len(index) > 0:
-            for i in range(len(index[0])):
+            i = 0
+            while(len(index)>0 and i<len(index[0])):
                 personne_index = (index[0][i], index[1][i])
 
                 # La personne est seule sur sa colonne
@@ -124,9 +128,18 @@ def give_rank(initial_rank, pred_rank_matrix, list_candidate):
                     new_pred_rank_matrix[:, personne_index[1]] = -1
                     ranks.extend(give_rank(new_rank, new_pred_rank_matrix, list_candidate))
 
+                    #Suppression de l'indice
+                    index_0 = index[0]
+                    index_1 = index[1]
+                    index_0 = np.delete(index_0, i)
+                    index_1 = np.delete(index_1, i)
+                    index = np.array([index_0, index_1])
+
                 # Si plusieurs personnes se trouvent sur la même colonne
                 else:
-                    for j in range(len(index[1])):
+                    j = 0
+                    while(len(index)>0 and j<len(index[1])):
+
                         if index[1][j] == personne_index[1]:
                             new_rank = initial_rank.copy() # On crée une copie du dictionnaire qui stocke les rangs
                             new_rank[list_candidate[index[0][j]]] = index[1][j] + 1
@@ -136,12 +149,21 @@ def give_rank(initial_rank, pred_rank_matrix, list_candidate):
                             new_pred_rank_matrix[:, index[1][j]] = -1 # On met la colonne du rang à -1
                             ranks.extend(give_rank(new_rank, new_pred_rank_matrix, list_candidate))
 
+                            #Suppression ici de l'indice de la candidate
+                            index_0 = index[0]
+                            index_1 = index[1]
+                            index_0 = np.delete(index_0, j)
+                            index_1 = np.delete(index_1, j)
+                            index = np.array([index_0, index_1])
+                        j+=1
+                i+=1
+
     if not ranks:
         ranks.append(initial_rank)
 
     return ranks
 
-#Fontion qui donne le meilleur classement et sans répétitions
+#Fontion qui parcourt toutes les combinaisons e classement et renvoie la plus probable (celle dont la somme des probabilités est la plus élevée)
 def give_best_rank(pred_rank_matrix, list_candidate):
     max_score = 0
     list_dico = give_rank({'score':0}, pred_rank_matrix, list_candidate)
@@ -162,7 +184,8 @@ y = [df_new_data_copy[column].tolist() for column in list_columns_y[1:]]
 X = np.array(X)
 y = np.array(y)
 
-data_train_test = train_test_split(X, *y, test_size=0.2, random_state=42)
+cv = StratifiedKFold(n_splits=5, shuffle=True)
+data_train_test = train_test_split(X, *y, test_size=0.2, random_state=42, shuffle=True)
 X_train, X_test, *y_train_test = data_train_test
 
 #Récupération des 12 différents y_train et y_test (un par modèle)
@@ -176,6 +199,7 @@ while i < len(list_y_train_test):
     i += 2
 y_train = np.array(y_train)
 y_test = np.array(y_test)
+
 
 """
 # Vérification des dimensions de X et y
@@ -196,12 +220,13 @@ SVC —> weight & predict_proba (parameters)
 LogisticRegression —> weight & predict_proba (parameters)
 """
 
-models = [DecisionTreeClassifier(), SVC(), LogisticRegression()]
-dico_decisionTree = {'class_weight':['balanced'], 'max_features': ['sqrt', 'log2'], 'max_depth' : [7, 8, 9]}
-#dico_randomForest = {'n_estimators': [200, 500], 'max_features': ['sqrt', 'log2'],'max_depth' : [4,5,6,7,8]}
-dico_svc = {'class_weight':['balanced'],'C':[1,2, 3, 4, 5, 10, 20, 50, 100, 200],'gamma':[1,0.1,0.001,0.0001],'kernel':['linear','rbf'], 'probability':[True]}
-dico_logistic = {'class_weight':['balanced'],'C':[0.001, 0.01, 1, 10, 100]}
-list_params = [dico_decisionTree, dico_svc, dico_logistic]
+
+models = [DecisionTreeClassifier(),RandomForestClassifier(), SVC(), LogisticRegression()]
+dico_decisionTree = {'class_weight':['balanced'], 'max_features': ['sqrt', 'log2'], 'max_depth' : [7, 8, 9], 'random_state' :[0]}
+dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500, 700, 1000], 'max_features': ['sqrt', 'log2'],'max_depth' : [4,5,6,7,8,9,10]}
+dico_svc = {'class_weight':['balanced'],'C':[1,2, 3, 4, 5, 10, 20, 50, 100, 200],'gamma':[1,0.1,0.001,0.0001],'kernel':['linear','rbf'], 'probability':[True], 'random_state' :[0]}
+dico_logistic = {'class_weight':['balanced'],'C':[0.001, 0.01, 1, 10, 100], 'random_state' :[0]}
+list_params = [dico_decisionTree, dico_randomForest, dico_svc, dico_logistic]
 
 #Option 1 : juste prendre 1 modele
 start = time.time()
@@ -238,7 +263,7 @@ for j in range(len(models)):
 end = time.time()
 print("Fin option 2 qui a duré ", end-start, "secondes", "et le modele est ", best_model) #Environs 28 secondes --> Maintenant c'est passé à 14 secondes : Catastrophe j'ai l'impression qu'il apprend le modèle par coeur
 """
-
+"""
 #Option 3 : tester sur tous les modèles & renvoyer une liste de 12 modèles
 start = time.time()
 best_score = 0
@@ -257,7 +282,7 @@ for i  in range(1,13):
 
 end = time.time()
 print("Fin option 3 qui a duré ", end-start, "secondes", "et le modele est ", list_best_models) #Environs 28 secondes --> Maintenant c'est passé à 14 secondes : Catastrophe j'ai l'impression qu'il apprend le modèle par coeur
-
+"""
 
 
 classement_test= np.array([[0.1, 0.2, 0.3, 0.4],[0.3, 0.6, 0.9, 0.2],[0.9, 0.7, 0.8, 0.3],[0.4, 0.3, 0.1, 0.1],[0.8, 0.7, 0.9, 0.6]])
@@ -267,8 +292,8 @@ list_candidate = ["Lea", "Ana", "Shirelle", "Jenna", "Shana"]
 
 
 #Création de notre modèle
-#myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
-myModel = MyModel(list_best_models)
+myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
+#myModel = MyModel(list_best_models)
 #print(best_model.__class__(**best_params))
 myModel.fit(X_train, y_train)
 prediction_matrix = myModel.predictBis(X_test)
@@ -276,3 +301,5 @@ print(prediction_matrix.shape)
 for i in range(len(prediction_matrix)):
     print(prediction_matrix[i])
     print("\n\n\n")
+
+

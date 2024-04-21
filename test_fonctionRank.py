@@ -90,7 +90,7 @@ class MyModel(object):
         return result
 
 
-def give_rank(initial_rank, pred_rank_matrix, list_candidate):
+def give_rank2(initial_rank, pred_rank_matrix, list_candidate):
     ranks = []
 
     # Base case :
@@ -116,7 +116,7 @@ def give_rank(initial_rank, pred_rank_matrix, list_candidate):
                     new_pred_rank_matrix = pred_rank_matrix.copy()  # Créer une copie indépendante de la matrice de prédiction
                     new_pred_rank_matrix[personne_index[0], :] = -1
                     new_pred_rank_matrix[:, personne_index[1]] = -1
-                    ranks.extend(give_rank(new_rank, new_pred_rank_matrix, list_candidate))
+                    ranks.extend(give_rank2(new_rank, new_pred_rank_matrix, list_candidate))
                     index_0 = index[0]
                     index_1 = index[1]
                     index_0 = np.delete(index_0, i)
@@ -127,8 +127,71 @@ def give_rank(initial_rank, pred_rank_matrix, list_candidate):
                 # Si plusieurs personnes se trouvent sur la même colonne
                 else:
                     j = 0
-                    while(len(index[1] > 0 )):
-                    #for j in range(len(index[1])):
+                    while(len(index[0])>0):
+                   #for j in range(len(index[1])):
+                        if index[1][j] == personne_index[1]:
+                            new_rank = initial_rank.copy()  # On crée une copie du dictionnaire qui stocke les rangs
+                            new_rank[list_candidate[index[0][j]]] = index[1][j] + 1
+                            new_rank["score"] += max_rank
+                            new_pred_rank_matrix = pred_rank_matrix.copy()  # On crée une copie de la matrice de prédiction
+                            new_pred_rank_matrix[index[0][j], :] = -1  # On met la ligne de la candidate à -1
+                            new_pred_rank_matrix[:, index[1][j]] = -1  # On met la colonne du rang à -1
+                            ranks.extend(give_rank2(new_rank, new_pred_rank_matrix, list_candidate))
+                        j+=1
+                    for j in range(len(index[1])):
+                        if index[1][j] == personne_index[1]:
+                            index_0 = index[0]
+                            index_1 = index[1]
+                            index_0 = np.delete(index_0, j)
+                            index_1 = np.delete(index_1, j)
+                            index = np.array([index_0, index_1])
+
+
+    if not ranks:
+        ranks.append(initial_rank)
+
+    return ranks
+
+
+def give_rank(initial_rank, pred_rank_matrix, list_candidate):
+    ranks = []
+
+    # Base case :
+    if len(initial_rank) >= 5 or len(initial_rank) >= len(list_candidate)+1:
+        ranks.append(initial_rank)
+        return ranks
+
+    else:
+        max_rank = np.max(pred_rank_matrix)
+        index = np.where(pred_rank_matrix == max_rank)
+        if len(index) > 0:
+            i = 0
+            while(len(index)>0 and i<len(index[0])):
+                personne_index = (index[0][i], index[1][i])
+
+                # La personne est seule sur sa colonne
+                nb = sum(index[1] == personne_index[1])
+                if nb == 1:
+                    new_rank = initial_rank.copy()  # Créer une copie indépendante du classement initial
+                    new_rank[list_candidate[personne_index[0]]] = personne_index[1] + 1
+                    new_rank["score"]+=max_rank
+                    new_pred_rank_matrix = pred_rank_matrix.copy()  # Créer une copie indépendante de la matrice de prédiction
+                    new_pred_rank_matrix[personne_index[0], :] = -1
+                    new_pred_rank_matrix[:, personne_index[1]] = -1
+                    ranks.extend(give_rank(new_rank, new_pred_rank_matrix, list_candidate))
+
+                    #Suppression de l'indice
+                    index_0 = index[0]
+                    index_1 = index[1]
+                    index_0 = np.delete(index_0, i)
+                    index_1 = np.delete(index_1, i)
+                    index = np.array([index_0, index_1])
+
+                # Si plusieurs personnes se trouvent sur la même colonne
+                else:
+                    j = 0
+                    while(len(index)>0 and j<len(index[1])):
+
                         if index[1][j] == personne_index[1]:
                             new_rank = initial_rank.copy() # On crée une copie du dictionnaire qui stocke les rangs
                             new_rank[list_candidate[index[0][j]]] = index[1][j] + 1
@@ -137,6 +200,8 @@ def give_rank(initial_rank, pred_rank_matrix, list_candidate):
                             new_pred_rank_matrix[index[0][j], :] = -1 # On met la ligne de la candidate à -1
                             new_pred_rank_matrix[:, index[1][j]] = -1 # On met la colonne du rang à -1
                             ranks.extend(give_rank(new_rank, new_pred_rank_matrix, list_candidate))
+
+                            #Suppression ici de l'indice de la candidate
                             index_0 = index[0]
                             index_1 = index[1]
                             index_0 = np.delete(index_0, j)
@@ -150,7 +215,7 @@ def give_rank(initial_rank, pred_rank_matrix, list_candidate):
 
     return ranks
 
-#Fontion qui donne le meilleur classement et sans répétitions
+#Fontion qui parcourt toutes les combinaisons e classement et renvoie la plus probable (celle dont la somme des probabilités est la plus élevée)
 def give_best_rank(pred_rank_matrix, list_candidate):
     max_score = 0
     list_dico = give_rank({'score':0}, pred_rank_matrix, list_candidate)
@@ -164,6 +229,6 @@ def give_best_rank(pred_rank_matrix, list_candidate):
 
 classement_test= np.array([[0.1, 0.2, 0.3, 0.4],[0.3, 0.6, 0.9, 0.2],[0.9, 0.7, 0.8, 0.3],[0.4, 0.3, 0.1, 0.1],[0.8, 0.7, 0.9, 0.6]])
 list_candidate = ["Lea", "Ana", "Shirelle", "Jenna", "Shana"]
-#print(give_best_rank(classement_test, list_candidate))
 
 print(give_rank({'score':0}, classement_test, list_candidate))
+print(give_best_rank(classement_test, list_candidate))
