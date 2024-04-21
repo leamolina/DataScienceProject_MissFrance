@@ -71,9 +71,18 @@ class MyModel(object):
         self.model = model
 
     def fit(self, X_train, y_train):
-        for i in range(12):
-            self.model[i].fit(X_train,y_train[i])
-            print("Voici le score : ", self.model[i].score(X_test, y_test[i]))
+        i = 0
+        while(i<12):
+            #Mélange les données
+            sfk = StratifiedKFold(n_splits=4)
+            for train_index, test_index in sfk.split(X_train, y_train[i]):
+                X_train_split, X_test_split = X_train[train_index], X_train[test_index]
+                y_train_split, y_test_split = y_train[i][train_index], y_train[i][test_index]
+
+                self.model[i].fit(X_train_split, y_train_split)
+                print("Voici le score : ", self.model[i].score(X_test_split, y_test_split))
+                i+=1
+
 
 
     #Renvoyer la matrice de prédiction (celle avec toutes les probas)
@@ -184,9 +193,10 @@ y = [df_new_data_copy[column].tolist() for column in list_columns_y[1:]]
 X = np.array(X)
 y = np.array(y)
 
-cv = StratifiedKFold(n_splits=5, shuffle=True)
-data_train_test = train_test_split(X, *y, test_size=0.2, random_state=42, shuffle=True)
+data_train_test = train_test_split(X, *y, test_size=0.1, random_state=42, shuffle=True)
 X_train, X_test, *y_train_test = data_train_test
+
+#Parcours du train set et séparation en 12
 
 #Récupération des 12 différents y_train et y_test (un par modèle)
 list_y_train_test = list(y_train_test)
