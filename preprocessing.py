@@ -20,7 +20,7 @@ from sklearn.tree import DecisionTreeClassifier
 #Récupération des données
 data_missFrance = pd.read_csv('data_missFrance.csv', delimiter=';')
 data_model = data_missFrance.drop(["audience", "name", "image"], axis=1)
-
+nb_regions = len(set(data_model['region']))
 
 #Encoder personnalisé pour récuperer le top
 class Custom_OneHotEncoder(OneHotEncoder):
@@ -47,52 +47,42 @@ categories = [hair_length_order, hair_color_order, eye_color_order, skin_color_o
 
 # Créer un ColumnTransformer avec votre Custom_OneHotEncoder et d'autres transformations
 ct = ColumnTransformer([
-    ("preprocessing_rang", Custom_OneHotEncoder(column="rang"), ["rang"]),
+    ("preprocessing_one_hot_encoder", OneHotEncoder(handle_unknown="ignore"), ["annee", "region"]),
     ("preprocessing_age", StandardScaler(), ["age", "taille"]),
     ("preprocessing_OrdinalEncoder", OrdinalEncoder(categories=categories), ['longueur_cheveux', 'couleur_cheveux', 'couleur_yeux', 'couleur_peau']),
+    ("preprocessing_rang", Custom_OneHotEncoder(column="rang"), ["rang"]),
     ("preprocessing_general_knowledge_test", SimpleImputer(strategy="constant", fill_value=0), ["laureat_culture_generale"]),
-    ("preprocessing_one_hot_encoder", OneHotEncoder(handle_unknown="ignore"), [ "annee", "region"])
 ],
 remainder="passthrough")
 
 ct.fit(data_model)
 data_model = ct.transform(data_model)
 
-
-
 #Mise en place des colonnes
 columns = []
-for i in range(1,13):
-    columns.append("top_"+str(i))
-columns+=["age","length","hair_lenght", "hair_color", "eye_color", "skin_color","general_knowledge_test"]
 for i in range(2009, 2025):
     columns.append("year_"+str(i))
-region = 1
-while(len(columns)<88):
-    columns.append("region_"+str(region))
-    region += 1
+for i in range(1,nb_regions+1):
+    columns.append("region_" + str(i))
+columns+=["age","length","hair_lenght", "hair_color", "eye_color", "skin_color","general_knowledge_test"]
+for i in range(1,13):
+    columns.append("top_"+str(i))
+columns+=["has_fallen"]
+
+
 
 #print(data_model)
 df_new_data = pd.DataFrame.sparse.from_spmatrix(data_model, columns=columns)
-#print(df_new_data)
-
+df_new_data.to_csv('donnee_avec_preprocessing.csv', index=False)
 
 class MyModel(object):
     def __init__(self, model= [SGDClassifier(loss="log", penalty="")]*12):
         self.model = model
 
     def fit(self, X_train, y_train):
-        i = 0
-        while(i<12):
-            #Mélange les données
-            sfk = StratifiedKFold(n_splits=4)
-            for train_index, test_index in sfk.split(X_train, y_train[i]):
-                X_train_split, X_test_split = X_train[train_index], X_train[test_index]
-                y_train_split, y_test_split = y_train[i][train_index], y_train[i][test_index]
-
-                self.model[i].fit(X_train_split, y_train_split)
-                print("Voici le score : ", self.model[i].score(X_test_split, y_test_split))
-                i+=1
+        for i in range(12):
+            self.model[i].fit(X_train, y_train[i])
+            print("voici le score : ", self.model[i].score(X_train, y_train[i]))
 
     def fitBis(self, X_train, y_train):
         i = 0
@@ -106,8 +96,6 @@ class MyModel(object):
                 self.model[i].fit(X_train_split, y_train_split)
                 print("Voici le score : ", self.model[i].score(X_test_split, y_test_split))
                 i += 1
-
-
 
 
     #Renvoyer la matrice de prédiction (celle avec toutes les probas)
@@ -208,42 +196,37 @@ def give_best_rank(pred_rank_matrix, list_candidate):
             best_dico = dico
     return best_dico
 
-
-
 #Séparation des données :
-list_columns_y = ["is_unranked"] + ["is_" + str(i) for i in range(1, 13)]
+list_columns_y = ["top_" + str(i) for i in range(1, 13)]
 df_new_data_copy = df_new_data.copy()
 X = df_new_data.drop(columns=list_columns_y, axis=1).values.tolist() # X = Tout sauf les colonnes de y
-y = [df_new_data_copy[column].tolist() for column in list_columns_y[1:]] # y= Toutes les colonnes de y (sauf 'non classé')
+y = [df_new_data_copy[column].tolist() for column in list_columns_y[:]] # y= Toutes les colonnes de y
 X = np.array(X)
 y = np.array(y)
 
-data_train_test = train_test_split(X, *y, test_size=0.2, random_state=42, shuffle=True) #*y est un iterator utile pour inserer toute les colonnes de y dans la fonction
 
-#Récupération de X_train et X_test
-X_train, X_test, *y_train_test = data_train_test
+#La quinziième colonne de notre dataset correspond à 'year_2024', qui vaut 1 quand on est dans l'année 2024, 0 sinon
+#Notre test_set correspond aux données de l'année 2024, notre train_set correspond aux données des années 2009 à 2023
+indices_test = np.where(X[:, 14] == 1)[0]
+indices_train = np.where(X[:, 14] == 0)[0]
 
-#Récupération des 12 différents y_train et y_test (un par modèle)
-list_y_train_test = list(y_train_test)
-y_train = []
-y_test = []
-i = 0
-while i < len(list_y_train_test):
-    y_train.append(list_y_train_test[i])
-    y_test.append(list_y_train_test[i+1])
-    i += 2
-y_train = np.array(y_train)
-y_test = np.array(y_test)
+# Sélection des données correspondantes en utilisant les indices
+X_test, X_train = X[indices_test], X[indices_train]
+y_test = [[] for _ in range(12)]
+y_train = [[] for _ in range(12)]
+for i in range(12):
+    y_train[i] = y[i][indices_train]
+    y_test[i] = y[i][indices_test]
 
 
-"""
+
 # Vérification des dimensions de X et y
 print("Dimensions de X_train:", X_train.shape)
 print("Dimensions de X_test:", X_test.shape)
 for i in range(12):
     print("Dimensions de y_train[", i, "]", y_train[i].shape)
     print("Dimensions de y_test[", i, "]", y_test[i].shape)
-"""
+
 
 
 #Grid Search
@@ -254,7 +237,7 @@ SVC —> weight & predict_proba (parameters)
 LogisticRegression —> weight & predict_proba (parameters)
 """
 
-"""
+
 #On a choisi des classifiers qui ont comme paramètres le poids des classes (utile dans notre cas)
 models = [DecisionTreeClassifier(),RandomForestClassifier(), SVC(), LogisticRegression()]
 dico_decisionTree = {'class_weight':['balanced'], 'max_features': ['sqrt', 'log2'], 'max_depth' : [7, 8, 9], 'random_state' :[0]}
@@ -262,17 +245,17 @@ dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500, 700
 dico_svc = {'class_weight':['balanced'],'C':[1,2, 3, 4, 5, 10, 20, 50, 100, 200],'gamma':[1,0.1,0.001,0.0001],'kernel':['linear','rbf'], 'probability':[True], 'random_state' :[0]}
 dico_logistic = {'class_weight':['balanced'],'C':[0.001, 0.01, 1, 10, 100], 'random_state' :[0]}
 list_params = [dico_decisionTree, dico_randomForest, dico_svc, dico_logistic]
-"""
 
-#à lancer devant le prof
+
+""""#à lancer devant le prof
 models = [RandomForestClassifier()]
 dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500],'max_depth' : [4,5,6]}
-list_params = [dico_randomForest]
+list_params = [dico_randomForest]"""
 
 #Option 1 : juste prendre 1 modele
 start = time.time()
 best_score = 0
-y = df_new_data["is_1"]
+y = df_new_data["top_1"]
 #On parcourt tous les modèles et on cherche celui qui donne le meilleur score
 for j in range(len(models)):
     # Grid Search
@@ -337,7 +320,7 @@ list_candidate = ["Lea", "Ana", "Shirelle", "Jenna", "Shana"]
 myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
 #myModel = MyModel(list_best_models)
 #print(best_model.__class__(**best_params))
-myModel.fitBis(X_train, y_train)
+myModel.fit(X_train, y_train)
 prediction_matrix = myModel.predictBis(X_test)
 print(prediction_matrix.shape)
 for i in range(len(prediction_matrix)):
