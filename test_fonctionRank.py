@@ -18,20 +18,74 @@ from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 
-def give_rank_bis(pred_rank_matrix, list_candidate):
+def give_sum_proba(pred_rank_matrix):
     rank={}
     for i in range(5):
         list_sum_proba = []
-        for k in range(len(list_candidate)):
+        k = 0
+        while(k < len(pred_rank_matrix)):
+        #for k in range(len(list_candidate)):
             sum_proba = 0
             for j in range(i, 5):
                 sum_proba+=pred_rank_matrix[k][j]
             for j in range(0,i):
                 sum_proba -= pred_rank_matrix[k][j]
             list_sum_proba.append(sum_proba)
-        rank[i] = list_sum_proba
-
+            k+=1
+        max_ = max(list_sum_proba)
+        index_max = list_sum_proba.index(max_)
+        rank["score_top_"+str(i+1)] = list_sum_proba
     return rank
+
+
+def give_rank_ter(pred_rank_matrix, list_candidate):
+    sum_proba = give_sum_proba(pred_rank_matrix)
+    chosen_candidates = []
+    for (key, value) in sum_proba.items():
+        value = np.array(value)
+        sorted_index = np.argsort(value)  # Les indices triés
+        max_ = np.max(value)
+        index_max = np.argmax(value)
+        candidate = list_candidate[index_max]
+        for i in range(1, len(sorted_index) + 1):  # Itérer sur les indices de manière décroissante
+            ith_largest_index = sorted_index[-i]
+            candidate = list_candidate[ith_largest_index]
+            if candidate not in chosen_candidates:
+                break
+        chosen_candidates.append(candidate)
+    return chosen_candidates
+
+def give_rank_bis(pred_rank_matrix, list_candidate):
+    rank = {}
+    sum_proba = give_sum_proba(pred_rank_matrix)
+    print(sum_proba)
+    chosen_candidates = []
+    for (key, value) in sum_proba.items():
+        value_copy = value.copy()
+        print("premier elemen")
+        while True:
+            if not value_copy:  # Vérifie si la liste est vide
+                break
+            max_ = max(value_copy)
+            index_max = value_copy.index(max_)
+            candidate = list_candidate[index_max]
+            if candidate not in chosen_candidates:
+                chosen_candidates.append(candidate)
+                print("on a choisi ", candidate)
+                break
+            else:
+                value_copy.pop(index_max)
+        if not value_copy:  # Vérifie si la liste est vide
+            chosen_candidates.append(list_candidate[index_max])  # Ajoute Shana même si la liste est vide
+            print("on a choisi ", list_candidate[index_max])
+    return chosen_candidates
+
+
+
+
+
+
+
 
 def give_rank(initial_rank, pred_rank_matrix, list_candidate):
     ranks = []
@@ -109,5 +163,5 @@ def give_best_rank(pred_rank_matrix, list_candidate):
 
 list_candidate = ["Ana", "Shirelle", "Léa", "Jenna", "Shana"]
 pred_rank_matrix = [[0.1, 0.2, 0.3, 0.4, 0.5], [0.6, 0.7, 0.8, 0.1, 0.2], [0.4, 0.3, 0.1, 0.1, 0.2], [0.5, 0.2, 0.9, 0.8, 0.3], [0.7, 0.1, 0.3, 0.3, 0.1]]
-print(give_rank_bis(pred_rank_matrix, list_candidate))
+print(give_rank_ter(pred_rank_matrix, list_candidate))
 

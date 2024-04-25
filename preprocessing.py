@@ -19,8 +19,13 @@ from sklearn.tree import DecisionTreeClassifier
 
 #Récupération des données
 data_missFrance = pd.read_csv('data_missFrance.csv', delimiter=';')
+
 data_model = data_missFrance.drop(["audience", "name", "image"], axis=1)
 nb_regions = len(set(data_model['region']))
+
+#Récupération de la liste des noms des candidates de 2024:
+filtered_df = data_missFrance[data_missFrance['annee'] == 2024]
+list_candidate = filtered_df['name'].tolist()
 
 #Encoder personnalisé pour récuperer le top
 class Custom_OneHotEncoder(OneHotEncoder):
@@ -310,9 +315,7 @@ print("Fin option 3 qui a duré ", end-start, "secondes", "et le modele est ", l
 """
 
 
-classement_test= np.array([[0.1, 0.2, 0.3, 0.4],[0.3, 0.6, 0.9, 0.2],[0.9, 0.7, 0.8, 0.3],[0.4, 0.3, 0.1, 0.1],[0.8, 0.7, 0.9, 0.6]])
-list_candidate = ["Lea", "Ana", "Shirelle", "Jenna", "Shana"]
-#print(give_best_rank(classement_test, list_candidate))
+
 
 
 
@@ -328,3 +331,45 @@ for i in range(len(prediction_matrix)):
     print("\n\n\n")
 
 
+print("maintenant on passe à la vraie prédiction")
+
+def give_sum_proba(pred_rank_matrix):
+    rank={}
+    for i in range(12):
+        list_sum_proba = []
+        k = 0
+        while(k < len(pred_rank_matrix)):
+        #for k in range(len(list_candidate)):
+            sum_proba = 0
+            for j in range(i, 5):
+                sum_proba+=pred_rank_matrix[k][j]
+            for j in range(0,i):
+                sum_proba -= pred_rank_matrix[k][j]
+            list_sum_proba.append(sum_proba)
+            k+=1
+        max_ = max(list_sum_proba)
+        index_max = list_sum_proba.index(max_)
+        rank["score_top_"+str(i+1)] = list_sum_proba
+    return rank
+
+
+def give_rank_ter(pred_rank_matrix, list_candidate):
+    sum_proba = give_sum_proba(pred_rank_matrix)
+    chosen_candidates = []
+    for (key, value) in sum_proba.items():
+        value = np.array(value)
+        sorted_index = np.argsort(value)  # Les indices triés
+        max_ = np.max(value)
+        index_max = np.argmax(value)
+        candidate = list_candidate[index_max]
+        for i in range(1, len(sorted_index) + 1):  # Itérer sur les indices de manière décroissante
+            ith_largest_index = sorted_index[-i]
+            candidate = list_candidate[ith_largest_index]
+            if candidate not in chosen_candidates:
+                break
+        chosen_candidates.append(candidate)
+    return chosen_candidates
+
+
+
+print(give_rank_ter(prediction_matrix, list_candidate))
