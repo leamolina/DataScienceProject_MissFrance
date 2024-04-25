@@ -186,10 +186,13 @@ if page.ok:
                 list_eyes.append(" ")
                 list_ranks.append(find_rank(rank))
 
-
-
+ensemble_sans_doublons = set(list_regions)
+# Nombre d'éléments dans l'ensemble
+nombre_elements_sans_doublons = len(ensemble_sans_doublons)
+print(nombre_elements_sans_doublons)
+"""
 data_missFrance = pd.DataFrame.from_dict({'annee': list_years, 'region': list_regions, 'name': list_names, 'age': list_ages, 'taille': list_heights, 'cheveux':list_hairs, 'yeux': list_eyes, 'rang':list_ranks, 'image': urls_images})
 chemin_fichierLea = "/Users/LEAMOLINA1/Desktop/M1/S2/Projet ML : DataScience/Projet/data_missFrance_incomplete.csv"
 chemin_fichierAna= "/Users/anaellecohen/Desktop/Cours/M1 I2D/S2/Projet:ML/Projet/data_missFrance_incomplete.csv"
 data_missFrance.to_csv(chemin_fichierLea, index=False)
-#data_missFrance.to_csv(chemin_fichierAna, index=False)
+#data_missFrance.to_csv(chemin_fichierAna, index=False)"""
