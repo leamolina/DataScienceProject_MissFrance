@@ -24,7 +24,7 @@ data_model = data_missFrance.drop(["audience", "name", "image"], axis=1)
 nb_regions = len(set(data_model['region']))
 
 #Récupération de la liste des noms des candidates de 2024:
-filtered_df = data_missFrance[data_missFrance['annee'] == 2024]
+filtered_df = data_missFrance[data_missFrance['annee'] == 2023]
 list_candidate = filtered_df['name'].tolist()
 
 #Encoder personnalisé pour récuperer le top
@@ -36,8 +36,10 @@ class Custom_OneHotEncoder(OneHotEncoder):
         return self
 
     def transform(self, X, y=None):
-        #Vérification que column est bien une colonne de notre dataframe
-        new_X = X.drop(columns=[self.column])
+        #self.column = "rang"
+        new_X = X.drop(columns=[self.column]) #Enlève la colonne "rang"
+        #Quand i = 1 , X[rang] <=1
+        #Quand i = 3 , X[rang] <= 3
         for i in range(1, 13):
             new_X["top_" + str(i)] = (X[self.column] <= i).astype(int)
         return new_X
@@ -74,8 +76,6 @@ for i in range(1,13):
     columns.append("top_"+str(i))
 columns+=["has_fallen"]
 
-
-
 #print(data_model)
 df_new_data = pd.DataFrame.sparse.from_spmatrix(data_model, columns=columns)
 df_new_data.to_csv('donnee_avec_preprocessing.csv', index=False)
@@ -85,6 +85,7 @@ class MyModel(object):
         self.model = model
 
     def fit(self, X_train, y_train):
+
         for i in range(12):
             self.model[i].fit(X_train, y_train[i])
             print("voici le score : ", self.model[i].score(X_train, y_train[i]))
@@ -128,79 +129,6 @@ class MyModel(object):
         return result
 
 
-def give_rank(initial_rank, pred_rank_matrix, list_candidate):
-    ranks = []
-
-    # Base case :
-    if len(initial_rank) >= 5 or len(initial_rank) >= len(list_candidate)+1:
-        ranks.append(initial_rank)
-        return ranks
-
-    else:
-        max_rank = np.max(pred_rank_matrix)
-        index = np.where(pred_rank_matrix == max_rank)
-        if len(index) > 0:
-            i = 0
-            while(len(index)>0 and i<len(index[0])):
-                personne_index = (index[0][i], index[1][i])
-
-                # La personne est seule sur sa colonne
-                nb = sum(index[1] == personne_index[1])
-                if nb == 1:
-                    new_rank = initial_rank.copy()  # Créer une copie indépendante du classement initial
-                    new_rank[list_candidate[personne_index[0]]] = personne_index[1] + 1
-                    new_rank["score"]+=max_rank
-                    new_pred_rank_matrix = pred_rank_matrix.copy()  # Créer une copie indépendante de la matrice de prédiction
-                    new_pred_rank_matrix[personne_index[0], :] = -1
-                    new_pred_rank_matrix[:, personne_index[1]] = -1
-                    ranks.extend(give_rank(new_rank, new_pred_rank_matrix, list_candidate))
-
-                    #Suppression de l'indice
-                    index_0 = index[0]
-                    index_1 = index[1]
-                    index_0 = np.delete(index_0, i)
-                    index_1 = np.delete(index_1, i)
-                    index = np.array([index_0, index_1])
-
-                # Si plusieurs personnes se trouvent sur la même colonne
-                else:
-                    j = 0
-                    while(len(index)>0 and j<len(index[1])):
-
-                        if index[1][j] == personne_index[1]:
-                            new_rank = initial_rank.copy() # On crée une copie du dictionnaire qui stocke les rangs
-                            new_rank[list_candidate[index[0][j]]] = index[1][j] + 1
-                            new_rank["score"] += max_rank
-                            new_pred_rank_matrix = pred_rank_matrix.copy()  # On crée une copie de la matrice de prédiction
-                            new_pred_rank_matrix[index[0][j], :] = -1 # On met la ligne de la candidate à -1
-                            new_pred_rank_matrix[:, index[1][j]] = -1 # On met la colonne du rang à -1
-                            ranks.extend(give_rank(new_rank, new_pred_rank_matrix, list_candidate))
-
-                            #Suppression ici de l'indice de la candidate
-                            index_0 = index[0]
-                            index_1 = index[1]
-                            index_0 = np.delete(index_0, j)
-                            index_1 = np.delete(index_1, j)
-                            index = np.array([index_0, index_1])
-                        j+=1
-                i+=1
-
-    if not ranks:
-        ranks.append(initial_rank)
-
-    return ranks
-
-#Fontion qui parcourt toutes les combinaisons e classement et renvoie la plus probable (celle dont la somme des probabilités est la plus élevée)
-def give_best_rank(pred_rank_matrix, list_candidate):
-    max_score = 0
-    list_dico = give_rank({'score':0}, pred_rank_matrix, list_candidate)
-    best_dico = {}
-    for dico in list_dico:
-        if dico['score'] >= max_score:
-            max_score = dico['score']
-            best_dico = dico
-    return best_dico
-
 #Séparation des données :
 list_columns_y = ["top_" + str(i) for i in range(1, 13)]
 df_new_data_copy = df_new_data.copy()
@@ -208,6 +136,10 @@ X = df_new_data.drop(columns=list_columns_y, axis=1).values.tolist() # X = Tout 
 y = [df_new_data_copy[column].tolist() for column in list_columns_y[:]] # y= Toutes les colonnes de y
 X = np.array(X)
 y = np.array(y)
+
+#2024 = 15
+#2023 = 1
+#2022 = 12
 
 
 #La quinziième colonne de notre dataset correspond à 'year_2024', qui vaut 1 quand on est dans l'année 2024, 0 sinon
@@ -242,7 +174,7 @@ SVC —> weight & predict_proba (parameters)
 LogisticRegression —> weight & predict_proba (parameters)
 """
 
-
+"""
 #On a choisi des classifiers qui ont comme paramètres le poids des classes (utile dans notre cas)
 models = [DecisionTreeClassifier(),RandomForestClassifier(), SVC(), LogisticRegression()]
 dico_decisionTree = {'class_weight':['balanced'], 'max_features': ['sqrt', 'log2'], 'max_depth' : [7, 8, 9], 'random_state' :[0]}
@@ -250,12 +182,13 @@ dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500, 700
 dico_svc = {'class_weight':['balanced'],'C':[1,2, 3, 4, 5, 10, 20, 50, 100, 200],'gamma':[1,0.1,0.001,0.0001],'kernel':['linear','rbf'], 'probability':[True], 'random_state' :[0]}
 dico_logistic = {'class_weight':['balanced'],'C':[0.001, 0.01, 1, 10, 100], 'random_state' :[0]}
 list_params = [dico_decisionTree, dico_randomForest, dico_svc, dico_logistic]
+"""
 
-
-""""#à lancer devant le prof
+#à lancer devant le prof
 models = [RandomForestClassifier()]
 dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500],'max_depth' : [4,5,6]}
-list_params = [dico_randomForest]"""
+list_params = [dico_randomForest]
+
 
 #Option 1 : juste prendre 1 modele
 start = time.time()
@@ -352,24 +285,96 @@ def give_sum_proba(pred_rank_matrix):
         rank["score_top_"+str(i+1)] = list_sum_proba
     return rank
 
+def give_sum_proba_bis(pred_rank_matrix):
+    rank={}
+    for i in range(12):
+        list_sum_proba = []
+        k = 0
+        while(k < len(pred_rank_matrix)):
+        #for k in range(len(list_candidate)):
+            sum_proba = 0
+            for j in range(i, 5):
+                sum_proba+=pred_rank_matrix[k][j]
+            list_sum_proba.append(sum_proba)
+            k+=1
+        max_ = max(list_sum_proba)
+        index_max = list_sum_proba.index(max_)
+        rank["score_top_"+str(i+1)] = list_sum_proba
+    return rank
+def give_rank_5(prediction_matrix, list_candidate):
+    sum_proba = give_sum_proba_bis(prediction_matrix)
+    scores = np.array(sum_proba["score_top_1"])
+    i=0
+    classement = {}
+    while(i<12):
+        max_ = np.argmax(scores)
+        classement[i+1] = list_candidate[max_]
+        scores[max_] = -1
+        i+=1
+    return classement
 
-def give_rank_ter(pred_rank_matrix, list_candidate):
-    sum_proba = give_sum_proba(pred_rank_matrix)
-    chosen_candidates = []
-    for (key, value) in sum_proba.items():
-        value = np.array(value)
-        sorted_index = np.argsort(value)  # Les indices triés
-        max_ = np.max(value)
-        index_max = np.argmax(value)
-        candidate = list_candidate[index_max]
-        for i in range(1, len(sorted_index) + 1):  # Itérer sur les indices de manière décroissante
-            ith_largest_index = sorted_index[-i]
-            candidate = list_candidate[ith_largest_index]
-            if candidate not in chosen_candidates:
-                break
-        chosen_candidates.append(candidate)
-    return chosen_candidates
 
 
+def give_rank_ana(prediction_matrix, list_candidate):
+    sum_proba = give_sum_proba_bis(prediction_matrix)
+    prediction_matrix = np.array(prediction_matrix)
+    new_prediction_matrix = np.array([])
+    scores = sum_proba["score_top_1"]
+    #On récupère les 12 meilleures miss (scores) pour filtrer les candidates
+    classement = []
+    list_indices = []
+    for i in range(12):
+        max_ = np.argmax(scores)
+        classement.append(max_)
+        scores[max_] = -1
+        list_indices.append(max_)
+    #On met tous ceux qui ne sont pas dans le top 12 à -1
+    for i in range(len(prediction_matrix)):
+        if i not in list_indices:
+            prediction_matrix[i, :] = -1
+    candidates = {}
+    #ANAA :  écrit le commentaire pour ça mercii
+    for i in range(12):
+        index_max = np.argmax(prediction_matrix[:,i])
+        candidates[i+1] = list_candidate[index_max]
+        prediction_matrix[index_max, :] = -1
+        prediction_matrix[:, i] = -1
+    return candidates
 
-print(give_rank_ter(prediction_matrix, list_candidate))
+print("Give rank de lea : \n" )
+print(give_rank_5(prediction_matrix, list_candidate))
+
+print("\n\nGive rank de ana : ")
+print(give_rank_ana(prediction_matrix, list_candidate))
+
+
+"""
+Analyse des classements par année
+
+
+2024 : 
+
+Léa:
+{1: 'Ève Gilles'(1), 2: 'Ravahere Silloux' (7), 3: 'Adélina Blanc'(3), 4: 'Noémie Le Bras'(unrank), 
+5: 'Clémence Ménard'(9), 6: 'Agathe Toullieu'(unrank), 7: 'Maxime Teissier'(5), 8: 'Lola Turpin'(unrank), 
+9: 'Emma Grousset'(unrank), 10: 'Karla Bchir'(12), 11: 'Mélanie Odules'(unrank), 12: 'Chléo Modestine'(unrank)}
+
+Ana: 
+{1: 'Ève Gilles'(1), 2: 'Ravahere Silloux'(7), 3: 'Adélina Blanc'(3), 4: 'Agathe Toullieu' (unrank), 
+5: 'Mélanie Odules'(unrank), 6: 'Maxime Teissier'(5), 7: 'Karla Bchir'(12), 8: 'Clémence Ménard'(9), 
+9: 'Noémie Le Bras'(unrank), 10: 'Lola Turpin'(unrank), 11: 'Chléo Modestine'(unrank), 12: 'Emma Grousset'(unrank)}
+
+
+2023 :
+
+Léa:
+{1: 'Indira Ampiot' (1), 2: 'Herenui Tuheiava' (unrank), 3: 'Agathe Cauet'(2), 4: 'Chana Goyons'(unrank), 
+5: 'Chiara Fontaine'(13), 6: 'Sarah Aoutar'(7), 7: 'Coraline Larasle'(unrank), 8: 'Alissia Ladevèze'(5),
+9: 'Camille Sedira'(unrank), 10: 'Lara Lebretton'(unrank), 11: 'Emma Guibert'(12), 12: 'Adèle Bonnamour'(unrank)
+
+Ana:
+{1: 'Indira Ampiot'(1), 2: 'Herenui Tuheiava'(unrank), 3: 'Chana Goyons'(unrank), 4: 'Chiara Fontaine'(13), 
+5: 'Agathe Cauet'(2), 6: 'Sarah Aoutar'(7), 7: 'Adèle Bonnamour'(unrank), 8: 'Emma Guibert'(12), 
+9: 'Lara Lebretton'(unrank), 10: 'Camille Sedira'(unrank), 11: 'Coraline Larasle' (unrank), 12: 'Alissia Ladevèze'(5)}
+
+"""
