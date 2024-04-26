@@ -24,7 +24,7 @@ data_model = data_missFrance.drop(["audience", "name", "image"], axis=1)
 nb_regions = len(set(data_model['region']))
 
 #Récupération de la liste des noms des candidates de 2024:
-filtered_df = data_missFrance[data_missFrance['annee'] == 2023]
+filtered_df = data_missFrance[data_missFrance['annee'] == 2018]
 list_candidate = filtered_df['name'].tolist()
 
 #Encoder personnalisé pour récuperer le top
@@ -87,20 +87,44 @@ class MyModel(object):
     def fit(self, X_train, y_train):
         for i in range(12):
             self.model[i].fit(X_train, y_train[i])
-            print("voici le score : ", self.model[i].score(X_train, y_train[i]))
 
     #Renvoyer la matrice de prédiction (celle avec toutes les probas)
-    def predictBis(self, X):
+    def predict(self, X):
         result = []
         for i in range(12):
             y_pred_real = self.model[i].predict(X)
-            print("voici ce qu'on prédit : ", y_pred_real)
+            #print("voici ce qu'on prédit : ", y_pred_real)
             y_pred = self.model[i].predict_proba(X)
             sublist = []
             for j in range(len(y_pred)):
                 sublist.append(y_pred[j][1])
             result.append(sublist)
         return np.array(result).T
+
+    def score(self, X_test, y_test):
+        scores = []
+        for i in range(12):
+            scores.append(self.model[i].score(X_test, y_test[i]))
+        return np.array(scores)
+
+
+def evaluate_prediction(prediction, real_score):
+    sum = 0
+    for (key, value) in prediction.items():
+        if(value in real_score.keys()):
+            diff = key - real_score[value]
+        else :
+            diff = 20
+        sum += math.pow(diff,2)
+    return sum
+
+def give_real_rank(df, annee):
+    filtered_df = df[df['annee'] == annee]
+    rank = {}
+    for i in range(1,13):
+        miss = filtered_df.loc[df['rang'] == i, 'name'].tolist()[0]
+        rank[miss] = i
+    return rank
 
 
 
@@ -112,15 +136,11 @@ y = [df_new_data_copy[column].tolist() for column in list_columns_y[:]] # y= Tou
 X = np.array(X)
 y = np.array(y)
 
-#2024 = 15
-#2023 = 1
-#2022 = 12
-
 
 #La quinziième colonne de notre dataset correspond à 'year_2024', qui vaut 1 quand on est dans l'année 2024, 0 sinon
 #Notre test_set correspond aux données de l'année 2024, notre train_set correspond aux données des années 2009 à 2023
-indices_test = np.where(X[:, 14] == 1)[0]
-indices_train = np.where(X[:, 14] == 0)[0]
+indices_test = np.where(X[:, 9] == 1)[0]
+indices_train = np.where(X[:, 9] == 0)[0]
 
 # Sélection des données correspondantes en utilisant les indices
 X_test, X_train = X[indices_test], X[indices_train]
@@ -131,15 +151,14 @@ for i in range(12):
     y_test[i] = y[i][indices_test]
 
 
-
+"""
 # Vérification des dimensions de X et y
 print("Dimensions de X_train:", X_train.shape)
 print("Dimensions de X_test:", X_test.shape)
 for i in range(12):
     print("Dimensions de y_train[", i, "]", y_train[i].shape)
     print("Dimensions de y_test[", i, "]", y_test[i].shape)
-
-
+"""
 
 #Grid Search
 
@@ -175,65 +194,17 @@ for j in range(len(models)):
 end = time.time()
 print("Fin option 1 qui a duré " , end-start, "secondes", "il s'agit de ", best_model) #Environs 2.5 secondes
 
-"""
-#Option 2 : tester sur tous les modèles
-start = time.time()
-best_score = 0
-for j in range(len(models)):
-    sum_scores = 0
-    for i in range(1, 13):
-        # Grid Search
-        clf = GridSearchCV(estimator=models[j], param_grid=list_params[j]).fit(X_train, y_train[i-1])
-        score = clf.best_score_
-        sum_scores += score
-    sum_scores = sum_scores/12
-    print("on est dans le modele ", models[j], "et le best_score est ",sum_scores)
-    if (sum_scores > best_score):
-        best_score = sum_scores
-        best_model = clf.best_estimator_
-        best_params = clf.best_params_
-end = time.time()
-print("Fin option 2 qui a duré ", end-start, "secondes", "et le modele est ", best_model) #Environs 28 secondes --> Maintenant c'est passé à 14 secondes : Catastrophe j'ai l'impression qu'il apprend le modèle par coeur
-"""
-"""
-#Option 3 : tester sur tous les modèles & renvoyer une liste de 12 modèles
-start = time.time()
-best_score = 0
-list_best_models = []
-for i  in range(1,13):
-    sum_scores = 0
-    for j in range(len(models)):
-        # Grid Search
-        clf = GridSearchCV(estimator=models[j], param_grid=list_params[j]).fit(X_train, y_train[1])
-        score = clf.best_score_
-        if (score > best_score):
-            best_score = score
-            best_model = clf.best_estimator_
-            best_params = clf.best_params_
-    list_best_models.append(best_model)
-
-end = time.time()
-print("Fin option 3 qui a duré ", end-start, "secondes", "et le modele est ", list_best_models) #Environs 28 secondes --> Maintenant c'est passé à 14 secondes : Catastrophe j'ai l'impression qu'il apprend le modèle par coeur
-"""
-
-
-
-
-
-
 #Création de notre modèle
 myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
 #myModel = MyModel(list_best_models)
 #print(best_model.__class__(**best_params))
 myModel.fit(X_train, y_train)
-prediction_matrix = myModel.predictBis(X_test)
+prediction_matrix = myModel.predict(X_test)
+"""
 print(prediction_matrix.shape)
 for i in range(len(prediction_matrix)):
     print(prediction_matrix[i])
-    print("\n\n\n")
-
-
-print("maintenant on passe à la vraie prédiction")
+    print("\n\n\n")"""
 
 def give_rank_5(prediction_matrix, list_candidate):
     scores = []
@@ -281,49 +252,19 @@ def give_rank_ana(prediction_matrix, list_candidate):
         prediction_matrix[:, i] = -1
     return candidates
 
+
 print("Give rank de lea : \n" )
 print(give_rank_5(prediction_matrix, list_candidate))
 
 print("\n\nGive rank de ana : ")
 print(give_rank_ana(prediction_matrix, list_candidate))
 
+print("Voici les scores : ")
+print(myModel.score(X_test, y_test))
 
-"""
-Analyse des classements par année
-
-
-2024 : 
-
-Léa:
-{1: 'Ève Gilles'(1), 2: 'Ravahere Silloux' (7), 3: 'Adélina Blanc'(3), 4: 'Noémie Le Bras'(unrank), 
-5: 'Clémence Ménard'(9), 6: 'Agathe Toullieu'(unrank), 7: 'Maxime Teissier'(5), 8: 'Lola Turpin'(unrank), 
-9: 'Emma Grousset'(unrank), 10: 'Karla Bchir'(12), 11: 'Mélanie Odules'(unrank), 12: 'Chléo Modestine'(unrank)}
-
-Ana: 
-{1: 'Ève Gilles'(1), 2: 'Ravahere Silloux'(7), 3: 'Adélina Blanc'(3), 4: 'Agathe Toullieu' (unrank), 
-5: 'Mélanie Odules'(unrank), 6: 'Maxime Teissier'(5), 7: 'Karla Bchir'(12), 8: 'Clémence Ménard'(9), 
-9: 'Noémie Le Bras'(unrank), 10: 'Lola Turpin'(unrank), 11: 'Chléo Modestine'(unrank), 12: 'Emma Grousset'(unrank)}
-
-
-2023 :
-
-Léa:
-{1: 'Indira Ampiot' (1), 2: 'Herenui Tuheiava' (unrank), 3: 'Agathe Cauet'(2), 4: 'Chana Goyons'(unrank), 
-5: 'Chiara Fontaine'(13), 6: 'Sarah Aoutar'(7), 7: 'Coraline Larasle'(unrank), 8: 'Alissia Ladevèze'(5),
-9: 'Camille Sedira'(unrank), 10: 'Lara Lebretton'(unrank), 11: 'Emma Guibert'(12), 12: 'Adèle Bonnamour'(unrank)
-
-Ana:
-{1: 'Indira Ampiot'(1), 2: 'Herenui Tuheiava'(unrank), 3: 'Chana Goyons'(unrank), 4: 'Chiara Fontaine'(13), 
-5: 'Agathe Cauet'(2), 6: 'Sarah Aoutar'(7), 7: 'Adèle Bonnamour'(unrank), 8: 'Emma Guibert'(12), 
-9: 'Lara Lebretton'(unrank), 10: 'Camille Sedira'(unrank), 11: 'Coraline Larasle' (unrank), 12: 'Alissia Ladevèze'(5)}
-
-
-Léa 
-
-{1: 'Camille Sedira', 2: 'Orianne Galvez-Soto', 3: 'Alissia Ladevèze', 4: 'Lara Lebretton', 5: 'Enora Moal', 6: 'Coraline Larasle', 7: 'Solène Scholer', 8: 'Orianne Meloni', 9: 'Flavy Barla', 10: 'Marion Navarro', 11: 'Indira Ampiot', 12: 'Shaïna Robin'}
-
-
-Give rank de ana : 
-{1: 'Indira Ampiot', 2: 'Alissia Ladevèze', 3: 'Coraline Larasle', 4: 'Lara Lebretton', 5: 'Flavy Barla', 6: 'Orianne Galvez-Soto', 7: 'Camille Sedira', 8: 'Marion Navarro', 9: 'Shaïna Robin', 10: 'Solène Scholer', 11: 'Orianne Meloni', 12: 'Enora Moal'}
-
-"""
+print("Real rank")
+real_rank = give_real_rank(data_missFrance, 2018)
+prediction_ana = give_rank_ana(prediction_matrix, list_candidate)
+prediction_lea = give_rank_5(prediction_matrix, list_candidate)
+print("score ana : ", evaluate_prediction(prediction_ana, real_rank))
+print("score lea : ", evaluate_prediction(prediction_lea, real_rank))
