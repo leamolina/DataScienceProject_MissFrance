@@ -85,27 +85,11 @@ class MyModel(object):
         self.model = model
 
     def fit(self, X_train, y_train):
-
         for i in range(12):
             self.model[i].fit(X_train, y_train[i])
             print("voici le score : ", self.model[i].score(X_train, y_train[i]))
 
-    def fitBis(self, X_train, y_train):
-        i = 0
-        while (i < 12):
-            # Mélange les données
-            sfk = StratifiedKFold(n_splits=12)
-            for train_index, test_index in sfk.split(X_train, y_train[i]):
-                X_train_split, X_test_split = X_train[train_index], X_train[test_index]
-                y_train_split, y_test_split = y_train[i][train_index], y_train[i][test_index]
-
-                self.model[i].fit(X_train_split, y_train_split)
-                print("Voici le score : ", self.model[i].score(X_test_split, y_test_split))
-                i += 1
-
-
     #Renvoyer la matrice de prédiction (celle avec toutes les probas)
-
     def predictBis(self, X):
         result = []
         for i in range(12):
@@ -118,15 +102,6 @@ class MyModel(object):
             result.append(sublist)
         return np.array(result).T
 
-    def predict(self, X):
-        result = np.array([])
-        for candidate in range(len(X)):
-            list_candidate = []
-            for i in range(12):
-                y_pred = self.model[i].predict_proba(X[candidate]) #Renvoie un vecteur de probabilités pour mes deux classes de chacun de mes modèles (oui ou non)
-                list_candidate.append(y_pred[1])
-            result.append(list_candidate)
-        return result
 
 
 #Séparation des données :
@@ -167,12 +142,6 @@ for i in range(12):
 
 
 #Grid Search
-"""
-DecisionTreeClassifier —> weight & predict_proba (parameters)
-RandomForestClassifier —> weight & predict_proba (parameters)
-SVC —> weight & predict_proba (parameters) 
-LogisticRegression —> weight & predict_proba (parameters)
-"""
 
 """
 #On a choisi des classifiers qui ont comme paramètres le poids des classes (utile dans notre cas)
@@ -266,60 +235,31 @@ for i in range(len(prediction_matrix)):
 
 print("maintenant on passe à la vraie prédiction")
 
-def give_sum_proba(pred_rank_matrix):
-    rank={}
-    for i in range(12):
-        list_sum_proba = []
-        k = 0
-        while(k < len(pred_rank_matrix)):
-        #for k in range(len(list_candidate)):
-            sum_proba = 0
-            for j in range(i, 5):
-                sum_proba+=pred_rank_matrix[k][j]
-            for j in range(0,i):
-                sum_proba -= pred_rank_matrix[k][j]
-            list_sum_proba.append(sum_proba)
-            k+=1
-        max_ = max(list_sum_proba)
-        index_max = list_sum_proba.index(max_)
-        rank["score_top_"+str(i+1)] = list_sum_proba
-    return rank
-
-def give_sum_proba_bis(pred_rank_matrix):
-    rank={}
-    for i in range(12):
-        list_sum_proba = []
-        k = 0
-        while(k < len(pred_rank_matrix)):
-        #for k in range(len(list_candidate)):
-            sum_proba = 0
-            for j in range(i, 5):
-                sum_proba+=pred_rank_matrix[k][j]
-            list_sum_proba.append(sum_proba)
-            k+=1
-        max_ = max(list_sum_proba)
-        index_max = list_sum_proba.index(max_)
-        rank["score_top_"+str(i+1)] = list_sum_proba
-    return rank
 def give_rank_5(prediction_matrix, list_candidate):
-    sum_proba = give_sum_proba_bis(prediction_matrix)
-    scores = np.array(sum_proba["score_top_1"])
-    i=0
+    scores = []
+    for k in range(len(prediction_matrix)):
+        sum_proba = 0
+        for j in range(12):
+            sum_proba += prediction_matrix[k][j]
+        scores.append(sum_proba)
     classement = {}
-    while(i<12):
+    for i in range(12):
         max_ = np.argmax(scores)
         classement[i+1] = list_candidate[max_]
         scores[max_] = -1
-        i+=1
     return classement
 
 
 
 def give_rank_ana(prediction_matrix, list_candidate):
-    sum_proba = give_sum_proba_bis(prediction_matrix)
+    scores = []
+    for k in range(len(prediction_matrix)):
+        sum_proba = 0
+        for j in range(12):
+            sum_proba += prediction_matrix[k][j]
+        scores.append(sum_proba)
     prediction_matrix = np.array(prediction_matrix)
     new_prediction_matrix = np.array([])
-    scores = sum_proba["score_top_1"]
     #On récupère les 12 meilleures miss (scores) pour filtrer les candidates
     classement = []
     list_indices = []
@@ -376,5 +316,14 @@ Ana:
 {1: 'Indira Ampiot'(1), 2: 'Herenui Tuheiava'(unrank), 3: 'Chana Goyons'(unrank), 4: 'Chiara Fontaine'(13), 
 5: 'Agathe Cauet'(2), 6: 'Sarah Aoutar'(7), 7: 'Adèle Bonnamour'(unrank), 8: 'Emma Guibert'(12), 
 9: 'Lara Lebretton'(unrank), 10: 'Camille Sedira'(unrank), 11: 'Coraline Larasle' (unrank), 12: 'Alissia Ladevèze'(5)}
+
+
+Léa 
+
+{1: 'Camille Sedira', 2: 'Orianne Galvez-Soto', 3: 'Alissia Ladevèze', 4: 'Lara Lebretton', 5: 'Enora Moal', 6: 'Coraline Larasle', 7: 'Solène Scholer', 8: 'Orianne Meloni', 9: 'Flavy Barla', 10: 'Marion Navarro', 11: 'Indira Ampiot', 12: 'Shaïna Robin'}
+
+
+Give rank de ana : 
+{1: 'Indira Ampiot', 2: 'Alissia Ladevèze', 3: 'Coraline Larasle', 4: 'Lara Lebretton', 5: 'Flavy Barla', 6: 'Orianne Galvez-Soto', 7: 'Camille Sedira', 8: 'Marion Navarro', 9: 'Shaïna Robin', 10: 'Solène Scholer', 11: 'Orianne Meloni', 12: 'Enora Moal'}
 
 """
