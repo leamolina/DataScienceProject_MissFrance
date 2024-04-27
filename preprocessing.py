@@ -13,15 +13,58 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
-
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 #Récupération des données
-data_missFrance = pd.read_csv('data_missFrance.csv', delimiter=';')
+data_missFrance = pd.read_csv('data_missFrance.csv', delimiter=';').drop(["audience", "name", "image"], axis=1)
+nb_regions = len(set(data_missFrance['region']))
 
-data_model = data_missFrance.drop(["audience", "name", "image"], axis=1)
-nb_regions = len(set(data_model['region']))
+
+#Séparation X et y (custom_oneEncoder)
+def transform_y(df, column):
+    new_df = df.drop(columns=[column])  # Enlève la colonne "rang"
+    for i in range(1, 13):
+        new_df["top_" + str(i)] = (df[column] <= i).astype(int)
+    return new_df
+
+df = transform_y(data_missFrance, "rang")
+print(df.head())
+
+#Séparation des données :
+list_columns_y = ["top_" + str(i) for i in range(1, 13)]
+df_copy = df.copy()
+X = df.drop(columns=list_columns_y, axis=1).values.tolist() # X = Tout sauf les colonnes de y
+y = [df_copy[column].tolist() for column in list_columns_y[:]] # y= Toutes les colonnes de y
+X = np.array(X)
+y = np.array(y)
+
+
+#Séparation train & test
+
+#La quinziième colonne de notre dataset correspond à 'year_2024', qui vaut 1 quand on est dans l'année 2024, 0 sinon
+#Notre test_set correspond aux données de l'année 2024, notre train_set correspond aux données des années 2009 à 2023
+indices_test = np.where(X[:, 9] == 1)[0]
+indices_train = np.where(X[:, 9] == 0)[0]
+
+# Sélection des données correspondantes en utilisant les indices
+X_test, X_train = X[indices_test], X[indices_train]
+y_test = [[] for _ in range(12)]
+y_train = [[] for _ in range(12)]
+for i in range(12):
+    y_train[i] = y[i][indices_train]
+    y_test[i] = y[i][indices_test]
+
+# Vérification des dimensions de X et y
+print("Dimensions de X_train:", X_train.shape)
+print("Dimensions de X_test:", X_test.shape)
+for i in range(12):
+    print("Dimensions de y_train[", i, "]", y_train[i].shape)
+    print("Dimensions de y_test[", i, "]", y_test[i].shape)
+
+
+
+#Preprocessing (sans la transformation de y)
 
 #Récupération de la liste des noms des candidates de 2024:
 filtered_df = data_missFrance[data_missFrance['annee'] == 2018]
@@ -128,71 +171,14 @@ def give_real_rank(df, annee):
 
 
 
-#Séparation des données :
-list_columns_y = ["top_" + str(i) for i in range(1, 13)]
-df_new_data_copy = df_new_data.copy()
-X = df_new_data.drop(columns=list_columns_y, axis=1).values.tolist() # X = Tout sauf les colonnes de y
-y = [df_new_data_copy[column].tolist() for column in list_columns_y[:]] # y= Toutes les colonnes de y
-X = np.array(X)
-y = np.array(y)
 
 
-#La quinziième colonne de notre dataset correspond à 'year_2024', qui vaut 1 quand on est dans l'année 2024, 0 sinon
-#Notre test_set correspond aux données de l'année 2024, notre train_set correspond aux données des années 2009 à 2023
-indices_test = np.where(X[:, 9] == 1)[0]
-indices_train = np.where(X[:, 9] == 0)[0]
-
-# Sélection des données correspondantes en utilisant les indices
-X_test, X_train = X[indices_test], X[indices_train]
-y_test = [[] for _ in range(12)]
-y_train = [[] for _ in range(12)]
-for i in range(12):
-    y_train[i] = y[i][indices_train]
-    y_test[i] = y[i][indices_test]
 
 
-"""
-# Vérification des dimensions de X et y
-print("Dimensions de X_train:", X_train.shape)
-print("Dimensions de X_test:", X_test.shape)
-for i in range(12):
-    print("Dimensions de y_train[", i, "]", y_train[i].shape)
-    print("Dimensions de y_test[", i, "]", y_test[i].shape)
-"""
-
-#Grid Search
-
-"""
-#On a choisi des classifiers qui ont comme paramètres le poids des classes (utile dans notre cas)
-models = [DecisionTreeClassifier(),RandomForestClassifier(), SVC(), LogisticRegression()]
-dico_decisionTree = {'class_weight':['balanced'], 'max_features': ['sqrt', 'log2'], 'max_depth' : [7, 8, 9], 'random_state' :[0]}
-dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500, 700, 1000], 'max_features': ['sqrt', 'log2'],'max_depth' : [4,5,6,7,8,9,10]}
-dico_svc = {'class_weight':['balanced'],'C':[1,2, 3, 4, 5, 10, 20, 50, 100, 200],'gamma':[1,0.1,0.001,0.0001],'kernel':['linear','rbf'], 'probability':[True], 'random_state' :[0]}
-dico_logistic = {'class_weight':['balanced'],'C':[0.001, 0.01, 1, 10, 100], 'random_state' :[0]}
-list_params = [dico_decisionTree, dico_randomForest, dico_svc, dico_logistic]
-"""
-
-#à lancer devant le prof
-models = [RandomForestClassifier()]
-dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500],'max_depth' : [4,5,6]}
-list_params = [dico_randomForest]
 
 
-#Option 1 : juste prendre 1 modele
-start = time.time()
-best_score = 0
-y = df_new_data["top_1"]
-#On parcourt tous les modèles et on cherche celui qui donne le meilleur score
-for j in range(len(models)):
-    # Grid Search
-    clf = GridSearchCV(estimator=models[j], param_grid=list_params[j]).fit(X_train, y_train[1])
-    score = clf.best_score_
-    if (score > best_score):
-        best_score = score
-        best_model = clf.best_estimator_
-        best_params = clf.best_params_
-end = time.time()
-print("Fin option 1 qui a duré " , end-start, "secondes", "il s'agit de ", best_model) #Environs 2.5 secondes
+
+
 
 #Création de notre modèle
 myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
