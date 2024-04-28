@@ -52,6 +52,21 @@ class MyModel(object):
             prediction_matrix[:, i] = -1
         return candidates
 
+    def predict_lea(self, X, list_candidate):
+        prediction_matrix = self.prediction_matrix(X)
+        scores = []
+        for k in range(len(prediction_matrix)):
+            sum_proba = 0
+            for j in range(12):
+                sum_proba += prediction_matrix[k][j]
+            scores.append(sum_proba)
+        classement = {}
+        for i in range(12):
+            max_ = np.argmax(scores)
+            classement[i + 1] = list_candidate[max_]
+            scores[max_] = -1
+        return classement
+
     def score(self, X_test, y_test):
         scores = []
         for i in range(12):

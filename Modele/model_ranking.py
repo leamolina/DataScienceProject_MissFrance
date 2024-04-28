@@ -32,7 +32,7 @@ y = np.array(y)
 
 # Séparation train et test
 # Notre test_set correspond aux données de l'année 2022
-annee_test = 2024
+annee_test = 2009
 indices_test = X.index[X['annee'] == annee_test].tolist()
 indices_train = X.index[X['annee'] != annee_test].tolist()
 # Sélection des données correspondantes en utilisant les indices
@@ -137,31 +137,37 @@ def give_real_rank(df, annee):
 #Lancement du Modele
 myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
 myModel.fit(X_train, y_train)
-dump(myModel, 'myModelRanking.joblib')
+#dump(myModel, 'myModelRanking.joblib')
 
 
 prediction = myModel.predict(X_test, list_candidate)
+prediction_lea = myModel.predict_lea(X_test, list_candidate)
 real_rank = give_real_rank(data_missFrance_copy, annee_test)
-print(prediction)
+print("ana : ", prediction)
+print("lea : ", prediction_lea)
 print(real_rank)
-print("score de prédiction :", evaluate_prediction(prediction, real_rank))
+print("score de prédiction ana :", evaluate_prediction(prediction, real_rank), "et score de prediction lea :", evaluate_prediction(prediction_lea, real_rank))
 
 """
-scores:
-2024: 1739 (Eve pas classée)
-2023: 3259 (Indira pas classée) 
-2022: 1749 (Diane 9eme)
-2021: 2529 (Amandine 10eme)
-2020: 2504 (Clémence 5ème)
-2019: 1660 (Vaimala 2ème)
-2018: 3617 (Maeva 1ère)
-2017: 2618 (Alycia 7ème)
-2016: 2831 (Iris 4eme)
-2015: 2987 (Camille 2ème)
-2014: 2478 (Flora 1ère) 
-2013: 2089 (Marine 5ème)
-2012: 2507 (Delphine 6eme)
-2011: 2127 (Laury 3eme)
-2010: 2855 (Malika 2ème)
-2009: 3292 (Chloé 10ème)
+scores (Ana / Léa) :
+2024: 1725 (Eve pas classée) / 1765 (Eve pas classée)
+2023: 3259 (Indira pas classée) / 3235 (Indira pas classée)
+2022: 1780 (Diane 9eme) / 1741 (Diane 7ème)
+2021: 2509 (Amandine 10eme) / 2563 (Amandine 10eme)
+2020: 2529 (Clémence 5ème) / 2555 (Clémence 1ere)
+2019: 1658 (Vaimala 2ème) / 1666 (Vaimala 1ere)
+2018: 2891 (Maeva 1ère) / 2868 (Maeva 1ère)
+2017: 2634 (Alycia 7ème) / 2615 (Alycia 8ème)
+2016: 2870 (Iris 5eme) / 2859 (Iris 3eme)
+2015: 2987 (Camille 2ème) /2994 (Camille 3eme)
+2014: 2447 (Flora 5eme) / 2465 (Flora 3eme)
+2013: 2472 (Marine 5ème) / 2515 (Marine 7eme)
+2012: 2530 (Delphine 7eme) / 2501 (Delphine 5eme)
+2011: 2074 (Laury 3eme) / 2046 (Laury 2eme)
+2010: 2831 (Malika 2ème) 2841 (Malika 5eme)
+2009: 3281 (Chloé 9ème)  / 3298 (Chloé 10eme)
+
+somme des scores:
+Ana = 40477
+Léa = 40527
 """
