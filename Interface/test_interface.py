@@ -7,11 +7,6 @@ import pydeck as pdk
 
 
 
-#Chemins
-chemin_database = 'data_missFrance.csv'
-chemin_logo = 'Sources/Logo_MissFrance.png'
-chemin_audio = "Sources/Generique_Miss_France.mp3"
-chemin_video = "Sources/Couronnement.mp4"
 
 # Fonction pour afficher la page d'accueil
 def accueil():
