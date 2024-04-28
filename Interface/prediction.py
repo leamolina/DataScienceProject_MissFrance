@@ -11,8 +11,6 @@ chemin_video = "../Sources/Couronnement.mp4"
 #Charger les données
 data = pd.read_csv(chemin_database,delimiter=';')
 
-
-
 def page_prediction():
     st.image(chemin_logo, use_column_width=True,width=100)
     st.title("Page 2")
