@@ -17,7 +17,7 @@ from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 #Récupération des données
-data_missFrance = pd.read_csv('data_missFrance.csv', delimiter=';').drop(["audience", "name", "image"], axis=1)
+data_missFrance = pd.read_csv('Databases/data_missFrance.csv', delimiter=';').drop(["audience", "name", "image"], axis=1)
 nb_regions = len(set(data_missFrance['region']))
 
 
