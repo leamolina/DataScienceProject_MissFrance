@@ -15,5 +15,9 @@ def page_presentation():
     st.title("Qui sera Miss France 2025 ?")
     st.audio(chemin_audio, format='audio/mp3')
     st.video(chemin_video, format="video/mp4", start_time=0)
-    st.write("Bienvenue sur la page d'accueil !")
-    st.balloons()
+
+    st.subheader('Notre projet: ', divider='rainbow')
+    st.subheader('En quoi consiste notre modèle ?')
+
+    #st.write("Bienvenue sur la page d'accueil !")
+    #st.balloons()
