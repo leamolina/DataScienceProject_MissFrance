@@ -14,6 +14,11 @@ list_ranks = []
 list_hairs = []
 list_eyes = []
 
+
+
+
+
+
 #Permet de passer d'une chaine de caractères au nombre de centimètres de la candidate
 def convert_height(str_height):
     meters, centimeters = str_height.split(',')
@@ -187,6 +192,7 @@ if page.ok:
                 list_ranks.append(find_rank(rank))
 
 ensemble_sans_doublons = set(list_regions)
+
 # Nombre d'éléments dans l'ensemble
 nombre_elements_sans_doublons = len(ensemble_sans_doublons)
 print(nombre_elements_sans_doublons)

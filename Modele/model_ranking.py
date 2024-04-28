@@ -10,6 +10,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+from data_split import data_split
 
 from my_model import MyModel
 
@@ -17,38 +18,9 @@ from my_model import MyModel
 data_missFrance = pd.read_csv('../Databases/data_missFrance.csv', delimiter=';')
 data_missFrance_copy = data_missFrance.copy()
 data_missFrance = data_missFrance.drop(["audience", "name", "image"], axis=1)
-
-
-# Séparation X entre et y
-def transform_y(df, column):
-    new_df = df.drop(columns=[column])  # Enlève la colonne "rang"
-    for i in range(1, 13):
-        new_df["top_" + str(i)] = (df[column] <= i).astype(int)
-    return new_df
-df = transform_y(data_missFrance, "rang")
-
-# Séparation des données :
-list_columns_y = ["top_" + str(i) for i in range(1, 13)]
-df_copy = df.copy()
-X = df.drop(columns=list_columns_y, axis=1) # X = Tout sauf les colonnes de y
-y = [df_copy[column].tolist() for column in list_columns_y[:]]  # y= Toutes les colonnes de y
-y = np.array(y)
-
-# Séparation train et test
-# Notre test_set correspond aux données de l'année 2022
-annee_test = 2024
-indices_test = X.index[X['annee'] == annee_test].tolist()
-indices_train = X.index[X['annee'] != annee_test].tolist()
-# Sélection des données correspondantes en utilisant les indices
-X_test = X.iloc[indices_test]
-X_train = X.iloc[indices_train]
+annee_test = 2019
+X_train, X_test,y_train,y_test = data_split(data_missFrance, annee_test)
 nb_regions = len(set(X_train['region']))
-
-y_test = [[] for _ in range(12)]
-y_train = [[] for _ in range(12)]
-for i in range(12):
-    y_train[i] = y[i][indices_train]
-    y_test[i] = y[i][indices_test]
 
 #Preprocessing
 #Récupération de la liste des noms des candidates de 2024:
@@ -71,6 +43,7 @@ columns+=["age","length","hair_lenght", "hair_color", "eye_color", "skin_color",
 #print(data_model)
 df_X_train = pd.DataFrame.sparse.from_spmatrix(X_train, columns=columns)
 df_X_train.to_csv('../Databases/donnee_X_train.csv', index=False)
+
 #Grid Search:
 
 #On a choisi des classifiers qui ont comme paramètres le poids des classes (utile dans notre cas)
@@ -90,7 +63,8 @@ list_params = [dico_randomForest]
 
 #Option 1 : juste prendre 1 Modele
 best_score = 0
-#On parcourt tous les modèles et on cherche celui qui donne le meilleur score
+
+#On parcourt tous les modèles et on cherche celui qui donne le meilleur score:
 for j in range(len(models)):
     # Grid Search
     clf = GridSearchCV(estimator=models[j], param_grid=list_params[j]).fit(X_train, y_train[1])
@@ -101,7 +75,7 @@ for j in range(len(models)):
         best_params = clf.best_params_
 print("Fin option 1; il s'agit de ", best_model)
 
-#Lancement du Modele
+#Lancement du Modele:
 myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
 myModel.fit(X_train, y_train)
 dump(myModel, 'myModelRanking.joblib')
