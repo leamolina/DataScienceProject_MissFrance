@@ -3,10 +3,10 @@ import pandas as pd
 
 
 #Chemins
-chemin_database = '../Databases/data_missFrance.csv'
-chemin_logo = '../Sources/Logo_MissFrance.png'
-chemin_audio = "../Sources/Generique_Miss_France.mp3"
-chemin_video = "../Sources/Couronnement.mp4"
+chemin_database = './Databases/data_missFrance.csv'
+chemin_logo = './Sources/Logo_MissFrance.png'
+chemin_audio = "./Sources/Generique_Miss_France.mp3"
+chemin_video = "./Sources/Couronnement.mp4"
 
 #Charger les données
 data = pd.read_csv(chemin_database,delimiter=';')

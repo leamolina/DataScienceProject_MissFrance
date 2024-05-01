@@ -1,10 +1,9 @@
 import math
-
 from joblib import dump, load
 import pandas as pd
 import numpy as np
 from data_split import data_split
-
+from my_model import MyModel
 
 #Fonctions diverses :
 def evaluate_prediction(prediction, real_score):
@@ -36,6 +35,8 @@ if __name__ == '__main__':
     X_train, X_test, y_train, y_test = data_split(data_missFrance, annee_test)
     filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
     list_candidate = filtered_df['name'].tolist()
+    list_model = []
+
 
     myModel = load('myModelRanking.joblib')
     ct = load('column_transformer.joblib')
