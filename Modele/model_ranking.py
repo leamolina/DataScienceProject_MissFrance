@@ -14,7 +14,7 @@ from data_split import data_split
 import json
 from my_model import MyModel
 import streamlit as st
-
+import pickle
 #Fonctions diverses :
 def evaluate_prediction(prediction, real_score):
     sum = 0
@@ -129,6 +129,10 @@ with open('data.json', 'w') as f:
     json.dump(model_info, f)
 myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
 myModel.fit(X_train, y_train)
+
+print("Dump model")
+name_file_model = f"test_model.pkl"
+pickle.dump(myModel, open(name_file_model, 'wb'))
 
 prediction = myModel.predict(X_test, list_candidate)
 real_rank = give_real_rank(data_missFrance_copy, annee_test)

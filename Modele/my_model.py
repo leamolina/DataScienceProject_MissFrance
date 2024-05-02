@@ -1,5 +1,5 @@
 import numpy as np
-
+import pickle
 class MyModel(object):
     def __init__(self, model= None):
         self.model = model

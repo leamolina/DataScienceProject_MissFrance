@@ -1,3 +1,5 @@
+import pickle
+
 import streamlit as st
 import math
 import pandas as pd
@@ -90,6 +92,8 @@ def page_option2():
     list_candidate = filtered_df['name'].tolist()
     X_train, X_test = tranform_data(X_train, X_test)
 
+    """
+    #Récupération des hyperparamètres du modèle (avec JSON) 
     model_classes = {
         "RandomForestClassifier": RandomForestClassifier,
         "DecisionTreeClassifier": DecisionTreeClassifier,
@@ -122,13 +126,23 @@ def page_option2():
 
     myModel = my_model.MyModel(list_of_models)
     myModel.fit(X_train, y_train)
-
+    
     #myModel = load('./Modele/myModelRanking.joblib')
     print("YOUHOUUUU")
+    """
+    list_of_models = []
+    for i in range(12):
+        path = './Modele/train/model_'+str(i)+'.pkl'
+        model = pickle.load(open(path, 'rb'))
+        list_of_models.append(model)
 
 
+    st.write("Le modèle a été récupéré avec succès ")
+    myModel = my_model.MyModel(list_of_models)
+    st.write("La classe a été créée avec succès")
 
 
+    #Affichage des prédictions
     prediction = myModel.predict(X_test, list_candidate)
     real_rank = give_real_rank(data_missFrance_copy, annee_test)
     st.write("prediction : ", prediction)
