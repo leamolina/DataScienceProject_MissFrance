@@ -1,22 +1,12 @@
-import pickle
-
-import streamlit as st
 import math
+import pickle
 import pandas as pd
 import streamlit as st
-import joblib
-import json
 from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, OrdinalEncoder
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
-
-import Modele.my_model as my_model
 import Modele.data_split as ds
-
+import Modele.my_model as my_model
 
 #Chemins
 chemin_database = './Databases/data_missFrance.csv'
@@ -31,41 +21,6 @@ data = pd.read_csv(chemin_database,delimiter=';')
 
 #Fonctions diverses :
 
-def tranform_data(X_train, X_test):
-    # Order for the ordinal encoding
-    hair_length_order = ["Longs", "Mi-longs", "Courts"]
-    hair_color_order = ["Noirs", "Bruns", "Chatains", "Roux", "Blonds"]
-    skin_color_order = ["Noire", "Métisse", "Blanche"]
-    eye_color_order = ["Noirs", "Marrons", "Gris", "Bleus", "Verts"]
-    categories = [hair_length_order, hair_color_order, eye_color_order, skin_color_order]
-
-    # Créer un ColumnTransformer avec votre Custom_OneHotEncoder et d'autres transformations
-    ct = ColumnTransformer([
-        ("preprocessing_one_hot_encoder", OneHotEncoder(handle_unknown="ignore"), ["annee", "region"]),
-        ("preprocessing_age", StandardScaler(), ["age", "taille"]),
-        ("preprocessing_OrdinalEncoder", OrdinalEncoder(categories=categories),
-         ['longueur_cheveux', 'couleur_cheveux', 'couleur_yeux', 'couleur_peau']),
-        ("preprocessing_general_knowledge_test", SimpleImputer(strategy="constant", fill_value=0),
-         ["laureat_culture_generale"]),
-    ],
-        remainder="passthrough")
-
-    ct.fit(X_train)
-    X_train = ct.transform(X_train)
-    X_test = ct.transform(X_test)
-    return X_train, X_test
-
-
-def evaluate_prediction(prediction, real_score):
-    sum = 0
-    for (key, value) in prediction.items():
-        if(value in real_score.keys()):
-            diff = key - real_score[value]
-        else :
-            diff = 20
-        sum += math.pow(diff,2)
-    return sum
-
 def give_real_rank(df, annee):
     filtered_df = df[df['annee'] == annee]
     rank = {}
@@ -74,13 +29,8 @@ def give_real_rank(df, annee):
         rank[miss] = i
     return rank
 
-#Option 1 : Prédire (manuellement) la miss France 2025
-def page_option1():
-    st.write("Nous sommes dans l'option 1")
-
-#Option 2 : Voir la prédiction de la miss France 2022
-def page_option2():
-    st.write("Nous sommes dans l'option 2")
+#Option 1
+def define_tab1(tab1):
     # Récupération des données
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
     data_missFrance_copy = data_missFrance.copy()
@@ -90,98 +40,84 @@ def page_option2():
     X_train, X_test, y_train, y_test = ds.data_split(data_missFrance, annee_test)
     filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
     list_candidate = filtered_df['name'].tolist()
-    X_train, X_test = tranform_data(X_train, X_test)
+    list_region = filtered_df['region'].tolist()
 
-    """
-    #Récupération des hyperparamètres du modèle (avec JSON) 
-    model_classes = {
-        "RandomForestClassifier": RandomForestClassifier,
-        "DecisionTreeClassifier": DecisionTreeClassifier,
-        "SVC": SVC,
-        "LogisticRegression": LogisticRegression
-    }
+    # Récupération du column_transformer
+    path_ct = './Modele/train/column_transformer.pkl'
+    ct = pickle.load(open(path_ct, 'rb'))
+    X_train = ct.transform(X_train)
+    X_test = ct.transform(X_test)
 
-    # Chargement des informations du modèle à partir du fichier JSON
-    with open('./Modele/data.json', 'r') as f:
-        model_info = json.load(f)
-
-    # Extraire le type de modèle et les paramètres du dictionnaire d'informations
-    model_type = model_info["model_type"]
-    params = model_info["params"]
-
-    model_classes = {
-        "RandomForestClassifier": RandomForestClassifier,
-        "DecisionTreeClassifier": DecisionTreeClassifier,
-        "SVC": SVC,
-        "LogisticRegression": LogisticRegression
-    }
-    if model_type in model_classes:
-        best_model_class = model_classes[model_type]
-
-    # Créer une liste de 12 objets RandomForestClassifier avec des paramètres différents
+    # Récupération du modèle
     list_of_models = []
     for i in range(12):
-        model = best_model_class(**params)
-        list_of_models.append(model)
-
-    myModel = my_model.MyModel(list_of_models)
-    myModel.fit(X_train, y_train)
-    
-    #myModel = load('./Modele/myModelRanking.joblib')
-    print("YOUHOUUUU")
-    """
-    list_of_models = []
-    for i in range(12):
-        path = './Modele/train/model_'+str(i)+'.pkl'
+        path = './Modele/train/model_' + str(i) + '.pkl'
         model = pickle.load(open(path, 'rb'))
         list_of_models.append(model)
-
-
-    st.write("Le modèle a été récupéré avec succès ")
     myModel = my_model.MyModel(list_of_models)
-    st.write("La classe a été créée avec succès")
 
-
-    #Affichage des prédictions
+    # Affichage des prédictions
     prediction = myModel.predict(X_test, list_candidate)
     real_rank = give_real_rank(data_missFrance_copy, annee_test)
-    st.write("prediction : ", prediction)
-    st.write("vrai classement :", real_rank)
-    st.write("score de prédiction lea :", evaluate_prediction(prediction, real_rank))
+    i = 0
+    while(i<12):
+        columns = tab1.columns([1, 1, 1, 1])
+        for j in range(4):
+            name = prediction[i+1]
+            #url_image = filtered_df[filtered_df['name'] == name]['image'].tolist()[0]
+            path_image = 'Sources/Images_Candidates_2019/' + name + '.webp'
+            print("URL: ", path_image)
+            columns[j].image(path_image)
+            columns[j].write(str(i+1)+": "+name)
+            if(name in real_rank):
+                columns[j].write("Réel rang : "+ str(real_rank[name]))
+            else:
+                columns[j].write("Réel rang : non classée")
+            i+=1
+            tab1.write("")
+    tab1.write("score de prédiction:")
+    tab1.write(myModel.evaluate_prediction(X_test, list_candidate, real_rank))
 
+
+#Option 2
+def define_tab2(tab2):
+    data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
+    list_region = sorted(list(set(data_missFrance['region'].tolist())))
+    nb_candidates = tab2.number_input("Choisir le nombre de candidates", 1, 30)
+    tab2.write("Vous avez choisi " + str(nb_candidates) + " candidates ")
+    tab2.write("")
+    tab2.write("")
+    tab2.write("")
+    for i in range(nb_candidates):
+        with tab2.form(key="my_form_"+str(i)):
+            columns_infos_generales = tab2.columns([2, 2, 1, 1])
+            name = columns_infos_generales[0].text_input("Nom de la candidate")
+            region = columns_infos_generales[1].selectbox("Région", list_region)
+            age = columns_infos_generales[2].number_input("Âge", 18, 40)
+            taille = columns_infos_generales[3].slider("Taille (cm)", 130, 200)
+
+            columns_caracteristiques_physiques = tab2.columns([1, 1, 1, 1])
+            couleur_cheveux = columns_caracteristiques_physiques[0].selectbox("Couleur des cheveux", ["Noirs", "Bruns", "Chatains", "Roux", "Blonds"])
+            longueur_cheveux = columns_caracteristiques_physiques[1].selectbox("Longueur des cheveux", ["Longs", "Mi-longs", "Courts"])
+            couleur_yeux = columns_caracteristiques_physiques[2].selectbox("Couleur des yeux", ["Noirs", "Marrons", "Gris", "Bleus", "Verts"])
+            couleur_peau = columns_caracteristiques_physiques[3].selectbox("Couleur de la peau", ["Noire", "Métisse", "Blanche"])
+
+            column_autre = tab2.columns([1, 1])
+            laureate_culture_generale = column_autre[0].radio("La candidate a-t-elle eu le prix de culture générale ? ", ["Oui", "Non"])
+            est_tombee = column_autre[1].radio("La candidate est-elle tombée le soir de l'éléction ? ", ["Oui", "Non"])
+
+            submit_button = tab2.form_submit_button("Enregistrer")
 def page_prediction():
-    st.title("Prediction")
-    #Logo en haut à droite
+    # Logo en haut à droite
     col1, col2, col3 = st.columns((1, 4, 1))
     with col3:
         st.image(chemin_logo, use_column_width=True, width=10)
-    option1 = "Option 1 : Prédire manuellement la miss France 2025"
-    option2 = "Option 2 : Voir la prédiction de la miss France 2022"
-    st.title("Prédiction Miss France")
-    st.write("Nous allons prédire la future Miss France")
-
-    options = [option1, option2]
-
-    selected_option = st.selectbox("Choisissez votre option 👇", options)
-
-    with st.expander("A propos"):
-        st.markdown(
-            """
-        The **#30DaysOfStreamlit** is a coding challenge designed to help you get started in building Streamlit apps.
-
-        Particularly, you'll be able to:
-        - Set up a coding environment for building Streamlit apps
-        - Build your first Streamlit app
-        - Learn about all the awesome input/output widgets to use for your Streamlit app
-        """
-        )
-
-    if selected_option == option1:
-        page_option1()
-    elif selected_option == option2:
-        page_option2()
-    else:
-        print("Erreur ?")
-
-
-
+    st.title("Prediction")
+    st.write("Vous pouvez choisir parmi deux options.")
+    st.write("Premièrement, vous pouvez voir les prédictions de notre année (l'année 2019).")
+    st.write("Deuxièmement, vous pouvez entrer manuellement les données des candidates pour Miss France 2025 et obtenir les prédictions.")
+    tab1, tab2 = st.tabs(["Option 1", "Option 2"])
+    tab1.write("Première option : voir les prédictions de miss france 2019")
+    define_tab1(tab1)
+    tab2.write("Seconde option : voir les prédictions de miss France 2025 (données à entrer manuellement)")
+    define_tab2(tab2)

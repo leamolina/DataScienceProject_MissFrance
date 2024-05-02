@@ -1,62 +1,16 @@
 import math
-import numpy as np
+import pickle
+import time
+
 import pandas as pd
-from joblib import dump, load
-from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
-from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+
 from data_split import data_split
-import json
 from my_model import MyModel
-import streamlit as st
-import pickle
-#Fonctions diverses :
-def evaluate_prediction(prediction, real_score):
-    sum = 0
-    for (key, value) in prediction.items():
-        if(value in real_score.keys()):
-            diff = key - real_score[value]
-        else :
-            diff = 20
-        sum += math.pow(diff,2)
-    return sum
-
-def give_real_rank(df, annee):
-    filtered_df = df[df['annee'] == annee]
-    rank = {}
-    for i in range(1,13):
-        miss = filtered_df.loc[df['rang'] == i, 'name'].tolist()[0]
-        rank[miss] = i
-    return rank
-
-def tranform_data(X_train, X_test):
-    # Order for the ordinal encoding
-    hair_length_order = ["Longs", "Mi-longs", "Courts"]
-    hair_color_order = ["Noirs", "Bruns", "Chatains", "Roux", "Blonds"]
-    skin_color_order = ["Noire", "Métisse", "Blanche"]
-    eye_color_order = ["Noirs", "Marrons", "Gris", "Bleus", "Verts"]
-    categories = [hair_length_order, hair_color_order, eye_color_order, skin_color_order]
-
-    # Créer un ColumnTransformer avec votre Custom_OneHotEncoder et d'autres transformations
-    ct = ColumnTransformer([
-        ("preprocessing_one_hot_encoder", OneHotEncoder(handle_unknown="ignore"), ["annee", "region"]),
-        ("preprocessing_age", StandardScaler(), ["age", "taille"]),
-        ("preprocessing_OrdinalEncoder", OrdinalEncoder(categories=categories),
-         ['longueur_cheveux', 'couleur_cheveux', 'couleur_yeux', 'couleur_peau']),
-        ("preprocessing_general_knowledge_test", SimpleImputer(strategy="constant", fill_value=0),
-         ["laureat_culture_generale"]),
-    ],
-        remainder="passthrough")
-
-    ct.fit(X_train)
-    X_train = ct.transform(X_train)
-    X_test = ct.transform(X_test)
-    return X_train, X_test
 
 
 # Récupération des données
@@ -72,7 +26,11 @@ nb_regions = len(set(X_train['region']))
 filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
 list_candidate = filtered_df['name'].tolist()
 
-X_train, X_test = tranform_data(X_train, X_test)
+#Récupération du column transformer
+path_ct = 'train/column_transformer.pkl'
+ct = pickle.load(open(path_ct, 'rb'))
+X_train = ct.transform(X_train)
+X_test = ct.transform(X_test)
 
 #Mise en place des colonnes
 columns = []
@@ -105,6 +63,7 @@ list_params = [dico_randomForest]
 """
 
 #Option 1 : juste prendre 1 Modele
+time_start = time.time()
 best_score = 0
 
 #On parcourt tous les modèles et on cherche celui qui donne le meilleur score:
@@ -116,26 +75,13 @@ for j in range(len(models)):
         best_score = score
         best_model = clf.best_estimator_
         best_params = clf.best_params_
+time_end = time.time()
 print("Fin option 1; il s'agit de ", best_model)
+print("L'option 1 a duré ", time_end - time_start)
 
 #Lancement du Modele:
-print(best_params)
-print(best_model.__class__)
-model_info = {
-    "model_type": best_model.__class__.__name__,
-    "params": best_params
-}
-with open('data.json', 'w') as f:
-    json.dump(model_info, f)
 myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
 myModel.fit(X_train, y_train)
 
 print("Dump model")
-name_file_model = f"test_model.pkl"
-pickle.dump(myModel, open(name_file_model, 'wb'))
-
-prediction = myModel.predict(X_test, list_candidate)
-real_rank = give_real_rank(data_missFrance_copy, annee_test)
-st.write("prediction : ", prediction)
-st.write("vrai classement :", real_rank)
-st.write("score de prédiction lea :", evaluate_prediction(prediction, real_rank))
+myModel.dump_model("train/model_")

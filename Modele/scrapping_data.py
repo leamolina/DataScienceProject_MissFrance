@@ -15,10 +15,6 @@ list_hairs = []
 list_eyes = []
 
 
-
-
-
-
 #Permet de passer d'une chaine de caractères au nombre de centimètres de la candidate
 def convert_height(str_height):
     meters, centimeters = str_height.split(',')

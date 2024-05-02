@@ -1,3 +1,5 @@
+import pickle
+
 import pandas as pd
 import numpy as np
 from sklearn.compose import ColumnTransformer
@@ -24,7 +26,7 @@ list_candidate = filtered_df['name'].tolist()
 hair_length_order = ["Longs", "Mi-longs", "Courts"]
 hair_color_order = ["Noirs", "Bruns", "Chatains", "Roux", "Blonds"]
 skin_color_order =["Noire", "Métisse", "Blanche"]
-eye_color_order = ["Noirs", "Marrons", "Gris", "Bleus",  "Verts"]
+eye_color_order = ["Noirs", "Marrons", "Gris", "Bleus", "Verts"]
 categories = [hair_length_order, hair_color_order, eye_color_order, skin_color_order]
 
 # Créer un ColumnTransformer avec votre Custom_OneHotEncoder et d'autres transformations
@@ -37,4 +39,6 @@ ct = ColumnTransformer([
 remainder="passthrough")
 
 ct.fit(X_train)
-dump(ct, 'column_transformer.joblib')
+#Dump du column transformer
+name_file_ct = f"train/column_transformer.pkl"
+pickle.dump(ct, open(name_file_ct, 'wb'))
