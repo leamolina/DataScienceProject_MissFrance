@@ -64,9 +64,7 @@ def define_tab1(tab1):
         columns = tab1.columns([1, 1, 1, 1])
         for j in range(4):
             name = prediction[i+1]
-            #url_image = filtered_df[filtered_df['name'] == name]['image'].tolist()[0]
             path_image = 'Sources/Images_Candidates_2019/' + name + '.webp'
-            print("URL: ", path_image)
             columns[j].image(path_image)
             columns[j].write(str(i+1)+": "+name)
             if(name in real_rank):
@@ -79,34 +77,75 @@ def define_tab1(tab1):
     tab1.write(myModel.evaluate_prediction(X_test, list_candidate, real_rank))
 
 
+
+
+
+
+
 #Option 2
 def define_tab2(tab2):
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
     list_region = sorted(list(set(data_missFrance['region'].tolist())))
     nb_candidates = tab2.number_input("Choisir le nombre de candidates", 1, 30)
-    tab2.write("Vous avez choisi " + str(nb_candidates) + " candidates ")
-    tab2.write("")
-    tab2.write("")
-    tab2.write("")
+    tab2.write("Vous avez choisi " + str(nb_candidates) + " candidate(s) ")
+    for _ in range(3): tab2.write("")
+    list_regions = ["" for _ in range(nb_candidates)]
+    list_names = ["" for _ in range(nb_candidates)]
+    list_ages = [0 for _ in range(nb_candidates)]
+    list_heights = [0 for _ in range(nb_candidates)]
+    list_hairs_color = ["" for _ in range(nb_candidates)]
+    list_hairs_len = ["" for _ in range(nb_candidates)]
+    list_eyes_color = ["" for _ in range(nb_candidates)]
+    list_skintone = ["" for _ in range(nb_candidates)]
+    list_laureate_culture_generale= [0 for _ in range(nb_candidates)]
+    list_has_fallen = [0 for _ in range(nb_candidates)]
+    list_years = [2025 for _ in range(nb_candidates)]
+
+    #Affichage des différents formulaires
     for i in range(nb_candidates):
-        with tab2.form(key="my_form_"+str(i)):
-            columns_infos_generales = tab2.columns([2, 2, 1, 1])
-            name = columns_infos_generales[0].text_input("Nom de la candidate")
-            region = columns_infos_generales[1].selectbox("Région", list_region)
-            age = columns_infos_generales[2].number_input("Âge", 18, 40)
-            taille = columns_infos_generales[3].slider("Taille (cm)", 130, 200)
+            tab2.subheader("Informations concernant la candidate " + str(i+1) )
+            with tab2.form(key='form_'+str(i), border=True):
+                columns_infos_generales = tab2.columns([2, 2, 1, 1])
+                list_names[i] = columns_infos_generales[0].text_input("Nom de la candidate "+str(i+1))
+                list_regions[i] = columns_infos_generales[1].selectbox("Région de la candidate " + str(i+1), list_region)
+                list_ages[i] = columns_infos_generales[2].number_input("Âge de la candidate "+str(i+1), 18, 40)
+                list_heights[i] = columns_infos_generales[3].slider("Taille de la candidate "+str(i+1) +" (cm)", 130, 200)
 
-            columns_caracteristiques_physiques = tab2.columns([1, 1, 1, 1])
-            couleur_cheveux = columns_caracteristiques_physiques[0].selectbox("Couleur des cheveux", ["Noirs", "Bruns", "Chatains", "Roux", "Blonds"])
-            longueur_cheveux = columns_caracteristiques_physiques[1].selectbox("Longueur des cheveux", ["Longs", "Mi-longs", "Courts"])
-            couleur_yeux = columns_caracteristiques_physiques[2].selectbox("Couleur des yeux", ["Noirs", "Marrons", "Gris", "Bleus", "Verts"])
-            couleur_peau = columns_caracteristiques_physiques[3].selectbox("Couleur de la peau", ["Noire", "Métisse", "Blanche"])
+                columns_caracteristiques_physiques = tab2.columns([1, 1, 1, 1])
+                list_hairs_color[i] = columns_caracteristiques_physiques[0].selectbox("Couleur des cheveux de la candidate " + str(i+1) , ["Noirs", "Bruns", "Chatains", "Roux", "Blonds"])
+                list_hairs_len[i] = columns_caracteristiques_physiques[1].selectbox("Longueur des cheveux de la candidate " + str(i+1), ["Longs", "Mi-longs", "Courts"])
+                list_eyes_color[i] = columns_caracteristiques_physiques[2].selectbox("Couleur des yeux de la candidate " + str(i+1) ,  ["Noirs", "Marrons", "Gris", "Bleus", "Verts"])
+                list_skintone[i] = columns_caracteristiques_physiques[3].selectbox("Couleur de la peau de la candidate " + str(i+1), ["Noire", "Métisse", "Blanche"])
 
-            column_autre = tab2.columns([1, 1])
-            laureate_culture_generale = column_autre[0].radio("La candidate a-t-elle eu le prix de culture générale ? ", ["Oui", "Non"])
-            est_tombee = column_autre[1].radio("La candidate est-elle tombée le soir de l'éléction ? ", ["Oui", "Non"])
+                column_autre = tab2.columns([1, 1])
+                list_laureate_culture_generale[i] = int(column_autre[0].radio("La candidate "+str(i+1)+" a-t-elle eu le prix de culture générale ? ",  ["Oui", "Non"]) == "Oui")
+                list_has_fallen[i] = int(column_autre[1].radio("La candidate "+str(i+1)+ " est-elle tombée le soir de l'éléction ? ", ["Oui", "Non"]) == "Oui")
 
-            submit_button = tab2.form_submit_button("Enregistrer")
+                #Bouton de validation du formulaire
+                if(i==nb_candidates-1):
+                    for _ in range(3):tab2.write("")
+                    submited = tab2.button("Voir les prédictions 👑")
+            for _ in range(3): tab2.write("")
+
+    all_filled = True
+    if (submited):
+        for i in range(nb_candidates):
+            if (list_names[i] == ''):
+                tab2.error("⚠️ Merci d'indiquer le nom de la candidate " + str(i + 1))
+                all_filled = False
+                break
+        if all_filled:
+            tab2.write("Affichage des prédictions 👑")
+            data_candidates = pd.DataFrame.from_dict({'annee':list_years, 'region': list_regions, 'name': list_names, 'age': list_ages,'taille': list_heights, 'couleur_cheveux': list_hairs_color, 'longueur_cheveux': list_hairs_len, 'couleur_yeux': list_eyes_color, 'couleur_peau': list_skintone, 'laureat_culture_generale': list_laureate_culture_generale, 'est_tombee': list_has_fallen})
+            tab2.write("Voici notre base de données ")
+            tab2.write(data_candidates)
+            path_ct = './Modele/train/column_transformer.pkl'
+            ct = pickle.load(open(path_ct, 'rb'))
+            data_candidates = ct.transform(data_candidates)
+            tab2.write("Affichage des données transformées ")
+            tab2.write(data_candidates)
+
+
 def page_prediction():
     # Logo en haut à droite
     col1, col2, col3 = st.columns((1, 4, 1))
