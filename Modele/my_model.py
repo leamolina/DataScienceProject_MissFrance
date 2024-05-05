@@ -33,8 +33,8 @@ class MyModel(object):
             scores.append(sum_proba)
         classement = {}
         #Remplacer cette ligne par
-        #for i in range(min(12, len(list_candidate)):
-        for i in range(12):
+        for i in range(min(12, len(list_candidate))):
+            #for i in range(12):
             max_ = np.argmax(scores)
             classement[i + 1] = list_candidate[max_]
             scores[max_] = -1
