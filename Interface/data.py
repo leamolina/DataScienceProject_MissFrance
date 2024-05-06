@@ -46,7 +46,32 @@ def page_data():
     st.write('Au total, ' + str(sum) + '% des lauréates au prix de culture générale ont atteint le top 12.')
     st.write('ANALYSE DES RESULTATS')
 
-    # Nombre de gagnantes par région (camembert)
+    # Nombre de gagnantes par région (diagramme)
+    for _ in range(3): st.write('')
+    st.subheader('Nombre de gagnantes par région :')
+    for _ in range(2): st.write('')
+    col = st.columns(2)
+
+    #Sur la colonne de gauche on met notre diagramme
+    filtered_df = data_missFrance[data_missFrance['rang'] == 1]
+    list_region = list(set(filtered_df[ 'region'].tolist())) # Récupération de la liste (sans doublons et triée) de différentes régions présentes dans notre dataset
+    labels = []
+    sizes = []
+    for region in list_region:
+        labels.append(region)
+        percent = filtered_df[filtered_df['region'] == region].shape[0]/16
+        sizes.append(percent)
+    fig1, ax1 = plt.subplots()
+    fig1.set_facecolor('#290425')
+    #Il faut 11 couleurs
+    colors = ['#DCB253', '#B93A1E', '#74A414', '#A219C0', '#5C4793', '#478D93', '#936747', '#934768']
+    ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, textprops={'color': "#f63366"}, colors=colors)
+    col[0].pyplot(fig1)
+
+    #Sur la colonne de droite on analyse les résultats
+    for _ in range(2): col[1].write('')
+    col[1].write("Blabla explication du diagramme")
+
 
     # Importance de ne pas tomber le soir de l'éléction & impact que cela peut avoir sur le classement final
 
@@ -62,7 +87,5 @@ def page_data():
 
     # Afficher l'histogramme
     st.bar_chart(cheveux_par_annee, x='annee', y='nombre', color='couleur_cheveux', use_container_width=True)
-
     chart_data = pd.DataFrame(cheveux_par_annee, data_subset)
-
     #st.bar_chart(chart_data)

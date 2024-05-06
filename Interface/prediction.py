@@ -19,6 +19,9 @@ def give_real_rank(df, annee):
 
 # Option 1 : afficher la prédiction 2019
 def define_tab1(tab1, myModel, ct):
+
+    tab1.subheader('Première option : voir les prédictions de miss france 2019')
+
     # Récupération des données
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
     data_missFrance_copy = data_missFrance.copy()
@@ -55,9 +58,12 @@ def define_tab1(tab1, myModel, ct):
 
 # Option 2
 def define_tab2(tab2, myModel, ct):
+
+    tab2.subheader('Seconde option : voir les prédictions de miss France 2025 (données à entrer manuellement)')
+
+
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
-    list_region = sorted(list(set(data_missFrance[
-                                      'region'].tolist())))  # Récupération de la liste (sans doublons et triée) de différentes régions présentes dans notre dataset
+    list_region = sorted(list(set(data_missFrance[ 'region'].tolist())))  # Récupération de la liste (sans doublons et triée) de différentes régions présentes dans notre dataset
     nb_candidates = tab2.number_input('Choisir le nombre de candidates', 1, 30)
     tab2.write('Vous avez choisi ' + str(nb_candidates) + ' candidate(s)')
 
@@ -154,7 +160,7 @@ def page_prediction():
     with col3:
         st.image(chemin_logo, use_column_width=True, width=10)
 
-    st.title('Prediction')
+    st.title('Prédiction')
     st.write('Vous pouvez choisir parmi deux options.')
     st.write('Premièrement, vous pouvez voir les prédictions de notre année (l\'année 2019).')
     st.write(
@@ -174,7 +180,5 @@ def page_prediction():
 
     # Tabs
     tab1, tab2 = st.tabs(['Option 1', 'Option 2'])
-    tab1.write('Première option : voir les prédictions de miss france 2019')
     define_tab1(tab1, myModel, ct)
-    tab2.write('Seconde option : voir les prédictions de miss France 2025 (données à entrer manuellement)')
     define_tab2(tab2, myModel, ct)
