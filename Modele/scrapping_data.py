@@ -23,8 +23,8 @@ def convert_height(str_height):
 
 # Permet de récupérerer les caractéristiques physiques de la candidate : couleur des cheveux et couleur des yeux
 def get_info(url):
-    hair = " "
-    eyes = " "
+    hair = ' '
+    eyes = ' '
     response2 = requests.get(url)
     if response2.ok:
         soup2 = BeautifulSoup(response2.text, 'lxml')

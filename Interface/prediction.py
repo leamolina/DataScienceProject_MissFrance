@@ -28,9 +28,9 @@ def define_tab1(tab1, myModel, ct):
     data_missFrance = data_missFrance.drop(['audience', 'name', 'image'], axis=1)
 
     annee_test = 2019
-    X_train, X_test, y_train, y_test = ds.data_split(data_missFrance, annee_test) #Récupération du test_set
+    X_train, X_test, y_train, y_test = ds.data_split(data_missFrance, annee_test)  # Récupération du test_set
     filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
-    list_candidate = filtered_df['name'].tolist() # Récupération de la liste des candidates (pour l'affichage des prédictions)
+    list_candidate = filtered_df['name'].tolist()  # Récupération de la liste des candidates (pour l'affichage des prédictions)
 
     # Transformation des données
     X_test = ct.transform(X_test)
@@ -61,9 +61,9 @@ def define_tab2(tab2, myModel, ct):
 
     tab2.subheader('Seconde option : voir les prédictions de miss France 2025 (données à entrer manuellement)')
 
-
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
-    list_region = sorted(list(set(data_missFrance[ 'region'].tolist())))  # Récupération de la liste (sans doublons et triée) de différentes régions présentes dans notre dataset
+    list_region = sorted(list(set(data_missFrance['region'].tolist())))  # Récupération de la liste (sans doublons
+    # et triée) de différentes régions présentes dans notre dataset
     nb_candidates = tab2.number_input('Choisir le nombre de candidates', 1, 30)
     tab2.write('Vous avez choisi ' + str(nb_candidates) + ' candidate(s)')
 
@@ -124,7 +124,8 @@ def define_tab2(tab2, myModel, ct):
 
         for _ in range(3): tab2.write('')  # Saut de 3 lignes
 
-    # Vérification que les informations ont bien été remplies (la seule case n'ayant pas de valeur par défaut est la case 'nom')
+    # Vérification que les informations ont bien été remplies (la seule case n'ayant pas de valeur par défaut est la
+    # case 'nom')
     if submited:
         all_filled = True
         for i in range(nb_candidates):
