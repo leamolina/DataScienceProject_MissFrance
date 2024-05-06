@@ -10,13 +10,13 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
 from data_split import data_split
-from my_model import MyModel
+from multiModelTop12Predictor import MultiModelTop12Predictor
 
 
 # Récupération des données
 data_missFrance = pd.read_csv('../Databases/data_missFrance.csv', delimiter=';')
 data_missFrance_copy = data_missFrance.copy()
-data_missFrance = data_missFrance.drop(["audience", "name", "image"], axis=1)
+data_missFrance = data_missFrance.drop(['audience', 'name', 'image'], axis=1)
 annee_test = 2019
 X_train, X_test,y_train,y_test = data_split(data_missFrance, annee_test)
 nb_regions = len(set(X_train['region']))
@@ -36,10 +36,10 @@ X_test = ct.transform(X_test)
 columns = []
 for i in range(2009, 2025):
     if(i!=annee_test):
-        columns.append("year_"+str(i))
+        columns.append('year_'+str(i))
 for i in range(1,nb_regions+1):
-    columns.append("region_" + str(i))
-columns+=["age","length","hair_lenght", "hair_color", "eye_color", "skin_color","general_knowledge_test", "has_fallen"]
+    columns.append('region_' + str(i))
+columns+=['age','length','hair_lenght', 'hair_color', 'eye_color', 'skin_color','general_knowledge_test', 'has_fallen']
 
 #print(data_model)
 df_X_train = pd.DataFrame.sparse.from_spmatrix(X_train, columns=columns)
@@ -76,12 +76,12 @@ for j in range(len(models)):
         best_model = clf.best_estimator_
         best_params = clf.best_params_
 time_end = time.time()
-print("Fin option 1; il s'agit de ", best_model)
-print("L'option 1 a duré ", time_end - time_start)
+print('Fin option 1; il s\'agit de ', best_model)
+print('L\'option 1 a duré ', time_end - time_start, ' secondes')
 
 #Lancement du Modele:
-myModel = MyModel([best_model.__class__(**best_params) for i in range(12)])
-myModel.fit(X_train, y_train)
+model = MultiModelTop12Predictor([best_model.__class__(**best_params) for i in range(12)])
+model.fit(X_train, y_train)
 
-print("Dump model")
-myModel.dump_model("train/model_")
+print('Dump model')
+model.dump_model('train/model_')

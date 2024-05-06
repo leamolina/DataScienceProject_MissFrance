@@ -4,8 +4,7 @@ import pandas as pd
 import streamlit as st
 
 import Modele.data_split as ds
-import Modele.my_model as my_model
-
+import Modele.multiModelTop12Predictor as my_model
 
 # Fonctions diverses :
 def give_real_rank(df, annee):
@@ -166,7 +165,7 @@ def page_prediction():
         path = './Modele/train/model_' + str(i) + '.pkl'
         model = pickle.load(open(path, 'rb'))
         list_of_models.append(model)
-    myModel = my_model.MyModel(list_of_models)
+    myModel = my_model.MultiModelTop12Predictor(list_of_models)
 
     # Récupération du column transformer
     path_ct = './Modele/train/column_transformer.pkl'

@@ -1,12 +1,9 @@
-import pickle
-import numpy as np
-import streamlit as st
 import pandas as pd
-from Interface.presentation import page_presentation
+import streamlit as st
+
 from Interface.data import page_data
 from Interface.prediction import page_prediction
-import Modele.my_model as my_model
-import Modele.data_split as ds
+from Interface.presentation import page_presentation
 
 #Chemins
 chemin_database = './Databases/data_missFrance.csv'

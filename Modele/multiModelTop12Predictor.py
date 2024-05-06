@@ -2,7 +2,7 @@ import numpy as np
 import pickle
 import math
 
-class MyModel(object):
+class MultiModelTop12Predictor(object):
     def __init__(self, model= None):
         self.model = model
 
@@ -61,4 +61,3 @@ class MyModel(object):
         for i in range(12):
             name_file_model = path+str(i)+'.pkl'
             pickle.dump(self.model[i], open(name_file_model, 'wb'))
-
