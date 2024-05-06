@@ -2,6 +2,9 @@ import numpy as np
 import pickle
 import math
 
+from sklearn.utils.validation import check_is_fitted
+
+
 class MultiModelTop12Predictor(object):
     def __init__(self, model= None):
         self.model = model
@@ -14,8 +17,6 @@ class MultiModelTop12Predictor(object):
     def prediction_matrix(self, X):
         result = []
         for i in range(12):
-            y_pred_real = self.model[i].predict(X)
-            # print("voici ce qu'on prédit : ", y_pred_real)
             y_pred = self.model[i].predict_proba(X)
             sublist = []
             for j in range(len(y_pred)):
