@@ -6,6 +6,7 @@ import streamlit as st
 import Modele.data_split as ds
 import Modele.multiModelTop12Predictor as my_model
 
+
 # Fonctions diverses :
 def give_real_rank(df, annee):
     filtered_df = df[df['annee'] == annee]
@@ -26,7 +27,7 @@ def define_tab1(tab1, myModel, ct):
     annee_test = 2019
     X_train, X_test, y_train, y_test = ds.data_split(data_missFrance, annee_test) #Récupération du test_set
     filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
-    list_candidate = filtered_df['name'].tolist() #Récupération de la liste des candidates (pour l'affichage des prédictions)
+    list_candidate = filtered_df['name'].tolist() # Récupération de la liste des candidates (pour l'affichage des prédictions)
 
     # Transformation des données
     X_test = ct.transform(X_test)

@@ -31,14 +31,14 @@ class MultiModelTop12Predictor(object):
             for j in range(12):
                 sum_proba += prediction_matrix[k][j]
             scores.append(sum_proba)
-        classement = {}
+        ranking = {}
         #Remplacer cette ligne par
         for i in range(min(12, len(list_candidate))):
             #for i in range(12):
             max_ = np.argmax(scores)
-            classement[i + 1] = list_candidate[max_]
+            ranking[i + 1] = list_candidate[max_]
             scores[max_] = -1
-        return classement
+        return ranking
 
     def score(self, X_test, y_test):
         scores = []
