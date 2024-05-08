@@ -20,7 +20,7 @@ def page_presentation():
     st.write('Bienvenue dans notre projet de prédiction de Miss France 2025 ! :crown:\n\n Nous nous sommes lancées '
              'dans ce projet passionnant en utilisant des techniques de Web Scraping pour recueillir des données sur '
              'les candidates à Miss France de 2009 à 2024, avec leurs caractéristiques détaillées.\n\n Notre but : '
-             'Déterminer QUI sera Miss France 2025 et  \n\n Quelles candidates feront parties du top 12 ?')
+             'Déterminer QUI sera Miss France 2025 et Quelles candidates feront parties du top 12 ?')
 
     st.subheader('En quoi consiste notre modèle ?', divider='orange')
     st.write('Notre modèle tente de prédire avec précision le top 12 des candidates. Grâce à notre approche '

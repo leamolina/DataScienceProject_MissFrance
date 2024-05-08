@@ -11,7 +11,7 @@ st.sidebar.title('Projet')
 
 pages = {
     'Présentation': page_presentation,
-    'Nos données': page_data,
+    'Analyse des données': page_data,
     'Prédiction': page_prediction,
 }
 
