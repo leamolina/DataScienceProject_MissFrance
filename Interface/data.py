@@ -9,7 +9,7 @@ def page_data():
     col1, col2, col3 = st.columns((1, 4, 1))
     with col3:
         st.image(chemin_logo, use_column_width=True, width=10)
-    st.title('Nos données')
+    st.title('Nos données :')
     for _ in range(3):
         st.write('')
 

@@ -1,14 +1,17 @@
 import numpy as np
 
-# Séparation X et y
-def transform_y(df, column):
+
+# Séparation X et y (et ajout des colonnes de top)
+def transform_data(df, column):
     new_df = df.drop(columns=[column])  # Enlève la colonne "rang"
     for i in range(1, 13):
         new_df['top_' + str(i)] = (df[column] <= i).astype(int)
     return new_df
 
+
 def data_split(data_missFrance, annee_test):
-    df = transform_y(data_missFrance, 'rang')
+
+    df = transform_data(data_missFrance, 'rang')
     # Séparation des données :
     list_columns_y = ['top_' + str(i) for i in range(1, 13)]
     df_copy = df.copy()
