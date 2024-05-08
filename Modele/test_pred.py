@@ -124,3 +124,5 @@ for annee_test in range(2009, 2025):
     print('ap_k', ap_k)
     print("Balanced accuracy score : ", model.balanced_accuracy_score(X_test, y_test))
     print("\n\n\n")
+
+print('Coucou')
