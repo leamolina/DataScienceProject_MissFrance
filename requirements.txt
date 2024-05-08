@@ -5,3 +5,4 @@ requests~=2.29.0
 beautifulsoup4~=4.11.1
 streamlit~=1.33.0
 matplotlib~=3.7.1
+joblib~=1.4.0
