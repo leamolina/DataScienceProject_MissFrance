@@ -4,7 +4,7 @@ import time
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
@@ -63,7 +63,7 @@ best_score = 0
 # On parcourt tous les modèles et on cherche celui qui donne le meilleur score:
 for j in range(len(models)):
     # Grid Search
-    cv = None
+    cv = KFold(n_splits=5, shuffle=True)
     clf = GridSearchCV(estimator=models[j], param_grid=list_params[j], cv=cv).fit(X_train, y_train[1])
     score = clf.best_score_
     if score > best_score:
