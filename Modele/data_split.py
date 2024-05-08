@@ -18,7 +18,6 @@ def data_split(data_missFrance, annee_test):
 
     # Séparation train & test
     # Notre test_set correspond aux données de l'année 2019
-    annee_test = 2019
     indices_test = X.index[X['annee'] == annee_test].tolist()
     indices_train = X.index[X['annee'] != annee_test].tolist()
 

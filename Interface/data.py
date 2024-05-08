@@ -20,12 +20,12 @@ def page_data():
         '- Les caractéristiques physiques des candidates : âge, taille, couleur des yeux et des cheveux... (source: '
         'miss.fandom.com & remplissage manuel)')
     st.write(
-        '- Si elle a gagné le prix de culture générale. Les candidates passent toutes un examen écrit pour évaluer '
+        '- Son succès (ou non) à l\'examen de culture générale. Les candidates passent toutes un examen écrit pour évaluer '
         'leur niveau de culture générale. Celle qui obtient la meilleure note gange le prix de culture générale, '
         'un atout majeur dans la compétition. (source: Wikipédia)')
     st.write(
-        '- Si elle est tombée lors du prime : Bien que cela puisse prêter à rire, les passionnés du concours savent '
-        'qu\'une candidate qui tombe le soir de l\'élection a très peu de chances d’atteindre le podium. A ce jour, '
+        '- Sa chute potentielle lors du prime : bien que cela puisse prêter à rire, '
+        'une candidate qui tombe le soir de l\'élection a très peu de chances d’atteindre le podium. A ce jour, '
         'la seule qui y est parvenue est Indira Ampiot, Miss France 2024. (source: TikTok, Youtube, Instagram)')
 
     # Récupération et affichage de la base de données
@@ -42,9 +42,10 @@ def page_data():
     st.subheader('Importance de la culture générale dans le classement :')
     st.write(
         'Comme expliqué précédement, le test de culture générale est un examen déterminant dans le classement d\'une '
-        'candidate. Le jury évalue effectivement les candidates sur des questions d\'actualité, de sciences, '
-        'de logique et d\'histoire. L\'histogramme ci-dessus représente le pourcentage (pour chaque rang) de '
-        'candidates ayant remporté le prix de culture générale ')
+        'candidate. Le jury évalue les candidates sur des questions d\'actualité, de sciences, '
+        'de logique et d\'histoire.')
+    st.write('L\'histogramme ci-dessus représente le pourcentage (pour chaque rang) de '
+        'candidates ayant remporté le prix de culture générale :')
     data_percent = {}
     sum = 0
     for i in range(1, 13):
@@ -56,7 +57,7 @@ def page_data():
     st.write('Au total, ' + str(sum) + '% des lauréates au prix de culture générale ont atteint le top 12.')
     st.write(
         'Ce prix étant attribué chaque année qu\'à une seule candidate, cela signifie que seulement 2 lauréates au '
-        'prix de culture générale n\'ont pas atteint le podium. Nous pouvons en conclure que pour une candidate, '
+        'prix de culture générale n\'ont pas atteint le podium. Nous pouvons en conclure qu\'il est primordial d\'obtenir un bon score à ce test pour qu\'une^: candidate, '
         'un bon score est primordial pour maximiser ses chances au concours.')
 
     # Nombre de gagnantes par région (diagramme)

@@ -5,7 +5,6 @@ import numpy as np
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, OrdinalEncoder
-from joblib import dump
 from data_split import data_split
 
 
@@ -18,9 +17,6 @@ annee_test = 2019
 X_train, X_test,y_train,y_test = data_split(data_missFrance, annee_test)
 
 #Preprocessing
-#Récupération de la liste des noms des candidates de 2024:
-filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
-list_candidate = filtered_df['name'].tolist()
 
 #Order for the ordinal encoding
 hair_length_order = ['Longs', 'Mi-longs', 'Courts']
