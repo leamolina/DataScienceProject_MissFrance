@@ -79,8 +79,7 @@ def define_tab2(tab2, myModel, ct):
     tab2.subheader('Prédictions de miss France 2025 (données à entrer manuellement) :')
 
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
-    list_region = sorted(list(set(data_missFrance['region'].tolist())))  # Récupération de la liste (sans doublons
-    # et triée) de différentes régions présentes dans notre dataset
+    list_region = sorted(list(set(data_missFrance['region'].tolist())))  # Récupération de la liste (sans doublons et triée) de différentes régions présentes dans notre dataset
     nb_candidates = tab2.number_input('Choisir le nombre de candidates', 1, 30)
     tab2.write('Vous avez choisi ' + str(nb_candidates) + ' candidate(s)')
 
@@ -111,8 +110,7 @@ def define_tab2(tab2, myModel, ct):
             list_names[i] = columns_infos_generales[0].text_input('Nom de la candidate ' + str(i + 1))
             list_regions[i] = columns_infos_generales[1].selectbox('Région de la candidate ' + str(i + 1), list_region)
             list_ages[i] = columns_infos_generales[2].number_input('Âge de la candidate ' + str(i + 1), 18, 40)
-            list_heights[i] = columns_infos_generales[3].slider('Taille de la candidate ' + str(i + 1) + ' (cm)', 130,
-                                                                200)
+            list_heights[i] = columns_infos_generales[3].slider('Taille de la candidate ' + str(i + 1) + ' (cm)', 130, 200)
 
             # Caractéristiques physiques
             columns_caracteristiques_physiques = tab2.columns(4)
@@ -141,8 +139,7 @@ def define_tab2(tab2, myModel, ct):
 
         for _ in range(3): tab2.write('')  # Saut de 3 lignes
 
-    # Vérification que les informations ont bien été remplies (la seule case n'ayant pas de valeur par défaut est la
-    # case 'nom')
+    # Vérification que les informations ont bien été remplies (la seule case n'ayant pas de valeur par défaut est la case 'nom')
     if submited:
         all_filled = True
         for i in range(nb_candidates):
@@ -180,7 +177,7 @@ def page_prediction():
 
     st.title('Prédiction :')
     st.write('Vous pouvez choisir parmi deux options.')
-    st.write('Premièrement, vous pouvez voir les prédictions de notre année (l\'année 2019).')
+    st.write('Premièrement, vous pouvez voir les prédictions de notre année test (l\'année 2019).')
     st.write(
         'Deuxièmement, vous pouvez entrer manuellement les données des candidates pour Miss France 2025 et obtenir '
         'les prédictions.')

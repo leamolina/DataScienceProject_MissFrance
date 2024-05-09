@@ -9,11 +9,12 @@ class MultiModelTop12Predictor(object):
     def __init__(self, model=None):
         self.model = model
 
+    # Entraînement des 12 modèles
     def fit(self, X_train, y_train):
         for i in range(12):
             self.model[i].fit(X_train, y_train[i])
 
-    # Renvoyer la matrice de prédiction (celle avec toutes les probabilités)
+    # Renvoi de la matrice de prédiction (qui contient les probabilités de chaque top)
     def prediction_matrix(self, X):
         result = []
         for i in range(12):
@@ -24,9 +25,10 @@ class MultiModelTop12Predictor(object):
             result.append(sublist)
         return np.array(result).T
 
+    # Prédiction du classement à partir de la matrice de prédiction
     def predict(self, X, list_candidate):
-        prediction_matrix = self.prediction_matrix(X)
-        scores = []
+        prediction_matrix = self.prediction_matrix(X) # Récupération de la matrice de prédiction
+        scores = [] # On attribue un score pour chaque candidate : la somme des probabilités obtenues grâce à la matrice de prédiction
         for k in range(len(prediction_matrix)):
             sum_proba = 0
             for j in range(12):
@@ -39,28 +41,13 @@ class MultiModelTop12Predictor(object):
             scores[max_] = -1
         return ranking
 
-    def score(self, X_test, y_test):
-        scores = []
-        for i in range(12):
-            scores.append(self.model[i].score(X_test, y_test[i]))
-        return np.array(scores)
-
-    def evaluate_prediction(self, X_test, list_candidate, real_rank):
-        prediction = self.predict(X_test, list_candidate)
-        sum = 0
-        for (key, value) in prediction.items():
-            if value in real_rank.keys():
-                diff = key - real_rank[value]
-            else:
-                diff = 20
-            sum += math.pow(diff, 2)
-        return sum
-
+    # Permet de sauvegarder les 12 modèles dans un fichier pickle
     def dump_model(self, path):
         for i in range(12):
             name_file_model = path+str(i)+'.pkl'
             pickle.dump(self.model[i], open(name_file_model, 'wb'))
 
+    # Moyenne de la balanced_accuracy_score de chaque modèle
     def balanced_accuracy_score(self, X_test, y_test):
         sum = 0
         # Construction de y_pred
@@ -72,7 +59,7 @@ class MultiModelTop12Predictor(object):
             sum += balanced_accuracy_score(y_test[i], y_pred[i])
         return sum/12
 
-    # On utilise le raisonnement de la Kendall-Tau distance (c'est un score : il faut le maximiser)
+    # Taux de paires concordantes
     def fraction_of_concordant_pairs(self, real_rank, predicted_rank):
         nb_of_concordant_pairs = 0
         nb_of_pairs = 66
@@ -88,7 +75,7 @@ class MultiModelTop12Predictor(object):
                     # Recherche de la candidate j dans le réel rang
                     cand = [candidate for rank, candidate in real_rank.items() if candidate == candidate_j]
                     if len(cand) == 0:
-                        nb_of_concordant_pairs+=1
+                        nb_of_concordant_pairs += 1
                     else:
                         real_rank_j = [rank for rank, candidate in real_rank.items() if candidate == candidate_j][0]
                         pred_rank_j = j
@@ -100,6 +87,7 @@ class MultiModelTop12Predictor(object):
         else:
             return 0
 
+    # Rang réciproque
     def reciprocal_rank(self, real_rank, predicted_rank):
         winner = real_rank[1]
         rank_winner = [rank for rank, candidate in predicted_rank.items() if candidate == winner]

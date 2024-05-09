@@ -1,10 +1,8 @@
-import pandas as pd
 import streamlit as st
 
 from Interface.data import page_data
 from Interface.prediction import page_prediction
 from Interface.presentation import page_presentation
-
 
 st.sidebar.title('Projet ML/Data Science :')
 

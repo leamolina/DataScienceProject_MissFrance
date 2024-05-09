@@ -26,7 +26,6 @@ filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
 list_candidate = filtered_df['name'].tolist()
 
 # Récupération du column transformer
-column_transformer(data_missFrance, X_train)
 path_ct = 'train/column_transformer.pkl'
 ct = pickle.load(open(path_ct, 'rb'))
 X_train = ct.transform(X_train)
@@ -42,11 +41,10 @@ dico_svc = {'class_weight': ['balanced'], 'C': [1, 2, 3, 4, 5, 10, 20, 50, 100, 
 dico_logistic = {'class_weight': ['balanced'], 'C': [0.001, 0.01, 1, 10, 100], 'random_state': [0], 'max_iter': [1000]}
 list_params = [dico_decisionTree, dico_randomForest, dico_svc, dico_logistic]
 
-# Option 1 : juste prendre 1 Modele
 time_start = time.time()
 best_score = 0
 
-# On parcourt tous les modèles et on cherche celui qui donne le meilleur score:
+# On parcourt tous les modèles et on cherche celui pour lequel le score sera meilleur :
 for j in range(len(models)):
     # Grid Search
     cv = KFold(n_splits=5, shuffle=True)
@@ -57,10 +55,9 @@ for j in range(len(models)):
         best_model = clf.best_estimator_
         best_params = clf.best_params_
 time_end = time.time()
-print('Fin option 1; il s\'agit de ', best_model)
-print('L\'option 1 a duré ', time_end - time_start, ' secondes')
+print('Fin du GridSearchCV qui a duré ', time_end - time_start, ' secondes. Le meilleur modèle est : ', best_model)
 
-# Lancement du Modele:
+# Lancement du modèle:
 model = MultiModelTop12Predictor([best_model.__class__(**best_params) for i in range(12)])
 model.fit(X_train, y_train)
 
