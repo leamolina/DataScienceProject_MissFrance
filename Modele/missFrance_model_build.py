@@ -9,7 +9,6 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
 from data_split import data_split
-from column_transformer import column_transformer
 from multiModelTop12Predictor import MultiModelTop12Predictor
 
 # Récupération des données
@@ -55,7 +54,7 @@ for j in range(len(models)):
         best_model = clf.best_estimator_
         best_params = clf.best_params_
 time_end = time.time()
-print('Fin du GridSearchCV qui a duré ', time_end - time_start, ' secondes. Le meilleur modèle est : ', best_model)
+print('Fin du GridSearchCV qui a duré ', time_end - time_start, ' secondes. Le meilleur modèle est : ', best_model, ' et son score est', best_score)
 
 # Lancement du modèle:
 model = MultiModelTop12Predictor([best_model.__class__(**best_params) for i in range(12)])

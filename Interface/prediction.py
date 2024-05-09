@@ -29,7 +29,7 @@ def give_real_rank_bis(df, annee):
 # Option 1 : afficher la prédiction 2019
 def define_tab1(tab1, myModel, ct):
 
-    tab1.subheader('Prédictions de miss france 2019 :')
+    tab1.subheader('Prédictions de Miss France 2019 :')
 
     # Récupération des données
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
@@ -61,7 +61,7 @@ def define_tab1(tab1, myModel, ct):
                 columns[j].write('Réel rang : non classée')
             i += 1
             tab1.write('')
-    tab1.subheader('Evaluation de la prédiction:')
+    tab1.subheader('Évaluation de la prédiction:')
     real_rank_bis = give_real_rank_bis(data_missFrance_copy, annee_test)
     fract_cp = myModel.fraction_of_concordant_pairs(real_rank_bis, prediction)
     rec_rank = myModel.reciprocal_rank(real_rank_bis, prediction)
@@ -76,7 +76,7 @@ def define_tab1(tab1, myModel, ct):
 # Option 2
 def define_tab2(tab2, myModel, ct):
 
-    tab2.subheader('Prédictions de miss France 2025 (données à entrer manuellement) :')
+    tab2.subheader('Prédictions de Miss France 2025 (données à entrer manuellement) :')
 
     data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
     list_region = sorted(list(set(data_missFrance['region'].tolist())))  # Récupération de la liste (sans doublons et triée) de différentes régions présentes dans notre dataset
