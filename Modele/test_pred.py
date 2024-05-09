@@ -1,19 +1,15 @@
-import math
-import pickle
 import time
 
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, OrdinalEncoder
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
 
 from data_split import data_split
 from multiModelTop12Predictor import MultiModelTop12Predictor
+
 
 def give_real_rank_bis(df, annee):
     filtered_df = df[df['annee'] == annee]
@@ -29,7 +25,7 @@ data_missFrance = pd.read_csv('../Databases/data_missFrance.csv', delimiter=';')
 data_missFrance_copy = data_missFrance.copy()
 data_missFrance = data_missFrance.drop(['audience', 'name', 'image'], axis=1)
 
-for annee_test in range(2009, 2025):
+for annee_test in [2018,2019, 2020]:
     X_train, X_test,y_train,y_test = data_split(data_missFrance, annee_test)
     nb_regions = len(set(X_train['region']))
 
@@ -101,6 +97,8 @@ for annee_test in range(2009, 2025):
     model.fit(X_train, y_train)
     prediction = model.predict(X_test, list_candidate)
     real_rank = give_real_rank_bis(data_missFrance_copy, annee_test)
+    print("pred", prediction)
+    print("real", real_rank)
     fract_cp = model.fraction_of_concordant_pairs(real_rank, prediction)
     rec_rank = model.reciprocal_rank(real_rank, prediction)
     ap_k = model.ap_at_k(real_rank, prediction, 12)

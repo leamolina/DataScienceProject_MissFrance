@@ -10,8 +10,7 @@ def page_data():
     with col3:
         st.image(chemin_logo, use_column_width=True, width=10)
     st.title('Nos données :')
-    for _ in range(3):
-        st.write('')
+    for _ in range(3): st.write('')
 
     # Texte de présentation de nos données
     st.write('Notre modèle s\'appuie sur différentes sources de données : ')
@@ -20,7 +19,8 @@ def page_data():
         '- Les caractéristiques physiques des candidates : âge, taille, couleur des yeux et des cheveux... (Source : '
         'miss.fandom.com + remplissage manuel)')
     st.write(
-        '- L\'examen de culture général : les candidates sont évaluées sur leur niveau de culture générale. Celle qui obtient la meilleure note gagne le prix de culture générale et maximise ses chances de figurer dans le top 12.  '
+        '- L\'examen de culture général : les candidates sont évaluées sur leur niveau de culture générale. Celle qui '
+        'obtient la meilleure note gagne le prix de culture générale et maximise ses chances de figurer dans le top 12.'
         '(Source : Wikipédia)')
     st.write(
         '- Une chute potentielle lors du prime : bien que cela puisse prêter à rire, peut s\'avérer fatal.'
@@ -44,7 +44,7 @@ def page_data():
         'candidate. Le jury évalue les candidates sur des questions d\'actualité, de sciences, '
         'de logique et d\'histoire.')
     st.write('L\'histogramme ci-dessous représente le pourcentage (pour chaque rang) de '
-        'candidates ayant remporté le prix de culture générale :')
+             'candidates ayant remporté le prix de culture générale :')
     data_percent = {}
     sum = 0
     for i in range(1, 13):
@@ -53,10 +53,12 @@ def page_data():
         data_percent[i] = (len(ranked_candidates) / len(filtered_df)) * 100
         sum += data_percent[i]
     st.bar_chart(data=data_percent, color='#f63366', use_container_width=True)
-    st.write('Observation : au total, ' + str(sum) + '% des lauréates au prix de culture générale ont atteint le top 12.')
+    st.write(
+        'Observation : au total, ' + str(sum) + '% des lauréates au prix de culture générale ont atteint le top 12.')
     st.write(
         'Ce prix étant attribué chaque année à une seule candidate, cela signifie que seulement deux lauréates au '
-        'prix de culture générale n\'ont pas atteint le podium. \n\nNous pouvons en conclure qu\'il est primordial d\'obtenir un bon score à ce test pour qu\'une candidate maximise ses chances au concours.')
+        'prix de culture générale n\'ont pas atteint le podium. \n\nNous pouvons en conclure qu\'il est primordial '
+        'd\'obtenir un bon score à ce test pour qu\'une candidate maximise ses chances au concours.')
 
     # Nombre de gagnantes par région (diagramme)
     for _ in range(5): st.write('')
@@ -127,7 +129,8 @@ def page_data():
     col = st.columns([8, 15])
     for _ in range(2): col[0].write('')
     col[0].write(
-        'Est-ce qu\'une candidate a plus de chances de gagner si elle est brune ou blonde ? A-t-elle plus de chance de gagner si elle a les yeux bleus '
+        'Est-ce qu\'une candidate a plus de chances de gagner si elle est brune ou blonde ? A-t-elle plus de chance '
+        'de gagner si elle a les yeux bleus'
         'ou verts ?')
     # Colonne de gauche : nombre de gagnantes par couleur de cheveux
     col[1].write('Répartition des couleurs des cheveux dans le classement :')
@@ -159,8 +162,11 @@ def page_data():
 
     # Analyse des résultats
     col[0].write(
-        'Nous pouvons facilement constater une grande mixité des couleurs de cheveux.\n\n Ce résultat peut être interpréter de deux manières différentes : ')
+        'Nous pouvons facilement constater une grande mixité des couleurs de cheveux.\n\n Ce résultat peut être '
+        'interpréter de deux manières différentes : ')
     col[0].write(
-        '- D\'autres critères sont pris en compte par le jury et par le public : l\'élégance, la culture générale, et l\'éloquance (entre autres). Le concours Miss France n\'est dont pas qu\'un simple concours de beauté')
+        '- D\'autres critères sont pris en compte par le jury et par le public : l\'élégance, la culture générale, '
+        'et l\'éloquance (entre autres). Le concours Miss France n\'est dont pas qu\'un simple concours de beauté')
     col[0].write(
-        '- Il est dificile de quantifier la beauté d\'une candidate et de trouver des caractéristiques suffisantes pour la représenter (même si la beauté joue un rôle important dans la séléction d\'une candidate).')
+        '- Il est dificile de quantifier la beauté d\'une candidate et de trouver des caractéristiques suffisantes '
+        'pour la représenter (même si la beauté joue un rôle important dans la séléction d\'une candidate).')

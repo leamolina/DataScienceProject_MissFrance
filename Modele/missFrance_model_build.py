@@ -33,7 +33,7 @@ X_test = ct.transform(X_test)
 # Mise en place des colonnes
 columns = []
 for i in range(2009, 2025):
-    if(i != annee_test):
+    if i != annee_test:
         columns.append('year_'+str(i))
 for i in range(1, nb_regions+1):
     columns.append('region_' + str(i))

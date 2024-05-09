@@ -75,25 +75,31 @@ class MultiModelTop12Predictor(object):
     # On utilise le raisonnement de la Kendall-Tau distance (c'est un score : il faut le maximiser)
     def fraction_of_concordant_pairs(self, real_rank, predicted_rank):
         nb_of_concordant_pairs = 0
-        nb_of_pairs = 0
+        nb_of_pairs = 66
         for i in range(1, 13):
-            for j in range(i+1, 13):
-                nb_of_pairs += 1
-                real_rank_i = [rank for rank, candidate in real_rank.items() if candidate == real_rank[i]]
-                real_rank_j = [rank for rank, candidate in real_rank.items() if candidate == real_rank[j]]
-                pred_rank_i = [rank for rank, candidate in predicted_rank.items() if candidate == real_rank[i]]
-                pred_rank_j = [rank for rank, candidate in predicted_rank.items() if candidate == real_rank[j]]
-                if ((len(real_rank_i) > 0 and len(real_rank_j) > 0 and len(pred_rank_j) > 0 and len(pred_rank_i) > 0)
-                        and ((real_rank_i[0] > real_rank_j[0] and pred_rank_i[0] > pred_rank_j[0]) or (
-                        real_rank_i[0] < real_rank_j[0] and pred_rank_i[0] < pred_rank_j[0]))):
-                    nb_of_concordant_pairs += 1
+            candidate_i = predicted_rank[i]
+            # Recherche de la candidate dans le réel rang
+            cand = [candidate for rank, candidate in real_rank.items() if candidate == candidate_i]
+            if len(cand) > 0:
+                real_rank_i = [rank for rank, candidate in real_rank.items() if candidate == candidate_i][0]
+                pred_rank_i = i
+                for j in range(i+1, 13):
+                    candidate_j = predicted_rank[j]
+                    # Recherche de la candidate j dans le réel rang
+                    cand = [candidate for rank, candidate in real_rank.items() if candidate == candidate_j]
+                    if len(cand) == 0:
+                        nb_of_concordant_pairs+=1
+                    else:
+                        real_rank_j = [rank for rank, candidate in real_rank.items() if candidate == candidate_j][0]
+                        pred_rank_j = j
+                        if (real_rank_i > real_rank_j and pred_rank_i > pred_rank_j) or (real_rank_i < real_rank_j and pred_rank_i < pred_rank_j):
+                            nb_of_concordant_pairs += 1
 
         if nb_of_pairs > 0:
             return nb_of_concordant_pairs / nb_of_pairs
         else:
             return 0
 
-    # Cette métrique est à minimiser
     def reciprocal_rank(self, real_rank, predicted_rank):
         winner = real_rank[1]
         rank_winner = [rank for rank, candidate in predicted_rank.items() if candidate == winner]
@@ -107,23 +113,31 @@ class MultiModelTop12Predictor(object):
         nb_well_predicted = 0
         for j in range(1, i+1):
             candidate = predicted_rank[j]
-            candidate_real_rank = [rank for rank, cand in real_rank.items() if cand == candidate]
+            candidate_real_rank = [rank for rank, cand in real_rank.items() if cand == candidate and rank <= i]
             if len(candidate_real_rank) > 0:
                 nb_well_predicted += 1
         return nb_well_predicted/i
 
+    # Moyenne pondérée entre les precision (en donnant un poids plus important aux premiers rangs)
     def ap_at_k(self, real_rank, predicted_rank, k):
         sum = 0
+        sum_weight = 0
         for i in range(1, k+1):
-            candidate = predicted_rank[i]
-            is_top_12_i = int(len([rank for rank, cand in real_rank.items() if cand == candidate and rank <= i]) == 0)
-            sum += self.precision_at_i(real_rank, predicted_rank, i) * is_top_12_i
-        return (1/k)*sum
+            weight = (k+1)-i
+            sum_weight += weight
+            sum += self.precision_at_i(real_rank, predicted_rank, i) * weight
+        return (1/sum_weight)*sum
 
 
-"""
-#Tests sur les métriques :
-real_rank = {1: 'Lea', 2: 'Ana', 3: 'Shirelle', 4: 'Jenna'}
-predicted_rank = {1: 'Shana', 2: 'Shirelle', 3: 'Lea', 4: 'Jenna'}
+# Tests sur les métriques :
+predicted_rank = {1: 'Vaimalama Chaves', 2: 'Lauralyne Demesmay', 3: 'Annabelle Varane', 4: 'Wynona Gueraini',
+                  5: 'Romane Eichstadt', 6: 'Laurie Derouard', 7: 'Lola Brengues', 8: 'Alice Quérette',
+                  9: 'Diane Le Roux', 10: 'Morgane Soucramanien', 11: 'Olivia Luscap', 12: 'Caroline Perengo'}
+real_rank = {1: 'Vaimalama Chaves', 2: 'Ophély Mézino', 3: 'Lauralyne Demesmay', 4: 'Morgane Soucramanien',
+             5: 'Aude Destour', 6: 'Wynona Gueraini', 7: 'Alice Quérette', 8: 'Lola Brengues', 9: 'Annabelle Varane',
+             10: 'Emma Virtz', 11: 'Carla Bonesso', 12: 'Caroline Perengo'}
 model = MultiModelTop12Predictor()
-print(model.reciprocal_rank(real_rank, predicted_rank, ))"""
+print('fraction', model.fraction_of_concordant_pairs(real_rank, predicted_rank, ))
+for i in range(1, 13):
+    print('precision_at_'+str(i), model.precision_at_i(real_rank, predicted_rank, i))
+print('ap_at_k', model.ap_at_k(real_rank, predicted_rank, 12))

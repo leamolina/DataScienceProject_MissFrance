@@ -6,14 +6,13 @@ from Interface.prediction import page_prediction
 from Interface.presentation import page_presentation
 
 
-
 st.sidebar.title('Projet')
 
 pages = {
-    'Présentation': page_presentation,
-    'Analyse des données': page_data,
-    'Prédiction': page_prediction,
+    '👑 Présentation  ': page_presentation,
+    '📊 Analyse des données  ': page_data,
+    '🏆 Prédictions ': page_prediction,
 }
 
-choice_page = st.sidebar.radio('Aller à', list(pages.keys()))
+choice_page = st.sidebar.radio('', list(pages.keys()))
 pages[choice_page]()

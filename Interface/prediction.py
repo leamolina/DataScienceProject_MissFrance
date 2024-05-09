@@ -16,6 +16,7 @@ def give_real_rank(df, annee):
         rank[miss] = i
     return rank
 
+
 def give_real_rank_bis(df, annee):
     filtered_df = df[df['annee'] == annee]
     rank = {}
@@ -23,7 +24,6 @@ def give_real_rank_bis(df, annee):
         miss = filtered_df.loc[df['rang'] == i, 'name'].tolist()[0]
         rank[i] = miss
     return rank
-
 
 
 # Option 1 : afficher la prédiction 2019
@@ -63,16 +63,16 @@ def define_tab1(tab1, myModel, ct):
             tab1.write('')
     tab1.write('score de prédiction:')
     real_rank_bis = give_real_rank_bis(data_missFrance_copy, annee_test)
-    #tab1.write(myModel.accuracy_score_1(prediction, real_rank))
     tab1.write(myModel.reciprocal_rank(real_rank_bis, prediction))
     fract_cp = myModel.fraction_of_concordant_pairs(real_rank_bis, prediction)
     rec_rank = myModel.reciprocal_rank(real_rank_bis, prediction)
     ap_k = myModel.ap_at_k(real_rank_bis, prediction, 12)
+    balanced_score = myModel.balanced_accuracy_score(X_test, y_test)
     tab1.write('Kendall-Tau Distance (à maximiser) : ' + str(fract_cp))
     tab1.write('AP_at_k (à maximiser) : ' + str(ap_k))
     tab1.write('Reciprocal rank (à minimiser) : ' + str(rec_rank))
-    tab1.write('Score final : ' +  str(fract_cp+ap_k-rec_rank))
-
+    tab1.write('Score final : ' + str((fract_cp+ap_k+rec_rank)/3))
+    tab1.write('Balanced score : ' + str(balanced_score))
 
 
 # Option 2
@@ -184,7 +184,8 @@ def page_prediction():
     st.write('Vous pouvez choisir parmi deux options.')
     st.write('Premièrement, vous pouvez voir les prédictions de notre année (l\'année 2019).')
     st.write(
-        'Deuxièmement, vous pouvez entrer manuellement les données des candidates pour Miss France 2025 et obtenir les prédictions.')
+        'Deuxièmement, vous pouvez entrer manuellement les données des candidates pour Miss France 2025 et obtenir '
+        'les prédictions.')
 
     # Récupération du modèle
     list_of_models = []
