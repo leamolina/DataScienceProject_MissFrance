@@ -61,19 +61,17 @@ def define_tab1(tab1, myModel, ct):
                 columns[j].write('Réel rang : non classée')
             i += 1
             tab1.write('')
-    tab1.write('score de prédiction:')
+    tab1.subheader('Evaluation de la prédiction:')
     real_rank_bis = give_real_rank_bis(data_missFrance_copy, annee_test)
-    tab1.write(myModel.reciprocal_rank(real_rank_bis, prediction))
     fract_cp = myModel.fraction_of_concordant_pairs(real_rank_bis, prediction)
     rec_rank = myModel.reciprocal_rank(real_rank_bis, prediction)
     ap_k = myModel.ap_at_k(real_rank_bis, prediction, 12)
     balanced_score = myModel.balanced_accuracy_score(X_test, y_test)
-    tab1.write('Kendall-Tau Distance (à maximiser) : ' + str(fract_cp))
-    tab1.write('AP_at_k (à maximiser) : ' + str(ap_k))
-    tab1.write('Reciprocal rank (à minimiser) : ' + str(rec_rank))
-    tab1.write('Score final : ' + str((fract_cp+ap_k+rec_rank)/3))
-    tab1.write('Balanced score : ' + str(balanced_score))
-
+    tab1.write('- Taux de paires concordantes : ' + str(fract_cp))
+    tab1.write('- Rang réciproque : ' + str(rec_rank))
+    tab1.write('- Précision moyenne au top 12 : ' + str(ap_k))
+    tab1.write('- Score de précision équilibrée : ' + str(balanced_score))
+    tab1.write('- Moyenne des scores : ' + str((fract_cp+rec_rank+ap_k+balanced_score)/4))
 
 # Option 2
 def define_tab2(tab2, myModel, ct):
