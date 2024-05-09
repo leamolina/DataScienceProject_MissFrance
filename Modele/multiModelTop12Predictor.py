@@ -127,17 +127,3 @@ class MultiModelTop12Predictor(object):
             sum_weight += weight
             sum += self.precision_at_i(real_rank, predicted_rank, i) * weight
         return (1/sum_weight)*sum
-
-
-# Tests sur les métriques :
-predicted_rank = {1: 'Vaimalama Chaves', 2: 'Lauralyne Demesmay', 3: 'Annabelle Varane', 4: 'Wynona Gueraini',
-                  5: 'Romane Eichstadt', 6: 'Laurie Derouard', 7: 'Lola Brengues', 8: 'Alice Quérette',
-                  9: 'Diane Le Roux', 10: 'Morgane Soucramanien', 11: 'Olivia Luscap', 12: 'Caroline Perengo'}
-real_rank = {1: 'Vaimalama Chaves', 2: 'Ophély Mézino', 3: 'Lauralyne Demesmay', 4: 'Morgane Soucramanien',
-             5: 'Aude Destour', 6: 'Wynona Gueraini', 7: 'Alice Quérette', 8: 'Lola Brengues', 9: 'Annabelle Varane',
-             10: 'Emma Virtz', 11: 'Carla Bonesso', 12: 'Caroline Perengo'}
-model = MultiModelTop12Predictor()
-print('fraction', model.fraction_of_concordant_pairs(real_rank, predicted_rank, ))
-for i in range(1, 13):
-    print('precision_at_'+str(i), model.precision_at_i(real_rank, predicted_rank, i))
-print('ap_at_k', model.ap_at_k(real_rank, predicted_rank, 12))

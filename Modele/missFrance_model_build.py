@@ -9,6 +9,7 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
 from data_split import data_split
+from column_transformer import column_transformer
 from multiModelTop12Predictor import MultiModelTop12Predictor
 
 # Récupération des données
@@ -25,19 +26,11 @@ filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
 list_candidate = filtered_df['name'].tolist()
 
 # Récupération du column transformer
+column_transformer(data_missFrance, X_train)
 path_ct = 'train/column_transformer.pkl'
 ct = pickle.load(open(path_ct, 'rb'))
 X_train = ct.transform(X_train)
-X_test = ct.transform(X_test)
 
-# Mise en place des colonnes
-columns = []
-for i in range(2009, 2025):
-    if i != annee_test:
-        columns.append('year_'+str(i))
-for i in range(1, nb_regions+1):
-    columns.append('region_' + str(i))
-columns += ['age', 'length', 'hair_lenght', 'hair_color', 'eye_color', 'skin_color', 'general_knowledge_test', 'has_fallen']
 
 # Grid Search:
 
@@ -48,13 +41,6 @@ dico_randomForest = {'class_weight': ['balanced'], 'n_estimators': [200, 500, 70
 dico_svc = {'class_weight': ['balanced'], 'C': [1, 2, 3, 4, 5, 10, 20, 50, 100, 200], 'gamma': [1, 0.1, 0.001, 0.0001], 'kernel': ['linear', 'rbf'], 'probability': [True], 'random_state': [0]}
 dico_logistic = {'class_weight': ['balanced'], 'C': [0.001, 0.01, 1, 10, 100], 'random_state': [0], 'max_iter': [1000]}
 list_params = [dico_decisionTree, dico_randomForest, dico_svc, dico_logistic]
-
-"""
-#à lancer devant le prof
-models = [RandomForestClassifier()]
-dico_randomForest = {'class_weight':['balanced'], 'n_estimators': [200, 500],'max_depth' : [4,5,6]}
-list_params = [dico_randomForest]
-"""
 
 # Option 1 : juste prendre 1 Modele
 time_start = time.time()
