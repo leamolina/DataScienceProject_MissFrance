@@ -13,8 +13,8 @@ data = pd.read_csv(chemin_database, delimiter=';')
 
 def page_presentation():
 
-    st.title("Qui sera Miss France 2025 ? :crown:")
-    st.video(chemin_video, format="video/mp4", start_time=0)
+    st.title('Qui sera Miss France 2025 ? :crown:')
+    st.video(chemin_video, format='video/mp4', start_time=0)
 
     st.subheader('Notre projet : ', divider='orange')
     st.write('Bienvenue dans notre projet de prédiction de Miss France 2025 ! :crown:\n\n Nous nous sommes lancées '
