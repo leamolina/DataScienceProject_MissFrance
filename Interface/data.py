@@ -23,22 +23,22 @@ def page_data():
         'obtient la meilleure note gagne le prix de culture générale et maximise ses chances de figurer dans le top 12.'
         '(Source : Wikipédia)')
     st.write(
-        '- Une chute potentielle lors du prime : bien que cela puisse prêter à rire, peut s\'avérer fatal.'
-        'Une candidate qui tombe le soir de l\'élection a très peu de chances d’atteindre le podium. \n\nÀ ce jour, '
+        '- Une chute potentielle lors du prime : bien que cela puisse prêter à rire, une chute peut s\'avérer fatal.'
+        '\nUne candidate qui tombe le soir de l\'élection a très peu de chances d’atteindre le podium. \n\nÀ ce jour, '
         'la seule qui y est parvenue est Indira Ampiot sacrée Miss France 2024. (Source : TikTok, Youtube, Instagram)')
 
     # Récupération et affichage de la base de données
     for _ in range(5): st.write('')
     chemin_database = './Databases/data_missFrance.csv'
     data_missFrance = pd.read_csv(chemin_database, delimiter=';')
-    st.subheader('Notre base de données:')
+    st.subheader('Notre base de données :')
     with st.expander('Cliquer ici pour visualiser notre base de données complète avant le pré-traitement des données'):
         st.dataframe(data_missFrance)
 
     # Importance du prix de culture générale
     # On veut savoir combien, par rang, combien de candidates ont gagné le prix de culture générale
     for _ in range(5): st.write('')
-    st.subheader('"Analyse de la relation entre la réussite au test de culture générale et le classement final :"')
+    st.subheader('Relation entre la réussite au test de culture générale et le classement final :')
     st.write(
         'Comme expliqué précédement, le test de culture générale est un examen déterminant dans le classement d\'une '
         'candidate. Le jury évalue les candidates sur des questions d\'actualité, de sciences, '
@@ -54,7 +54,7 @@ def page_data():
         sum += data_percent[i]
     st.bar_chart(data=data_percent, color='#f63366', use_container_width=True)
     st.write(
-        'Observation : au total, ' + str(sum) + '% des lauréates au prix de culture générale ont atteint le top 12.')
+        'Au total, ' + str(sum) + '% des lauréates au prix de culture générale ont atteint le top 12.')
     st.write(
         'Ce prix étant attribué chaque année à une seule candidate, cela signifie que seulement deux lauréates au '
         'prix de culture générale n\'ont pas atteint le podium. \n\nNous pouvons en conclure qu\'il est primordial '
@@ -68,7 +68,7 @@ def page_data():
 
     # Sur la colonne de gauche on met l'explication
     col[0].write(
-        'Observation: sur une trentaine de régions chaque année, trois se distinguent en particulier : ')
+        'Sur une trentaine de régions chaque année, trois se distinguent en particulier : ')
     col[0].write(
         '- Le Nord-Pas-de-Calais, ')
     col[0].write(
@@ -107,7 +107,7 @@ def page_data():
     # Importance de ne pas tomber le soir de l'éléction & impact que cela peut avoir sur le classement final
     # Pour chaque classement, on récupère le nombre de candidates qui sont tombées le soir de l'élection
     for _ in range(5): st.write('')
-    st.subheader('Analyse de la relation entre la chute d\'une candidate au cours du Prime et son classement final :')
+    st.subheader('Relation entre la chute d\'une candidate au cours du Prime et son classement final :')
     st.write('Le graphe ci-dessous représente le nombre de candidates qui sont tombées par classement :')
     data_has_fallen = {}
     sum = 0
@@ -125,7 +125,7 @@ def page_data():
 
     # Caractéristiques physiques
     for _ in range(5): st.write('')
-    st.subheader('"Le rôle déterminant des caractéristiques physiques dans le classement : mythe ou réalité ?"')
+    st.subheader('Le rôle déterminant des caractéristiques physiques dans le classement : mythe ou réalité ?')
     col = st.columns([8, 15])
     for _ in range(2): col[0].write('')
     col[0].write(

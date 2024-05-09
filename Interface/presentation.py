@@ -16,10 +16,10 @@ def page_presentation():
     st.title("Qui sera Miss France 2025 ? :crown:")
     st.video(chemin_video, format="video/mp4", start_time=0)
 
-    st.subheader('Notre projet: ', divider='orange')
+    st.subheader('Notre projet : ', divider='orange')
     st.write('Bienvenue dans notre projet de prédiction de Miss France 2025 ! :crown:\n\n Nous nous sommes lancées '
-             'dans ce projet passionnant en utilisant des techniques de Web Scraping pour recueillir des données sur '
-             'les candidates à Miss France de 2009 à 2024, avec leurs caractéristiques détaillées.\n\n Notre but : '
+             'dans ce projet passionnant car nous nous réunissons depuis des années le soir de l’émission pour discuter, débattre et faire nos pronostics. \n\nC\'est devenu une tradition chère à nos cœurs, un moment de partage et de convivialité que nous attendons avec impatience. '
+             '\n\n Notre but : '
              'Déterminer QUI sera Miss France 2025 et Quelles candidates feront parties du top 12 ?')
 
     st.subheader('En quoi consiste notre modèle ?', divider='orange')

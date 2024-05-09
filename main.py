@@ -6,7 +6,7 @@ from Interface.prediction import page_prediction
 from Interface.presentation import page_presentation
 
 
-st.sidebar.title('Projet')
+st.sidebar.title('Projet ML/Data Science :')
 
 pages = {
     '👑 Présentation  ': page_presentation,
