@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 
 def page_data():
     # Logo en haut à droite
-    chemin_logo = './Sources/Logo_MissFrance.png'
+    path_logo = './Sources/Logo_MissFrance.png'
     col1, col2, col3 = st.columns((1, 4, 1))
     with col3:
-        st.image(chemin_logo, use_column_width=True, width=10)
+        st.image(path_logo, use_column_width=True, width=10)
     st.title('Nos données :')
     for _ in range(3): st.write('')
 
@@ -29,8 +29,7 @@ def page_data():
 
     # Récupération et affichage de la base de données
     for _ in range(5): st.write('')
-    chemin_database = './Databases/data_missFrance.csv'
-    data_missFrance = pd.read_csv(chemin_database, delimiter=';')
+    data_missFrance = pd.read_csv('./Databases/data_missFrance.csv', delimiter=';')
     st.subheader('Notre base de données :')
     with st.expander('Cliquer ici pour visualiser notre base de données complète avant le pré-traitement des données'):
         st.dataframe(data_missFrance)
@@ -46,15 +45,15 @@ def page_data():
     st.write('L\'histogramme ci-dessous représente le pourcentage (pour chaque rang) de '
              'candidates ayant remporté le prix de culture générale :')
     data_percent = {}
-    sum = 0
+    sum_ = 0
     for i in range(1, 13):
         filtered_df = data_missFrance[data_missFrance['rang'] == i]
         ranked_candidates = filtered_df[filtered_df['laureat_culture_generale'] == 1]
         data_percent[i] = (len(ranked_candidates) / len(filtered_df)) * 100
-        sum += data_percent[i]
+        sum_ += data_percent[i]
     st.bar_chart(data=data_percent, color='#f63366', use_container_width=True)
     st.write(
-        'Au total, ' + str(sum) + '% des lauréates au prix de culture générale ont atteint le top 12.')
+        'Au total, ' + str(sum_) + '% des lauréates au prix de culture générale ont atteint le top 12.')
     st.write(
         'Ce prix étant attribué chaque année à une seule candidate, cela signifie que seulement deux lauréates au '
         'prix de culture générale n\'ont pas atteint le podium. \n\nNous pouvons en conclure qu\'il est primordial '
@@ -110,15 +109,15 @@ def page_data():
     st.subheader('Relation entre la chute d\'une candidate au cours du Prime et son classement final :')
     st.write('Le graphe ci-dessous représente le nombre de candidates qui sont tombées par classement :')
     data_has_fallen = {}
-    sum = 0
+    sum_ = 0
     for i in range(1, 13):
         filtered_df = data_missFrance[data_missFrance['rang'] == i]
         ranked_candidates = filtered_df[filtered_df['est_tombee'] == 1]
         data_has_fallen[i] = len(ranked_candidates)
-        sum += data_has_fallen[i]
+        sum_ += data_has_fallen[i]
     st.bar_chart(data=data_has_fallen, color='#f63366', use_container_width=True)
     st.write('Observation : au total, seulement ' + str(
-        sum) + ' candidates qui sont tombées le soir de l\'éléction ont atteint le podium.')
+        sum_) + ' candidates qui sont tombées le soir de l\'éléction ont atteint le podium.')
     st.write(
         'Un contre-exemple intéressant est celui d\'Indira Ampiot. La candidate guadeloupéenne a trébuché le soir de '
         'son éléction, mais cela ne l\'a pas empêché de remporter la couronne et de devenir Miss France 2023.')

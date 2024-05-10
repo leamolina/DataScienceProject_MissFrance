@@ -8,8 +8,8 @@ import Modele.multiModelTop12Predictor as my_model
 
 
 # Fonctions diverses :
-def give_real_rank(df, annee):
-    filtered_df = df[df['annee'] == annee]
+def give_real_rank_name_first(df, year):
+    filtered_df = df[df['annee'] == year]
     rank = {}
     for i in range(1, 13):
         miss = filtered_df.loc[df['rang'] == i, 'name'].tolist()[0]
@@ -17,8 +17,8 @@ def give_real_rank(df, annee):
     return rank
 
 
-def give_real_rank_bis(df, annee):
-    filtered_df = df[df['annee'] == annee]
+def give_real_rank_rank_first(df, year):
+    filtered_df = df[df['annee'] == year]
     rank = {}
     for i in range(1, 13):
         miss = filtered_df.loc[df['rang'] == i, 'name'].tolist()[0]
@@ -46,7 +46,7 @@ def define_tab1(tab1, myModel, ct):
 
     # Affichage des prédictions
     prediction = myModel.predict(X_test, list_candidate)
-    real_rank = give_real_rank(data_missFrance_copy, annee_test)
+    real_rank = give_real_rank_name_first(data_missFrance_copy, annee_test)
     i = 0
     while i < 12:
         columns = tab1.columns(4)
@@ -61,17 +61,20 @@ def define_tab1(tab1, myModel, ct):
                 columns[j].write('Réel rang : non classée')
             i += 1
             tab1.write('')
+
+    # Scores de la prédiction :
     tab1.subheader('Évaluation de la prédiction:')
-    real_rank_bis = give_real_rank_bis(data_missFrance_copy, annee_test)
-    fract_cp = myModel.fraction_of_concordant_pairs(real_rank_bis, prediction)
-    rec_rank = myModel.reciprocal_rank(real_rank_bis, prediction)
-    ap_k = myModel.ap_at_k(real_rank_bis, prediction, 12)
+    real_rank_rank_first = give_real_rank_rank_first(data_missFrance_copy, annee_test)
+    fract_cp = myModel.fraction_of_concordant_pairs(real_rank_rank_first, prediction)
+    rec_rank = myModel.reciprocal_rank(real_rank_rank_first, prediction)
+    ap_k = myModel.ap_at_k(real_rank_rank_first, prediction, 12)
     balanced_score = myModel.balanced_accuracy_score(X_test, y_test)
     tab1.write('- Taux de paires concordantes : ' + str(fract_cp))
     tab1.write('- Rang réciproque : ' + str(rec_rank))
     tab1.write('- Précision moyenne au top 12 : ' + str(ap_k))
     tab1.write('- Score de précision équilibrée : ' + str(balanced_score))
     tab1.write('- Moyenne des scores : ' + str((fract_cp+rec_rank+ap_k+balanced_score)/4))
+
 
 # Option 2
 def define_tab2(tab2, myModel, ct):
@@ -170,10 +173,10 @@ def define_tab2(tab2, myModel, ct):
 def page_prediction():
 
     # Logo en haut à droite
-    chemin_logo = './Sources/Logo_MissFrance.png'
+    path_logo = './Sources/Logo_MissFrance.png'
     col1, col2, col3 = st.columns((1, 4, 1))
     with col3:
-        st.image(chemin_logo, use_column_width=True, width=10)
+        st.image(path_logo, use_column_width=True, width=10)
 
     st.title('Prédiction :')
     st.write('Vous pouvez choisir parmi deux options.')

@@ -1,4 +1,3 @@
-import math
 import pickle
 
 import numpy as np
@@ -27,8 +26,8 @@ class MultiModelTop12Predictor(object):
 
     # Prédiction du classement à partir de la matrice de prédiction
     def predict(self, X, list_candidate):
-        prediction_matrix = self.prediction_matrix(X) # Récupération de la matrice de prédiction
-        scores = [] # On attribue un score pour chaque candidate : la somme des probabilités obtenues grâce à la matrice de prédiction
+        prediction_matrix = self.prediction_matrix(X)  # Récupération de la matrice de prédiction
+        scores = []  # On attribue un score pour chaque candidate : la somme des probabilités obtenues grâce à la matrice de prédiction
         for k in range(len(prediction_matrix)):
             sum_proba = 0
             for j in range(12):
@@ -41,7 +40,7 @@ class MultiModelTop12Predictor(object):
             scores[max_] = -1
         return ranking
 
-    # Permet de sauvegarder les 12 modèles dans un fichier pickle
+    # Permet de sauvegarder les 12 modèles dans des fichier Pickle (pour ne pas avoir à ré-entraîner le model avant chaque utilisaton)
     def dump_model(self, path):
         for i in range(12):
             name_file_model = path+str(i)+'.pkl'
@@ -49,15 +48,15 @@ class MultiModelTop12Predictor(object):
 
     # Moyenne de la balanced_accuracy_score de chaque modèle
     def balanced_accuracy_score(self, X_test, y_test):
-        sum = 0
+        sum_ = 0
         # Construction de y_pred
         y_pred = []
         for i in range(12):
             pred = list(self.model[i].predict(X_test))
             y_pred.append(pred)
         for i in range(12):
-            sum += balanced_accuracy_score(y_test[i], y_pred[i])
-        return sum/12
+            sum_ += balanced_accuracy_score(y_test[i], y_pred[i])
+        return sum_/12
 
     # Taux de paires concordantes
     def fraction_of_concordant_pairs(self, real_rank, predicted_rank):
@@ -65,14 +64,14 @@ class MultiModelTop12Predictor(object):
         nb_of_pairs = 66
         for i in range(1, 13):
             candidate_i = predicted_rank[i]
-            # Recherche de la candidate dans le réel rang
+            # Recherche de la candidate dans le réel classement
             cand = [candidate for rank, candidate in real_rank.items() if candidate == candidate_i]
             if len(cand) > 0:
                 real_rank_i = [rank for rank, candidate in real_rank.items() if candidate == candidate_i][0]
                 pred_rank_i = i
                 for j in range(i+1, 13):
                     candidate_j = predicted_rank[j]
-                    # Recherche de la candidate j dans le réel rang
+                    # Recherche de la candidate j dans le réel classement
                     cand = [candidate for rank, candidate in real_rank.items() if candidate == candidate_j]
                     if len(cand) == 0:
                         nb_of_concordant_pairs += 1
@@ -87,16 +86,18 @@ class MultiModelTop12Predictor(object):
         else:
             return 0
 
-    # Rang réciproque
+    # Rang réciproque : distance qui sépare la vraie gagnante à son rang prédit
     def reciprocal_rank(self, real_rank, predicted_rank):
         winner = real_rank[1]
-        rank_winner = [rank for rank, candidate in predicted_rank.items() if candidate == winner]
-        if len(rank_winner) > 0:
-            return 1/rank_winner[0]
+        predicted_rank_winner = [rank for rank, candidate in predicted_rank.items() if candidate == winner]
+        # Si la candidate apparaît dans la prédiction du top 12
+        if len(predicted_rank_winner) > 0:
+            return 1/predicted_rank_winner[0]
+        # Si la candidate n'apparaît pas dans la prédiction du top 12
         else:
             return 0
 
-    # Le nombre de candidates qui appartiennent bien au top i (dans notre prédiction) / i : cette métrique est à maximiser
+    # Le nombre de candidates qui appartiennent bien au top i (dans notre prédiction) / i
     def precision_at_i(self, real_rank, predicted_rank, i):
         nb_well_predicted = 0
         for j in range(1, i+1):
@@ -108,10 +109,10 @@ class MultiModelTop12Predictor(object):
 
     # Moyenne pondérée entre les precision (en donnant un poids plus important aux premiers rangs)
     def ap_at_k(self, real_rank, predicted_rank, k):
-        sum = 0
+        sum_ = 0
         sum_weight = 0
         for i in range(1, k+1):
             weight = (k+1)-i
             sum_weight += weight
-            sum += self.precision_at_i(real_rank, predicted_rank, i) * weight
-        return (1/sum_weight)*sum
+            sum_ += self.precision_at_i(real_rank, predicted_rank, i) * weight
+        return (1/sum_weight)*sum_

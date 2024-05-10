@@ -103,10 +103,10 @@ for year in range(2009, 2024):
         tables = soup.find_all('table')
 
         # Ranking:
-        rang_annee = {}
+        rank_year = {}
         rank = 1
-        table_classement = tables[1]  # Tableau des classements
-        rows = table_classement.find_all('tr')
+        table_ranking = tables[1]  # Tableau des classements
+        rows = table_ranking.find_all('tr')
         # La première ligne c'est les titres
         for row in rows[1:]:
             cols = row.find_all('td')
@@ -118,7 +118,7 @@ for year in range(2009, 2024):
                         winner = c[i].text
                         if winner != '':
                             winner = winner.replace('Miss', '').strip()
-                            rang_annee[winner] = rank
+                            rank_year[winner] = rank
                             rank += 1
                             i += 1
 
@@ -154,7 +154,7 @@ for year in range(2009, 2024):
                 list_names.append(name)
                 list_ages.append(age)
                 list_heights.append(taille)
-                list_ranks.append(rang_annee.get(region, np.NaN))
+                list_ranks.append(rank_year.get(region, np.NaN))
 
 # Scrapping année 2024
 
@@ -192,5 +192,5 @@ if page.ok:
 data_missFrance_incomplete = pd.DataFrame.from_dict(
     {'annee': list_years, 'region': list_regions, 'name': list_names, 'age': list_ages, 'taille': list_heights,
      'cheveux': list_hairs, 'yeux': list_eyes, 'rang': list_ranks, 'image': urls_images})
-path = './Sources/data_missFrance_incomplete.csv'
+path = '../Databases/data_missFrance_incomplete.csv'
 data_missFrance_incomplete.to_csv(path, index=False)

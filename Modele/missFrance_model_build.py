@@ -13,26 +13,18 @@ from multiModelTop12Predictor import MultiModelTop12Predictor
 
 # Récupération des données
 data_missFrance = pd.read_csv('../Databases/data_missFrance.csv', delimiter=';')
-data_missFrance_copy = data_missFrance.copy()
 data_missFrance = data_missFrance.drop(['audience', 'name', 'image'], axis=1)
-annee_test = 2019
-X_train, X_test, y_train, y_test = data_split(data_missFrance, annee_test)
-nb_regions = len(set(X_train['region']))
+year_test = 2019
+X_train, X_test, y_train, y_test = data_split(data_missFrance, year_test)  # Séparation des données d'entraînement et de test
 
-# Preprocessing
-# Récupération de la liste des noms des candidates de 2024:
-filtered_df = data_missFrance_copy[data_missFrance_copy['annee'] == annee_test]
-list_candidate = filtered_df['name'].tolist()
-
-# Récupération du column transformer
+# Récupération du column transformer pour le pré-traitement des données
 path_ct = 'train/column_transformer.pkl'
 ct = pickle.load(open(path_ct, 'rb'))
 X_train = ct.transform(X_train)
 
-
 # Grid Search:
 
-# On a choisi des classifiers qui ont comme paramètres le poids des classes (utile dans notre cas)
+# Nous avons choisi des classifiers qui avec un paramètre de poids des classes (utile dans notre cas)
 models = [DecisionTreeClassifier(), RandomForestClassifier(), SVC(), LogisticRegression()]
 dico_decisionTree = {'class_weight': ['balanced'], 'max_features': ['sqrt', 'log2'], 'max_depth': [7, 8, 9], 'random_state': [0]}
 dico_randomForest = {'class_weight': ['balanced'], 'n_estimators': [200, 500, 700, 1000], 'max_features': ['sqrt', 'log2'], 'max_depth': [4, 5, 6, 7, 8, 9, 10]}
@@ -43,7 +35,7 @@ list_params = [dico_decisionTree, dico_randomForest, dico_svc, dico_logistic]
 time_start = time.time()
 best_score = 0
 
-# On parcourt tous les modèles et on cherche celui pour lequel le score sera meilleur :
+# Nous parcourons tous les modèles à la recherche de celui pour lequel le score sera le meilleur :
 for j in range(len(models)):
     # Grid Search
     cv = KFold(n_splits=5, shuffle=True)
@@ -56,9 +48,10 @@ for j in range(len(models)):
 time_end = time.time()
 print('Fin du GridSearchCV qui a duré ', time_end - time_start, ' secondes. Le meilleur modèle est : ', best_model, ' et son score est', best_score)
 
-# Lancement du modèle:
+# Lancement et entraînelent du modèle:
 model = MultiModelTop12Predictor([best_model.__class__(**best_params) for i in range(12)])
 model.fit(X_train, y_train)
 
-print('Dump model')
+# Sauvegarde des 12 modèles dans un fichier Pickle
 model.dump_model('train/model_')
+print('Modèle sauvegardé.')

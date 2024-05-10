@@ -1,24 +1,18 @@
 import streamlit as st
-import pandas as pd
-
-
-# Chemins
-chemin_database = './Databases/data_missFrance.csv'
-chemin_logo = './Sources/Logo_MissFrance.png'
-chemin_video = "./Sources/Video_avec_audio.mp4"
-
-# Charger les données
-data = pd.read_csv(chemin_database, delimiter=';')
 
 
 def page_presentation():
 
     st.title('Qui sera Miss France 2025 ? :crown:')
+
+    chemin_video = "./Sources/Video_avec_audio.mp4"
     st.video(chemin_video, format='video/mp4', start_time=0)
 
     st.subheader('Notre projet : ', divider='orange')
     st.write('Bienvenue dans notre projet de prédiction de Miss France 2025 ! :crown:\n\n Nous nous sommes lancées '
-             'dans ce projet passionnant car nous nous réunissons depuis des années le soir de l’émission pour discuter, débattre et faire nos pronostics. \n\nC\'est devenu une tradition chère à nos cœurs, un moment de partage et de convivialité que nous attendons avec impatience. '
+             'dans ce projet passionnant car nous nous réunissons depuis des années le soir de l’émission pour '
+             'discuter, débattre et faire nos pronostics. \n\nC\'est devenu une tradition chère à nos cœurs, '
+             'un moment de partage et de convivialité que nous attendons avec impatience.'
              '\n\n Notre but : '
              'Déterminer QUI sera Miss France 2025 et Quelles candidates feront parties du top 12 ?')
 

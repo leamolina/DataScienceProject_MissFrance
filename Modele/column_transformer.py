@@ -11,12 +11,12 @@ from data_split import data_split
 data_missFrance = pd.read_csv('../Databases/data_missFrance.csv', delimiter=';')
 data_missFrance = data_missFrance.drop(['audience', 'name', 'image'], axis=1)
 
-annee_test = 2019
-X_train, X_test, y_train, y_test = data_split(data_missFrance, annee_test)
+year_test = 2019
+X_train, X_test, y_train, y_test = data_split(data_missFrance, year_test)
 
 # Preprocessing
 
-# Order for the ordinal encoding
+# Ordre pour l'ordinal encoding
 hair_length_order = ['Longs', 'Mi-longs', 'Courts']
 hair_color_order = ['Noirs', 'Bruns', 'Chatains', 'Roux', 'Blonds']
 skin_color_order = ['Noire', 'Métisse', 'Blanche']
@@ -33,8 +33,10 @@ ct = ColumnTransformer([
     ],
     remainder='passthrough')
 
+# Entraînement du colmun transformer
 ct.fit(X_train)
 
-# Sauvegarde du column transformer
-name_file_ct = f'train/column_transformer.pkl'
-pickle.dump(ct, open(name_file_ct, 'wb'))
+# Sauvegarde du column transformer dans un fichier Pickle
+path = f'train/column_transformer.pkl'
+pickle.dump(ct, open(path, 'wb'))
+print('Column Transformer sauvegardé')

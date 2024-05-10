@@ -9,7 +9,8 @@ def transform_data(df, column):
     return new_df
 
 
-def data_split(data_missFrance, annee_test):
+# Séparation de jeu de données d'entraînement et de test (year_test = jeu de données d'entraînement)
+def data_split(data_missFrance, year_test):
 
     df = transform_data(data_missFrance, 'rang')
     # Séparation des données :
@@ -20,9 +21,9 @@ def data_split(data_missFrance, annee_test):
     y = np.array(y)
 
     # Séparation train & test
-    # Notre test_set correspond aux données de l'année 2019
-    indices_test = X.index[X['annee'] == annee_test].tolist()
-    indices_train = X.index[X['annee'] != annee_test].tolist()
+    # Notre test_set correspond aux données de l'année annee_test
+    indices_test = X.index[X['annee'] == year_test].tolist()
+    indices_train = X.index[X['annee'] != year_test].tolist()
 
     # Sélection des données correspondantes en utilisant les indices
     X_test = X.iloc[indices_test]
