@@ -19,13 +19,12 @@ def page_data():
         '- Les caractéristiques physiques des candidates : âge, taille, couleur des yeux et des cheveux... (Source : '
         'miss.fandom.com + remplissage manuel)')
     st.write(
-        '- L\'examen de culture général : les candidates sont évaluées sur leur niveau de culture générale. Celle qui '
+        '- L\'examen de culture générale : les candidates sont évaluées sur leur niveau de culture générale. Celle qui '
         'obtient la meilleure note gagne le prix de culture générale et maximise ses chances de figurer dans le top 12.'
         '(Source : Wikipédia)')
     st.write(
         '- Une chute potentielle lors du prime : bien que cela puisse prêter à rire, une chute peut s\'avérer fatal.'
-        '\nUne candidate qui tombe le soir de l\'élection a très peu de chances d’atteindre le podium. \n\nÀ ce jour, '
-        'la seule qui y est parvenue est Indira Ampiot sacrée Miss France 2024. (Source : TikTok, Youtube, Instagram)')
+        '\nUne candidate qui tombe le soir de l\'élection a très peu de chances d’atteindre le podium. (Source : TikTok, Youtube, Instagram)')
 
     # Récupération et affichage de la base de données
     for _ in range(5): st.write('')
@@ -76,8 +75,8 @@ def page_data():
         '- La Normandiee. ')
     col[0].write('\n\nPlusieurs facteurs peuvent expliquer leur surreprésentation : ')
     st.write(
-        '- Un engagement plus fort des habitants de la région: Line Renaud l\'a exprimé en ces termes lorsqu\'elle a '
-        'été interrogée sur le sujet : "Les gens du Nord sont investis, ils votent à 100 % !"')
+        '- Un engagement plus fort des habitants de la région: lorsqu\'on l\'a interrogée sur le sujet, Line Renaud a '
+        'dit : "Les gens du Nord sont investis, ils votent à 100 % !"')
 
     st.write(
         '- Une meilleure préparation au concours : en 2019, le délégué régional des Miss dans le Nord-Pas-de-Calais '
@@ -129,7 +128,7 @@ def page_data():
     for _ in range(2): col[0].write('')
     col[0].write(
         'Est-ce qu\'une candidate a plus de chances de gagner si elle est brune ou blonde ? A-t-elle plus de chance '
-        'de gagner si elle a les yeux bleus'
+        'de gagner si elle a les yeux bleus '
         'ou verts ?')
     # Colonne de gauche : nombre de gagnantes par couleur de cheveux
     col[1].write('Répartition des couleurs des cheveux dans le classement :')
@@ -162,10 +161,10 @@ def page_data():
     # Analyse des résultats
     col[0].write(
         'Nous pouvons facilement constater une grande mixité des couleurs de cheveux.\n\n Ce résultat peut être '
-        'interpréter de deux manières différentes : ')
+        'interprété de deux manières différentes : ')
     col[0].write(
         '- D\'autres critères sont pris en compte par le jury et par le public : l\'élégance, la culture générale, '
-        'et l\'éloquance (entre autres). Le concours Miss France n\'est dont pas qu\'un simple concours de beauté')
+        'et l\'éloquence (entre autres). Le concours Miss France n\'est donc pas qu\'un simple concours de beauté.')
     col[0].write(
         '- Il est dificile de quantifier la beauté d\'une candidate et de trouver des caractéristiques suffisantes '
         'pour la représenter (même si la beauté joue un rôle important dans la séléction d\'une candidate).')

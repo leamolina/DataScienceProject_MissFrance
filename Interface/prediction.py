@@ -104,7 +104,7 @@ def define_tab2(tab2, myModel, ct):
     # Affichage des différents formulaires (les uns après les autres)
     for i in range(nb_candidates):
 
-        tab2.header('Informations concernant la candidate ' + str(i + 1))
+        tab2.header('Informations concernant la candidate ' + str(i + 1) + ';')
 
         with tab2.form(key='form_' + str(i), border=True):
 
@@ -179,11 +179,10 @@ def page_prediction():
         st.image(path_logo, use_column_width=True, width=10)
 
     st.title('Prédiction :')
-    st.write('Vous pouvez choisir parmi deux options.')
-    st.write('Premièrement, vous pouvez voir les prédictions de notre année test (l\'année 2019).')
+    st.write('Deux choix s\'offrent à vous : ')
+    st.write('- Consulter les prédictions de notre année test (l\'année 2019) en cliquant sur "Option 1" ci-dessous.')
     st.write(
-        'Deuxièmement, vous pouvez entrer manuellement les données des candidates pour Miss France 2025 et obtenir '
-        'les prédictions.')
+        '- Entrer manuellement les données des candidates pour Miss France 2025 et obtenir les prédictions en cliquant sur "Option 2" ci-dessous.')
 
     # Récupération du modèle
     list_of_models = []
